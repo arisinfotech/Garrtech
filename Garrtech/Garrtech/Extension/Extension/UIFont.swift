@@ -17,7 +17,9 @@ let Ubuntu_Medium   = "Ubuntu-Medium"
 
 let Helvetica_Regular = "Helvetica"
 let Helvetica_Light = "Helvetica-Light"
+let Helvetica_Thin = "HelveticaNeue-Thin"
 let Helvetica_Bold = "Helvetica-Bold"
+
 
 
 extension UIFont  {
@@ -66,6 +68,9 @@ extension UIFont  {
     class func Font_Helvetica_Bold(fontSize : CGFloat) -> UIFont {
         return  Font(name: Helvetica_Bold, fontSize: fontSize)
     }
+    class func Font_Helvetica_Thin(fontSize : CGFloat) -> UIFont {
+        return  Font(name: Helvetica_Thin, fontSize: fontSize)
+    }
     
     
     //  SET PROPORTIONAL FONT SIZE
@@ -74,8 +79,7 @@ extension UIFont  {
         else if IS_IPHONE_5_OR_5S() {   return fontSize-2  }
         else if IS_IPHONE_6_OR_6S() {   return fontSize-1 }
         else if IS_IPHONE_6P_OR_6SP(){  return fontSize-0 }
-        
-        return fontSize
+        else { return fontSize+10 }
     }
     
    

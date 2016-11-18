@@ -66,6 +66,8 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
     
     var cornerRadius : CGFloat = 7.0
     
+    var viewBack : UIView! = UIView()
+    
     // textfiled validation type
     var txtType : AITextFieldValidationType_Square?
     var textFieldValidationType :AITextFieldValidationType_Square {
@@ -142,7 +144,17 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
         self.textColor = UIColor.Color_LightGray()
         
         
+        self.borderStyle = .roundedRect
+        self.backgroundColor = UIColor.Color_AppBackground()
         
+      
+//        //SET SHADOW EFFECT
+//        self.layer.masksToBounds = false
+//        self.layer.shadowRadius = 5.0
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowOffset = CGSize(width: 0.0, height:0.0)
+//        self.layer.shadowOpacity = 0.5
+    
     }
     
     func fixUI()  {
@@ -160,11 +172,6 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
         self.setupBorderTextFiled()
     }
    
-    
-    
-    
-    
-    
     
      func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
         
@@ -237,16 +244,31 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
         // CHANGE COLOR
         
         
+        //SET SHADOW EFFECT
+        self.layer.masksToBounds = false
+        self.layer.shadowRadius = 7.0
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height:0.0)
+        self.layer.shadowOpacity = 0.3
         
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        //SET SHADOW EFFECT
+        self.layer.masksToBounds = true
+        self.layer.shadowRadius = 0.0
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height:0.0)
+        self.layer.shadowOpacity = 0.5
         
         let trimmedString = textField.text!.trimmingCharacters(in: .whitespaces)
         textField.text = trimmedString
         
         // CHECK AND RESET TEXTFILED
         self.setupBorderTextFiled()
+        
+       
         
     }
     
@@ -448,7 +470,7 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
     
     func setupBorderTextFiled() {
         
-        self.borderStyle = UITextBorderStyle.line
+        self.borderStyle = .roundedRect // UITextBorderStyle.line
         self.layer.borderWidth =  1.0
         
         let length: Int = self.text!.characters.count

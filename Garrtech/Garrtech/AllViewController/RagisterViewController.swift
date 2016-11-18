@@ -12,15 +12,9 @@ class RagisterViewController: UIViewController
 {
 
     @IBOutlet var txtFirstName: AITextFieldSquare!
-    
     @IBOutlet var txtLastName: AITextFieldSquare!
-    
     @IBOutlet var txtrEmail: AITextFieldSquare!
-    
     @IBOutlet var txtPassword: AITextFieldSquare!
-    
-    @IBOutlet var btnRagister: UIButton!
-    
     @IBOutlet var btnBack: UIButton!
     
     
@@ -28,7 +22,6 @@ class RagisterViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        btnRagister.layer.cornerRadius = 4.0
         
         btnBack.contentMode = UIViewContentMode.scaleAspectFit
         
@@ -38,10 +31,7 @@ class RagisterViewController: UIViewController
     //MARK: Back Button Clieked
     
     @IBAction func btnBackClicked(_ sender: AnyObject) {
-        
-        
-        self.navigationController?.popViewController(animated: true)
-        
+        popTo()
     }
     
 

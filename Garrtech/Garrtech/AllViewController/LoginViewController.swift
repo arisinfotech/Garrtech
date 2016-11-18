@@ -8,23 +8,21 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController,UITextFieldDelegate {
     
     @IBOutlet var imgProfile: UIImageView!
     
     @IBOutlet var txtEmail: AITextFieldSquare!
-    
     @IBOutlet var txtPassword: AITextFieldSquare!
     
-    @IBOutlet var btnLogin: UIButton!    
-
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         appDelegate.navigationVC?.navigationBar.isHidden = true
         
         imgProfile.layer.cornerRadius =  (UIScreen.main.bounds.size.width / 736 * 90) / 2
-        btnLogin.layer.cornerRadius = 4.0
+      
         
         txtEmail.setUpTextFieldForLengthValidation(minLength: 1, maxLength: 50)
         txtEmail.textFieldValidationType = .Email
@@ -32,8 +30,12 @@ class LoginViewController: UIViewController {
         txtPassword.setUpTextFieldForLengthValidation(minLength: 6, maxLength: 50)
         txtPassword.textFieldValidationType = .Password
         
+     //   txtEmail.delegate = self
+     //   txtPassword.delegate = self
         // Do any additional setup after loading the view.
     }
+
+    
 
     //MARK: LOGIN Button Action
     
@@ -52,10 +54,10 @@ class LoginViewController: UIViewController {
     }
     
     
-    func textFieldShouldReturn(_ textField: AITextFieldSquare) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+//    func textFieldShouldReturn(_ textField: AITextFieldSquare) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

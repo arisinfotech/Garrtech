@@ -12,6 +12,22 @@ import UIKit
 extension UILabel
 {
     
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        self.customiseLabel()
+    }
+    
+    //MARK: - CUSTOMISE LABEL
+    //MARK: -
+    
+    func customiseLabel(){
+        self.adjustsFontSizeToFitWidth = true
+        self.minimumScaleFactor = 0.5
+        self.font = UIFont.Font_Helvetica_Regular(fontSize: self.font.pointSize)
+        self.textColor =  UIColor.Color_AppText()
+    }
+
+    
     func textRectForBounds(bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: 10, dy: 10)
     }

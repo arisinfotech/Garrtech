@@ -8,18 +8,27 @@
 
 import UIKit
 
-class BusinessLoanViewController: UIViewController {
+class BusinessLoanViewController: BaseViewController {
 
+    @IBOutlet var view_Upper: UIView! = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "BUSINESS INFORMATION"
         
-        let viewCompleteTask = CompletedStepView(nibName: "CompletedStepView", bundle: nil)
-        viewCompleteTask.view.frame = CGRect.init(x: 0, y: 64, width: self.view.frame.size.width, height: 120)
-        self.view.addSubview(viewCompleteTask.view)
-
+        self.doSetUpScreen()
+        
         // Do any additional setup after loading the view.
     }
+    
+    
+    func doSetUpScreen() {
+       
+        self.title = "BUSINESS INFORMATION"
+        view_Upper.setDefaultBottomShadow()
+        
+    }
+
+    
 
     
     override func didReceiveMemoryWarning() {

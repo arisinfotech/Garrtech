@@ -90,7 +90,10 @@ class AIButton: UIButton {
     }
    
 	func commonInit() {
-        self.titleLabel!.font = UIFont.Font_System(fontSize: self.titleLabel!.font.pointSize)
+        //self.titleLabel!.font = UIFont.Font_System(fontSize: self.titleLabel!.font.pointSize)
+        
+        self.setCornerradius(radius: 4)
+        
     }
 
     

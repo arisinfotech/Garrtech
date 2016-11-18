@@ -14,4 +14,7 @@ class HomwViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imgIconObj: UIImageView!
     
+    @IBOutlet var backgroundImageObj: UIImageView!
+    
+    
 }

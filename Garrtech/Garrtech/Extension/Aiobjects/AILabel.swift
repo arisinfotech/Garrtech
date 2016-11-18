@@ -34,7 +34,7 @@ class AILabel: UILabel {
     //MARK: - CUSTOMISE LABEL
     //MARK: -
     
-    func customiseLabel(){
+    override func customiseLabel(){
         self.adjustsFontSizeToFitWidth = true
         self.minimumScaleFactor = 0.5
         self.font = UIFont.Font_Helvetica_Regular(fontSize: self.font.pointSize)
@@ -77,7 +77,7 @@ class AILabelRegularBorder: UILabel {
     //MARK: - CUSTOMISE LABEL
     //MARK: -
     
-    func customiseLabel(){
+    override func customiseLabel(){
         self.adjustsFontSizeToFitWidth = true
        // self.minimumScaleFactor = 0.5
      //   self.font = UIFont.Font_Helvetica_Regular(self.font.pointSize)

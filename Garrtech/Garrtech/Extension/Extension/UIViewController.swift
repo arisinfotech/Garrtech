@@ -54,12 +54,28 @@ extension UIViewController {
     {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.view.backgroundColor = UIColor.clear
-        self.navigationController?.navigationBar.backgroundColor = UIColor.Color_AppRedColor()
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.barTintColor = UIColor.Color_AppRedColor()
+        self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.tintColor = UIColor.lightGray
         self.statusBarLight(isLight: true)
-        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.white,NSFontAttributeName: UIFont.Font_Bold(fontSize: 25)]
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.black,NSFontAttributeName: UIFont.Font_Helvetica_Thin(fontSize: 18)]
         self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [String : AnyObject]
+        
+        
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.7
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize.zero
+        self.navigationController?.navigationBar.layer.shadowRadius = 7
+        
+        
+//        UINavigationBar.appearance().titleTextAttributes = [
+//            NSFontAttributeName: UIFont.Font_Helvetica_Thin(fontSize: 18)
+//        ]
+       
+        
+        let barAppearace = UIBarButtonItem.appearance()
+        barAppearace.setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), for:UIBarMetrics.default)
+        
+        
     }
     
     func setTranslucentOfNavigationBar(navCont : UINavigationController)

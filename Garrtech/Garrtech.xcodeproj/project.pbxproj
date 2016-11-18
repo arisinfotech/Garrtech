@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15F34417E041F3DD798BD708 /* Pods_Garrtech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB7F5E2B9971B8B8F9E9D38 /* Pods_Garrtech.framework */; };
 		4121D5BE1DD860E20035EE0E /* AIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D5A61DD860E20035EE0E /* AIButton.swift */; };
 		4121D5BF1DD860E20035EE0E /* AILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D5A71DD860E20035EE0E /* AILabel.swift */; };
 		4121D5C41DD860E20035EE0E /* AITextFieldSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D5AC1DD860E20035EE0E /* AITextFieldSquare.swift */; };
@@ -45,6 +46,7 @@
 		4121D6111DD8F1000035EE0E /* CompanyLoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D60F1DD8F1000035EE0E /* CompanyLoanViewController.swift */; };
 		4121D6121DD8F1000035EE0E /* DocumentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D6101DD8F1000035EE0E /* DocumentListViewController.swift */; };
 		4121D6141DD8F1150035EE0E /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D6131DD8F1150035EE0E /* ChangePasswordViewController.swift */; };
+		419330D71DDF664F00E36E28 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419330D61DDF664F00E36E28 /* BaseViewController.swift */; };
 		41E9505E1DDA11EB00FC7345 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E9505D1DDA11EB00FC7345 /* HomeViewController.swift */; };
 		41E950601DDA13CE00FC7345 /* HomwViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E9505F1DDA13CE00FC7345 /* HomwViewCell.swift */; };
 		BC326EBF1DD7818700C53BFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC326EBE1DD7818700C53BFC /* AppDelegate.swift */; };
@@ -68,6 +70,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BAF82A7298D1FED3B854265 /* Pods-Garrtech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garrtech.release.xcconfig"; path = "Pods/Target Support Files/Pods-Garrtech/Pods-Garrtech.release.xcconfig"; sourceTree = "<group>"; };
 		4121D5A61DD860E20035EE0E /* AIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIButton.swift; sourceTree = "<group>"; };
 		4121D5A71DD860E20035EE0E /* AILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILabel.swift; sourceTree = "<group>"; };
 		4121D5AC1DD860E20035EE0E /* AITextFieldSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITextFieldSquare.swift; sourceTree = "<group>"; };
@@ -106,8 +109,11 @@
 		4121D60F1DD8F1000035EE0E /* CompanyLoanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyLoanViewController.swift; sourceTree = "<group>"; };
 		4121D6101DD8F1000035EE0E /* DocumentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentListViewController.swift; sourceTree = "<group>"; };
 		4121D6131DD8F1150035EE0E /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		419330D61DDF664F00E36E28 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		41E9505D1DDA11EB00FC7345 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		41E9505F1DDA13CE00FC7345 /* HomwViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomwViewCell.swift; sourceTree = "<group>"; };
+		7DB7F5E2B9971B8B8F9E9D38 /* Pods_Garrtech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Garrtech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A381CAF21C8A367C23E77A9D /* Pods-Garrtech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garrtech.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Garrtech/Pods-Garrtech.debug.xcconfig"; sourceTree = "<group>"; };
 		BC326EBB1DD7818600C53BFC /* Garrtech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garrtech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC326EBE1DD7818700C53BFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC326EC31DD7818700C53BFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,12 +157,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15F34417E041F3DD798BD708 /* Pods_Garrtech.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EF54BA8D252849F3CC37599 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A381CAF21C8A367C23E77A9D /* Pods-Garrtech.debug.xcconfig */,
+				1BAF82A7298D1FED3B854265 /* Pods-Garrtech.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4121D5A41DD860E20035EE0E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,8 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				4121D5F41DD8B6260035EE0E /* LoginViewController.swift */,
-				4121D60F1DD8F1000035EE0E /* CompanyLoanViewController.swift */,
-				4121D6101DD8F1000035EE0E /* DocumentListViewController.swift */,
 				4121D5F81DD8B78F0035EE0E /* CompletedStepView */,
 				4121D5FB1DD8B78F0035EE0E /* LoanInformationViewController.swift */,
 				4121D5FC1DD8B78F0035EE0E /* MessageViewController.swift */,
@@ -256,9 +270,11 @@
 				4121D5F51DD8B6260035EE0E /* RagisterViewController.swift */,
 				4121D6051DD8BB040035EE0E /* loanOptionVC.swift */,
 				4121D6061DD8BB040035EE0E /* ProfileVc.swift */,
-				4121D6071DD8BB040035EE0E /* shortLoanVc.swift */,
-				4121D60D1DD8EDE40035EE0E /* OwnerVc.swift */,
 				4121D60B1DD8C1090035EE0E /* BusinessLoanViewController.swift */,
+				4121D60F1DD8F1000035EE0E /* CompanyLoanViewController.swift */,
+				4121D60D1DD8EDE40035EE0E /* OwnerVc.swift */,
+				4121D6101DD8F1000035EE0E /* DocumentListViewController.swift */,
+				4121D6071DD8BB040035EE0E /* shortLoanVc.swift */,
 				41E9505D1DDA11EB00FC7345 /* HomeViewController.swift */,
 				41E9505F1DDA13CE00FC7345 /* HomwViewCell.swift */,
 			);
@@ -274,11 +290,21 @@
 			path = CompletedStepView;
 			sourceTree = "<group>";
 		};
+		94051B68424573F73AF209B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DB7F5E2B9971B8B8F9E9D38 /* Pods_Garrtech.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BC326EB21DD7818000C53BFC = {
 			isa = PBXGroup;
 			children = (
 				BC326EBD1DD7818600C53BFC /* Garrtech */,
 				BC326EBC1DD7818600C53BFC /* Products */,
+				3EF54BA8D252849F3CC37599 /* Pods */,
+				94051B68424573F73AF209B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -298,6 +324,7 @@
 				4121D5D51DD860ED0035EE0E /* UTILS */,
 				4121D5A41DD860E20035EE0E /* Extension */,
 				BC326EBE1DD7818700C53BFC /* AppDelegate.swift */,
+				419330D61DDF664F00E36E28 /* BaseViewController.swift */,
 				BC326EC21DD7818700C53BFC /* Main.storyboard */,
 				BC326EC51DD7818700C53BFC /* Assets.xcassets */,
 				BC326EC71DD7818700C53BFC /* LaunchScreen.storyboard */,
@@ -398,9 +425,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC326ECD1DD7818800C53BFC /* Build configuration list for PBXNativeTarget "Garrtech" */;
 			buildPhases = (
+				BB0C94F8D2CE9C4155B0414D /* [CP] Check Pods Manifest.lock */,
 				BC326EB71DD7818100C53BFC /* Sources */,
 				BC326EB81DD7818100C53BFC /* Frameworks */,
 				BC326EB91DD7818100C53BFC /* Resources */,
+				9225F938FCAD85EB537140DC /* [CP] Embed Pods Frameworks */,
+				FC8F471DB35C1BB02D0B61C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -423,7 +453,7 @@
 				TargetAttributes = {
 					BC326EBA1DD7818100C53BFC = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 5XQY6MAPYV;
+						DevelopmentTeam = ZNS343QM89;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -461,6 +491,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9225F938FCAD85EB537140DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Garrtech/Pods-Garrtech-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB0C94F8D2CE9C4155B0414D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FC8F471DB35C1BB02D0B61C1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Garrtech/Pods-Garrtech-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BC326EB71DD7818100C53BFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -471,6 +549,7 @@
 				BCC63CD31DDB67CA00B8C688 /* IQUIViewController+Additions.m in Sources */,
 				BCC63CD61DDB67CA00B8C688 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				BCC63CD01DDB67C900B8C688 /* IQNSArray+Sort.m in Sources */,
+				419330D71DDF664F00E36E28 /* BaseViewController.swift in Sources */,
 				4121D5CA1DD860E20035EE0E /* UIColor.swift in Sources */,
 				BCC63CD91DDB67CA00B8C688 /* IQBarButtonItem.m in Sources */,
 				4121D5C91DD860E20035EE0E /* UIButton.swift in Sources */,
@@ -565,8 +644,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Anthony Vipond (EQKY2YWZ53)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anthony Vipond (EQKY2YWZ53)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Parth Bhadaja (8W5CP5482X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Parth Bhadaja (8W5CP5482X)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -588,7 +667,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "f9584cd3-a686-4154-91ac-d87c5f8eebe6";
+				PROVISIONING_PROFILE = "4d45f3ac-2b87-4a1c-8d8c-9748d05f6c61";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -617,8 +696,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Anthony Vipond (EQKY2YWZ53)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anthony Vipond (EQKY2YWZ53)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Parth Bhadaja (8W5CP5482X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Parth Bhadaja (8W5CP5482X)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -633,7 +712,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "f9584cd3-a686-4154-91ac-d87c5f8eebe6";
+				PROVISIONING_PROFILE = "4d45f3ac-2b87-4a1c-8d8c-9748d05f6c61";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -643,32 +722,38 @@
 		};
 		BC326ECE1DD7818800C53BFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A381CAF21C8A367C23E77A9D /* Pods-Garrtech.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5XQY6MAPYV;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Parth Bhadaja (8W5CP5482X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Parth Bhadaja (8W5CP5482X)";
+				DEVELOPMENT_TEAM = ZNS343QM89;
 				INFOPLIST_FILE = Garrtech/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = club.vegansingles;
+				PRODUCT_BUNDLE_IDENTIFIER = com.garrtech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f9584cd3-a686-4154-91ac-d87c5f8eebe6";
-				PROVISIONING_PROFILE_SPECIFIER = "VS Development Profile";
+				PROVISIONING_PROFILE = "4d45f3ac-2b87-4a1c-8d8c-9748d05f6c61";
+				PROVISIONING_PROFILE_SPECIFIER = "GarrTech Development";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		BC326ECF1DD7818800C53BFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BAF82A7298D1FED3B854265 /* Pods-Garrtech.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5XQY6MAPYV;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Parth Bhadaja (8W5CP5482X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Parth Bhadaja (8W5CP5482X)";
+				DEVELOPMENT_TEAM = ZNS343QM89;
 				INFOPLIST_FILE = Garrtech/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = club.vegansingles;
+				PRODUCT_BUNDLE_IDENTIFIER = com.garrtech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f9584cd3-a686-4154-91ac-d87c5f8eebe6";
-				PROVISIONING_PROFILE_SPECIFIER = "VS Development Profile";
+				PROVISIONING_PROFILE = "4d45f3ac-2b87-4a1c-8d8c-9748d05f6c61";
+				PROVISIONING_PROFILE_SPECIFIER = "GarrTech Development";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -24,7 +24,7 @@ extension UIView {
     
     
     
-    func setShadowView(width:CGFloat=0.2, height:CGFloat=0.2, Opacidade:Float=0.7, maskToBounds:Bool=false, radius:CGFloat=0.5){
+    func setShadowView(width:CGFloat=0.5, height:CGFloat=0.5, Opacidade:Float=0.7, maskToBounds:Bool=false, radius:CGFloat=0.5){
         // SET SHADOW
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: width, height: height)
@@ -72,6 +72,14 @@ extension UIView {
         viewlayer1.shadowPath = UIBezierPath(rect: self.bounds).cgPath
         viewlayer1.shadowRadius = radius
         viewlayer1.shadowOpacity = 1.0
+    }
+    func setDefaultBottomShadow() {
+    
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowRadius = 7
+    
     }
     
     func setGradientView(colors: NSArray!, with alpha:CGFloat)  {

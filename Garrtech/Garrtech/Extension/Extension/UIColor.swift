@@ -62,6 +62,12 @@ extension UIColor {
     class func Color_AppYellowColor() -> UIColor {
         return  RGB(R: 238, G: 201, B: 48, A: 1)
     }
+    class func Color_AppText() -> UIColor {
+        return  RGB(R: 113, G: 120, B: 133, A: 1)
+    }
+    class func Color_AppBackground() -> UIColor {
+        return  RGB(R: 246, G: 246, B: 246, A: 1)
+    }
     
     // LIGNHT GRAY
     class func Color_LightGray() -> UIColor {
