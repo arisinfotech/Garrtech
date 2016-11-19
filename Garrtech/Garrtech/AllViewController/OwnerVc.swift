@@ -10,8 +10,6 @@ import UIKit
 
 class OwnerVc: BaseViewController {
 
-    @IBOutlet var view_Upper: UIView! = UIView()
-   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +21,6 @@ class OwnerVc: BaseViewController {
     func doSetUpScreen() {
         
         self.title = "OWNER PRINCIPAL INFORMATION"
-        view_Upper.setDefaultBottomShadow()
         
     }
 

@@ -8,18 +8,12 @@
 
 import UIKit
 
-class ChangePasswordViewController: UIViewController {
+class ChangePasswordViewController: BaseViewController {
     
     
     @IBOutlet var txtOldPassword: AITextFieldSquare!
-    
-    
     @IBOutlet var txtNewPassword: AITextFieldSquare!
-    
-    
     @IBOutlet var txtComfirmPassword: AITextFieldSquare!
-    
-    
     @IBOutlet var btnChangePassword: UIButton!
     
 
@@ -27,15 +21,15 @@ class ChangePasswordViewController: UIViewController {
     {
         super.viewDidLoad()
 
-        btnChangePassword.layer.cornerRadius = 4.0
- 
         // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        
+        
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationItem.title = "CHANGE PASSWORD"
-//        self.navigationController?.title = "CHANGE PASSWORD"
+   
     }
     
     func textFieldShouldReturn(_ textField: AITextFieldSquare) -> Bool {

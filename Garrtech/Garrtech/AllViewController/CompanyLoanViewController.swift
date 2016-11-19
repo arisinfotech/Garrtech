@@ -10,7 +10,7 @@ import UIKit
 
 class CompanyLoanViewController: BaseViewController {
 
-    @IBOutlet var view_Upper: UIView! = UIView()
+//    @IBOutlet var view_Upper: UIView! = UIView()
     
     
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class CompanyLoanViewController: BaseViewController {
     func doSetUpScreen() {
         
         self.title = "COMPANY INFORMATION"
-        view_Upper.setDefaultBottomShadow()
+  //      view_Upper.setDefaultBottomShadow()
         
     }
     

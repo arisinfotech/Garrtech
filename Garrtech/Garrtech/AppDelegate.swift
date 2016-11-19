@@ -31,27 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         loginViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
- 
         
 //        let HomeViewControllerOnj = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-
-        
-        navigationVC = UINavigationController.init(rootViewController: loginViewController)
-        navigationVC?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationVC?.navigationBar.layer.shadowOpacity = 0.7
-        navigationVC?.navigationBar.layer.shadowOffset = CGSize.zero
-        navigationVC?.navigationBar.layer.shadowRadius = 7
-        
-        
-        UINavigationBar.appearance().titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Thin", size: 18)!
-        ]
-        UINavigationBar.appearance().tintColor = UIColor.lightGray
-        UINavigationBar.appearance().backgroundColor = UIColor.white
-        
-        let barAppearace = UIBarButtonItem.appearance()
-        barAppearace.setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), for:UIBarMetrics.default)
-        
+       navigationVC = UINavigationController.init(rootViewController: loginViewController)
         self.window?.rootViewController = navigationVC
  
     }
@@ -60,21 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         messageViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BusinessLoanViewController") as! BusinessLoanViewController
         
         navigationVC = UINavigationController.init(rootViewController: messageViewController)
-        navigationVC?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationVC?.navigationBar.layer.shadowOpacity = 0.7
-        navigationVC?.navigationBar.layer.shadowOffset = CGSize.zero
-        navigationVC?.navigationBar.layer.shadowRadius = 7
-        
-        
-        UINavigationBar.appearance().titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Thin", size: 18)!
-        ]
-        UINavigationBar.appearance().tintColor = UIColor.lightGray
-        UINavigationBar.appearance().backgroundColor = UIColor.white
-        
-        let barAppearace = UIBarButtonItem.appearance()
-        barAppearace.setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), for:UIBarMetrics.default)
-        
         self.window?.rootViewController = navigationVC
         
     }

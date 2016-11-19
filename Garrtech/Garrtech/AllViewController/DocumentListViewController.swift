@@ -21,7 +21,7 @@ class DocumentListViewController: BaseViewController {
         case dMort
     }
     
-    @IBOutlet var view_Upper: UIView! = UIView()
+   /// @IBOutlet var view_Upper: UIView! = UIView()
     
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class DocumentListViewController: BaseViewController {
     func doSetUpScreen() {
         
         self.navigationItem.title = "DOCUMENT LIST"
-        view_Upper.setDefaultBottomShadow()
+   //     view_Upper.setDefaultBottomShadow()
         
     }
    

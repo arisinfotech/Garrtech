@@ -25,7 +25,6 @@ let Helvetica_Bold = "Helvetica-Bold"
 extension UIFont  {
     
     class func Font(name : String , fontSize : CGFloat) -> UIFont {
-        print(name)
       // return UIFont(name: name, size: PROPORTIONAL_FONT_SIZE(fontSize: fontSize))!
         return UIFont(name: name, size: PROPORTIONAL_FONT_SIZE(fontSize: fontSize))!
         

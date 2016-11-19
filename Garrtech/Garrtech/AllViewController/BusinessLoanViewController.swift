@@ -10,8 +10,8 @@ import UIKit
 
 class BusinessLoanViewController: BaseViewController {
 
-    @IBOutlet var view_Upper: UIView! = UIView()
-    
+   // @IBOutlet var constrain_Space: NSLayoutConstraint!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,12 +19,13 @@ class BusinessLoanViewController: BaseViewController {
         
         // Do any additional setup after loading the view.
     }
+   
     
     
     func doSetUpScreen() {
        
         self.title = "BUSINESS INFORMATION"
-        view_Upper.setDefaultBottomShadow()
+      
         
     }
 
