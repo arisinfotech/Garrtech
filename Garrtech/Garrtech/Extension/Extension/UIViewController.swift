@@ -40,6 +40,14 @@ extension UIViewController {
          
          */
     }
+    
+    func showHUD() {
+        JTProgressHUD.show()
+    }
+    
+    func hideHUD() {
+        JTProgressHUD.hide()
+    }
    
     func statusBarLight(isLight: Bool) {
         UIApplication.shared.statusBarStyle = isLight ? .lightContent : .default

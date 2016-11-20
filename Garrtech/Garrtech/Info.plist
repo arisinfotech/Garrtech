@@ -51,5 +51,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to your camera roll and photo library, so that we can do operations on it</string>
+    <key>NSCameraUsageDescription</key>
+    <string>We can access you camera to capture profile picture</string>
 </dict>
 </plist>

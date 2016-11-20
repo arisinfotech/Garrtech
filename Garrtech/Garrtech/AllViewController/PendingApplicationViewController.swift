@@ -14,6 +14,11 @@ class PendingApplicationViewController: UIViewController {
     @IBOutlet var btnStep2: UIButton!
     @IBOutlet var btnStep3: UIButton!
     
+    @IBOutlet var viewCircle: UIView!
+    
+    @IBOutlet var imgViewCenter: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,10 +26,38 @@ class PendingApplicationViewController: UIViewController {
         btnStep2.setBorderAndBG()
         btnStep3.setBorderAndBG()
         self.navigationItem.title = "PENDING APPLICATION"
+        self.addCircleView()
+        
         //16 PENDING APPLICATION
         // Do any additional setup after loading the view.
     }
 
+    
+    override func viewWillLayoutSubviews()
+    {
+        let propotionalWidth = CGFloat((UIScreen.main.bounds.size.width / 375) * 152)
+        print(propotionalWidth)
+        let frame = CGRect(x: 0, y: 0, width: propotionalWidth, height: propotionalWidth)
+        circleLayer.frame = frame
+    }
+    
+    func addCircleView()
+    {
+        // Create a new CircleView
+        
+        let propotionalWidth = CGFloat((UIScreen.main.bounds.size.width / 375) * 152)
+        print(propotionalWidth)
+        
+        let frame = CGRect(x: 0, y: 0, width: propotionalWidth, height: propotionalWidth)
+        let circleView = outerCircleView(frame: frame)
+        
+         viewCircle.addSubview(circleView)
+        
+        // Animate the drawing of the circle over the course of 1 second
+        circleView.animateCircle(duration: 3.0)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

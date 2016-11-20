@@ -20,6 +20,7 @@ import UIKit
 
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 let SCREEN_WIDTH  = UIScreen.main.bounds.size.width
+let deviceID = UIDevice.current.identifierForVendor!.uuidString
 
 /*
     APP DELEGATE OBJECT
@@ -172,6 +173,103 @@ func remove_UD(key: String) {
 //MARK:- ________________________ ALL KEYS ________________________
 
 let key = "anyKey"
+
+let kUSERLOGIN          = "user"
+let kEmail              = "email"
+let kPassword           = "password"
+let kDeviceID           = "device_id"
+let kOS_type            = "os_type"
+let kPush_Token         = "push_token"
+let kfirst_name         = "first_name"
+let klast_name          = "last_name"
+let kIS_confirm         = "is_confirm"
+let kApi_key            = "api_key"
+let kID                 = "id"
+let KUser_id            = "user_id"
+let kStatus             = "status"
+let kMessage            = "message"
+let kData               = "data"
+let kSuccess            = "1"
+// Change Password
+let kOld_password       = "old_password"
+let kNew_password       = "new_password"
+let kConfirm_password   = "confirm_password"
+let kUser_avatar        = "user_avatar"
+let kRequired_loan_amount = "required_loan_amount"
+let kBusiness_time      = "business_time"
+let kAnnual_revenue     = "annual_revenue"
+let kCredit_score       = "credit_score"
+let kInvoice_business_customers = "invoice_business_customers"
+let kLoan_title          = "loan_title"
+let kLoan_desc           = "loan_desc"
+
+
+//MARK: ----- Bank Step One -----
+
+let kSubmit_type                = "submit_type"
+let kApplication_id             = "application_id"
+let kStep1Legal_business_name   = "legal_business_name"
+let kstep1Dba_name              = "dba_name"
+let kStep1legal_entity          = "legal_entity"
+let kStep1Date_business_eslablished = "date_business_eslablished"
+let kStep1Business_classification = "business_classification"
+let kStep1Physical_address      = "physical_address"
+let kStep1Mailing_address       = "mailing_address"
+let kStep1Business_phone        = "business_phone"
+let kStep1Business_fax          = "business_fax"
+let kStep1Business_mobile       = "business_mobile"
+let kStep1Business_email        = "business_email"
+let kStep1business_website      = "business_website"
+let kStep1business_tax_number   = "business_tax_number"
+let kStep1Terminal_model        = "terminal_model"
+let kStep1property_ownership    = "property_ownership"
+let kStep1years_in_control      = "years_in_control"
+let kStep1months_in_control     = "months_in_control"
+let kStep1Product_sold          = "product_sold"
+let kStep1Landlord_company_name = "landlord_company_name"
+let kStep1Landlord_contact_name = "landlord_contact_name"
+let kStep1Landlord_contact_number   = "landlord_contact_number"
+let kStep1rent_payment          = "rent_payment"
+let kStep1Bankruptcy_protection  = "bankruptcy_protection"
+let kStep1tax_liens_agains_business   = "tax_liens_agains_business"
+
+
+//MARK: -----  Step Two -----
+//MARK:
+
+let kStep2avg_monthly_card_sale = "avg_monthly_card_sale"
+let kStep2total_monthly_sale    = "total_monthly_sale"
+let kStep2annual_gross_sale     = "annual_gross_sale"
+let kStep2desired_funding_amount    = "desired_funding_amount"
+let kStep2use_of_funds          = "use_of_funds"
+let kStep2is_advance_balance    = "is_advance_balance"
+let kStep2held_with             = "held_with"
+let kStep2advance_balance       = "advance_balance"
+
+//MARK: ----- Step three -----
+//MARK:
+
+let kStep3owner_name            = "owner_name"
+let kStep3owner_title           = "owner_title"
+let kStep3percentage_of_ownership   = "percentage_of_ownership"
+let kStep3home_address          = "home_address"
+let kStep3home_phone            = "home_phone"
+let kStep3home_mobile_number    = "home_mobile_number"
+let kStep3owner_email           = "owner_email"
+let kStep3owner_dob             = "owner_dob"
+let kStep3social_security_insurance = "social_security_insurance"
+let kStep3drivers_licence       = "drivers_licence"
+let kStep3drivers_licence_states    = "drivers_licence_states"
+let kStep3how_fast_need         = "how_fast_need"
+let kStep3how_long_pay_back     = "how_long_pay_back"
+
+//MARK: ----- Step Four Mehtods -----
+//MARK:
+
+let kStep4document_list         = "document_list"
+
+
+
 
 
 

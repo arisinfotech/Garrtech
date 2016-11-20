@@ -17,7 +17,6 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     var indexpathSelected : IndexPath = []
     var checkCellSeleted = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -100,6 +99,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     {
         
         self.performSegue(withIdentifier : "PushToForm", sender: nil)
+        
         let cell = collectionViewObj.cellForItem(at: indexPath) as! HomwViewCell
         cell.backgroundImageObj.isHidden = false
         let SelectedIconUrl = selectedImages.object(at: indexPath.row) as! String

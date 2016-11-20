@@ -12,6 +12,13 @@ class CompanyLoanViewController: BaseViewController {
 
 //    @IBOutlet var view_Upper: UIView! = UIView()
     
+    @IBOutlet weak var txtAvgMothnlyCardSales: AITextFieldSquare!
+    @IBOutlet var txtTtlMonthlySales: AITextFieldSquare!
+    @IBOutlet var txtAnnualGrossSales: AITextFieldSquare!
+    @IBOutlet var txtDesireFundingAmount: AITextFieldSquare!
+    @IBOutlet var txtUserOfFunds: AITextFieldSquare!
+    @IBOutlet var txtBalanceIfYes: AITextFieldSquare!
+    @IBOutlet var txtHeldWith: AITextFieldSquare!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +33,8 @@ class CompanyLoanViewController: BaseViewController {
         
     }
     
+    @IBAction func btnNextPress(_ sender: AnyObject) {
+    }
     
     
     

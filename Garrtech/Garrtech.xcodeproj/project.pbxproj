@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		15F34417E041F3DD798BD708 /* Pods_Garrtech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB7F5E2B9971B8B8F9E9D38 /* Pods_Garrtech.framework */; };
+		412023EE1DE1B71800FD4C89 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412023ED1DE1B71800FD4C89 /* ForgotPasswordViewController.swift */; };
+		412023F11DE1BFF100FD4C89 /* UIDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412023F01DE1BFF100FD4C89 /* UIDropDown.swift */; };
+		412023F91DE1EE7A00FD4C89 /* loanOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412023F71DE1EE7A00FD4C89 /* loanOption.swift */; };
+		412023FA1DE1EE7A00FD4C89 /* loanOptionSecondVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412023F81DE1EE7A00FD4C89 /* loanOptionSecondVc.swift */; };
 		4121D5BE1DD860E20035EE0E /* AIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D5A61DD860E20035EE0E /* AIButton.swift */; };
 		4121D5BF1DD860E20035EE0E /* AILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D5A71DD860E20035EE0E /* AILabel.swift */; };
 		4121D5C41DD860E20035EE0E /* AITextFieldSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D5AC1DD860E20035EE0E /* AITextFieldSquare.swift */; };
@@ -53,6 +57,18 @@
 		BC326EC41DD7818700C53BFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC326EC21DD7818700C53BFC /* Main.storyboard */; };
 		BC326EC61DD7818700C53BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC326EC51DD7818700C53BFC /* Assets.xcassets */; };
 		BC326EC91DD7818700C53BFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC326EC71DD7818700C53BFC /* LaunchScreen.storyboard */; };
+		BC51496F1DE1E26900468489 /* JTProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BC51496E1DE1E26900468489 /* JTProgressHUD.m */; };
+		BC5149721DE1E3C100468489 /* SPErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5149711DE1E3C100468489 /* SPErrors.swift */; };
+		BC51497E1DE1E3DD00468489 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5149741DE1E3DD00468489 /* APIManager.swift */; };
+		BC51497F1DE1E3DD00468489 /* ApplyForLoan.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5149751DE1E3DD00468489 /* ApplyForLoan.swift */; };
+		BC5149801DE1E3DD00468489 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5149761DE1E3DD00468489 /* BaseRouter.swift */; };
+		BC5149811DE1E3DD00468489 /* LoanOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5149771DE1E3DD00468489 /* LoanOptions.swift */; };
+		BC5149821DE1E3DD00468489 /* LoanStepOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5149781DE1E3DD00468489 /* LoanStepOne.swift */; };
+		BC5149831DE1E3DD00468489 /* LoanStepThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5149791DE1E3DD00468489 /* LoanStepThree.swift */; };
+		BC5149841DE1E3DD00468489 /* LoanStepTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC51497A1DE1E3DD00468489 /* LoanStepTwo.swift */; };
+		BC5149851DE1E3DD00468489 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC51497B1DE1E3DD00468489 /* Login.swift */; };
+		BC5149861DE1E3DD00468489 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC51497C1DE1E3DD00468489 /* Profile.swift */; };
+		BC5149871DE1E3DD00468489 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC51497D1DE1E3DD00468489 /* Register.swift */; };
 		BCC63CD01DDB67C900B8C688 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC63CAE1DDB67C900B8C688 /* IQNSArray+Sort.m */; };
 		BCC63CD11DDB67CA00B8C688 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC63CB01DDB67C900B8C688 /* IQUITextFieldView+Additions.m */; };
 		BCC63CD21DDB67CA00B8C688 /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC63CB21DDB67C900B8C688 /* IQUIView+Hierarchy.m */; };
@@ -67,10 +83,15 @@
 		BCC63CDB1DDB67CA00B8C688 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC63CCA1DDB67C900B8C688 /* IQToolbar.m */; };
 		BCC63CDC1DDB67CA00B8C688 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC63CCC1DDB67C900B8C688 /* IQUIView+IQKeyboardToolbar.m */; };
 		BCC63CDD1DDB67CA00B8C688 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCC63CCF1DDB67C900B8C688 /* IQKeyboardManager.bundle */; };
+		ECCC4DEF1DE1E9F6006B74F7 /* outerCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC4DEE1DE1E9F6006B74F7 /* outerCircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1BAF82A7298D1FED3B854265 /* Pods-Garrtech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garrtech.release.xcconfig"; path = "Pods/Target Support Files/Pods-Garrtech/Pods-Garrtech.release.xcconfig"; sourceTree = "<group>"; };
+		412023ED1DE1B71800FD4C89 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		412023F01DE1BFF100FD4C89 /* UIDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDropDown.swift; sourceTree = "<group>"; };
+		412023F71DE1EE7A00FD4C89 /* loanOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loanOption.swift; sourceTree = "<group>"; };
+		412023F81DE1EE7A00FD4C89 /* loanOptionSecondVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loanOptionSecondVc.swift; sourceTree = "<group>"; };
 		4121D5A61DD860E20035EE0E /* AIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIButton.swift; sourceTree = "<group>"; };
 		4121D5A71DD860E20035EE0E /* AILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILabel.swift; sourceTree = "<group>"; };
 		4121D5AC1DD860E20035EE0E /* AITextFieldSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AITextFieldSquare.swift; sourceTree = "<group>"; };
@@ -120,6 +141,20 @@
 		BC326EC51DD7818700C53BFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC326EC81DD7818700C53BFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC326ECA1DD7818800C53BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC51496D1DE1E26900468489 /* JTProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTProgressHUD.h; sourceTree = "<group>"; };
+		BC51496E1DE1E26900468489 /* JTProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTProgressHUD.m; sourceTree = "<group>"; };
+		BC5149701DE1E37700468489 /* Garrtech-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Garrtech-Bridging-Header.h"; sourceTree = "<group>"; };
+		BC5149711DE1E3C100468489 /* SPErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPErrors.swift; sourceTree = "<group>"; };
+		BC5149741DE1E3DD00468489 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		BC5149751DE1E3DD00468489 /* ApplyForLoan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyForLoan.swift; sourceTree = "<group>"; };
+		BC5149761DE1E3DD00468489 /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		BC5149771DE1E3DD00468489 /* LoanOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoanOptions.swift; sourceTree = "<group>"; };
+		BC5149781DE1E3DD00468489 /* LoanStepOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoanStepOne.swift; sourceTree = "<group>"; };
+		BC5149791DE1E3DD00468489 /* LoanStepThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoanStepThree.swift; sourceTree = "<group>"; };
+		BC51497A1DE1E3DD00468489 /* LoanStepTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoanStepTwo.swift; sourceTree = "<group>"; };
+		BC51497B1DE1E3DD00468489 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		BC51497C1DE1E3DD00468489 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		BC51497D1DE1E3DD00468489 /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		BCC63CAD1DDB67C900B8C688 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
 		BCC63CAE1DDB67C900B8C688 /* IQNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Sort.m"; sourceTree = "<group>"; };
 		BCC63CAF1DDB67C900B8C688 /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
@@ -150,6 +185,7 @@
 		BCC63CCC1DDB67C900B8C688 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		BCC63CCD1DDB67C900B8C688 /* KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
 		BCC63CCF1DDB67C900B8C688 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		ECCC4DEE1DE1E9F6006B74F7 /* outerCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = outerCircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +207,23 @@
 				1BAF82A7298D1FED3B854265 /* Pods-Garrtech.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		412023EF1DE1BFF100FD4C89 /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				412023F01DE1BFF100FD4C89 /* UIDropDown.swift */,
+			);
+			path = DropDown;
+			sourceTree = "<group>";
+		};
+		412023F61DE1EE7A00FD4C89 /* LoanSecondOptionVC */ = {
+			isa = PBXGroup;
+			children = (
+				412023F71DE1EE7A00FD4C89 /* loanOption.swift */,
+				412023F81DE1EE7A00FD4C89 /* loanOptionSecondVc.swift */,
+			);
+			path = LoanSecondOptionVC;
 			sourceTree = "<group>";
 		};
 		4121D5A41DD860E20035EE0E /* Extension */ = {
@@ -210,6 +263,7 @@
 				4121D5BB1DD860E20035EE0E /* UIValidation.swift */,
 				4121D5BC1DD860E20035EE0E /* UIView.swift */,
 				4121D5BD1DD860E20035EE0E /* UIViewController.swift */,
+				BC5149711DE1E3C100468489 /* SPErrors.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -217,6 +271,8 @@
 		4121D5D51DD860ED0035EE0E /* UTILS */ = {
 			isa = PBXGroup;
 			children = (
+				ECCC4DED1DE1E9F5006B74F7 /* OuterSlider */,
+				412023EF1DE1BFF100FD4C89 /* DropDown */,
 				BCC63CAB1DDB67C900B8C688 /* IQKeyBoardManager */,
 				4121D5F01DD880990035EE0E /* AITextValidation */,
 				4121D5D61DD860ED0035EE0E /* Alert */,
@@ -260,7 +316,9 @@
 		4121D5F31DD8B6260035EE0E /* AllViewController */ = {
 			isa = PBXGroup;
 			children = (
+				412023F61DE1EE7A00FD4C89 /* LoanSecondOptionVC */,
 				4121D5F41DD8B6260035EE0E /* LoginViewController.swift */,
+				412023ED1DE1B71800FD4C89 /* ForgotPasswordViewController.swift */,
 				4121D5F81DD8B78F0035EE0E /* CompletedStepView */,
 				4121D5FB1DD8B78F0035EE0E /* LoanInformationViewController.swift */,
 				4121D5FD1DD8B78F0035EE0E /* MyApplicationListViewController.swift */,
@@ -319,18 +377,47 @@
 		BC326EBD1DD7818600C53BFC /* Garrtech */ = {
 			isa = PBXGroup;
 			children = (
+				BC5149731DE1E3DD00468489 /* Service */,
+				BC51496C1DE1E26900468489 /* JTProgressHUD */,
 				4121D5F31DD8B6260035EE0E /* AllViewController */,
 				4121D5DE1DD860F90035EE0E /* Assent */,
 				4121D5D51DD860ED0035EE0E /* UTILS */,
 				4121D5A41DD860E20035EE0E /* Extension */,
 				BC326EBE1DD7818700C53BFC /* AppDelegate.swift */,
 				419330D61DDF664F00E36E28 /* BaseViewController.swift */,
+				BC5149701DE1E37700468489 /* Garrtech-Bridging-Header.h */,
 				BC326EC21DD7818700C53BFC /* Main.storyboard */,
 				BC326EC51DD7818700C53BFC /* Assets.xcassets */,
 				BC326EC71DD7818700C53BFC /* LaunchScreen.storyboard */,
 				BC326ECA1DD7818800C53BFC /* Info.plist */,
 			);
 			path = Garrtech;
+			sourceTree = "<group>";
+		};
+		BC51496C1DE1E26900468489 /* JTProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				BC51496D1DE1E26900468489 /* JTProgressHUD.h */,
+				BC51496E1DE1E26900468489 /* JTProgressHUD.m */,
+			);
+			path = JTProgressHUD;
+			sourceTree = "<group>";
+		};
+		BC5149731DE1E3DD00468489 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BC5149741DE1E3DD00468489 /* APIManager.swift */,
+				BC5149751DE1E3DD00468489 /* ApplyForLoan.swift */,
+				BC5149761DE1E3DD00468489 /* BaseRouter.swift */,
+				BC5149771DE1E3DD00468489 /* LoanOptions.swift */,
+				BC5149781DE1E3DD00468489 /* LoanStepOne.swift */,
+				BC5149791DE1E3DD00468489 /* LoanStepThree.swift */,
+				BC51497A1DE1E3DD00468489 /* LoanStepTwo.swift */,
+				BC51497B1DE1E3DD00468489 /* Login.swift */,
+				BC51497C1DE1E3DD00468489 /* Profile.swift */,
+				BC51497D1DE1E3DD00468489 /* Register.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		BCC63CAB1DDB67C900B8C688 /* IQKeyBoardManager */ = {
@@ -416,6 +503,14 @@
 				BCC63CCF1DDB67C900B8C688 /* IQKeyboardManager.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		ECCC4DED1DE1E9F5006B74F7 /* OuterSlider */ = {
+			isa = PBXGroup;
+			children = (
+				ECCC4DEE1DE1E9F6006B74F7 /* outerCircleView.swift */,
+			);
+			path = OuterSlider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,17 +642,22 @@
 				4121D5C81DD860E20035EE0E /* UIApplication.swift in Sources */,
 				4121D60E1DD8EDE40035EE0E /* OwnerVc.swift in Sources */,
 				BCC63CD31DDB67CA00B8C688 /* IQUIViewController+Additions.m in Sources */,
+				BC51497E1DE1E3DD00468489 /* APIManager.swift in Sources */,
 				BCC63CD61DDB67CA00B8C688 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				BCC63CD01DDB67C900B8C688 /* IQNSArray+Sort.m in Sources */,
 				419330D71DDF664F00E36E28 /* BaseViewController.swift in Sources */,
 				4121D5CA1DD860E20035EE0E /* UIColor.swift in Sources */,
 				BCC63CD91DDB67CA00B8C688 /* IQBarButtonItem.m in Sources */,
+				BC5149851DE1E3DD00468489 /* Login.swift in Sources */,
 				4121D5C91DD860E20035EE0E /* UIButton.swift in Sources */,
 				4121D5DB1DD860ED0035EE0E /* Alert.swift in Sources */,
 				4121D6141DD8F1150035EE0E /* ChangePasswordViewController.swift in Sources */,
+				BC5149831DE1E3DD00468489 /* LoanStepThree.swift in Sources */,
+				BC5149801DE1E3DD00468489 /* BaseRouter.swift in Sources */,
 				4121D5D21DD860E20035EE0E /* UIValidation.swift in Sources */,
 				4121D5CE1DD860E20035EE0E /* UILabel.swift in Sources */,
 				4121D6021DD8B78F0035EE0E /* MessageViewController.swift in Sources */,
+				BC5149871DE1E3DD00468489 /* Register.swift in Sources */,
 				4121D5FF1DD8B78F0035EE0E /* CompletedStepView.swift in Sources */,
 				BCC63CD41DDB67CA00B8C688 /* IQUIWindow+Hierarchy.m in Sources */,
 				4121D5C71DD860E20035EE0E /* String.swift in Sources */,
@@ -568,6 +668,7 @@
 				BC326EBF1DD7818700C53BFC /* AppDelegate.swift in Sources */,
 				4121D5F71DD8B6260035EE0E /* RagisterViewController.swift in Sources */,
 				BCC63CD11DDB67CA00B8C688 /* IQUITextFieldView+Additions.m in Sources */,
+				BC5149841DE1E3DD00468489 /* LoanStepTwo.swift in Sources */,
 				4121D5CB1DD860E20035EE0E /* UIFont.swift in Sources */,
 				4121D5F61DD8B6260035EE0E /* LoginViewController.swift in Sources */,
 				4121D6081DD8BB040035EE0E /* loanOptionVC.swift in Sources */,
@@ -582,22 +683,33 @@
 				BCC63CDC1DDB67CA00B8C688 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				4121D6031DD8B78F0035EE0E /* MyApplicationListViewController.swift in Sources */,
 				BCC63CDB1DDB67CA00B8C688 /* IQToolbar.m in Sources */,
+				412023F11DE1BFF100FD4C89 /* UIDropDown.swift in Sources */,
+				BC51497F1DE1E3DD00468489 /* ApplyForLoan.swift in Sources */,
 				4121D60A1DD8BB040035EE0E /* shortLoanVc.swift in Sources */,
 				4121D6041DD8B78F0035EE0E /* PendingApplicationViewController.swift in Sources */,
+				BC5149721DE1E3C100468489 /* SPErrors.swift in Sources */,
 				BCC63CD51DDB67CA00B8C688 /* IQKeyboardManager.m in Sources */,
 				4121D6121DD8F1000035EE0E /* DocumentListViewController.swift in Sources */,
+				412023FA1DE1EE7A00FD4C89 /* loanOptionSecondVc.swift in Sources */,
 				4121D5CF1DD860E20035EE0E /* UINavigationBar.swift in Sources */,
+				BC5149811DE1E3DD00468489 /* LoanOptions.swift in Sources */,
 				BCC63CD71DDB67CA00B8C688 /* IQSegmentedNextPrevious.m in Sources */,
+				BC5149821DE1E3DD00468489 /* LoanStepOne.swift in Sources */,
+				BC51496F1DE1E26900468489 /* JTProgressHUD.m in Sources */,
 				BCC63CD21DDB67CA00B8C688 /* IQUIView+Hierarchy.m in Sources */,
 				4121D5BE1DD860E20035EE0E /* AIButton.swift in Sources */,
+				412023EE1DE1B71800FD4C89 /* ForgotPasswordViewController.swift in Sources */,
+				BC5149861DE1E3DD00468489 /* Profile.swift in Sources */,
 				BCC63CD81DDB67CA00B8C688 /* IQTextView.m in Sources */,
 				4121D5F21DD880990035EE0E /* AITextValidation.swift in Sources */,
+				412023F91DE1EE7A00FD4C89 /* loanOption.swift in Sources */,
 				4121D5C41DD860E20035EE0E /* AITextFieldSquare.swift in Sources */,
 				41E950601DDA13CE00FC7345 /* HomwViewCell.swift in Sources */,
 				4121D5CD1DD860E20035EE0E /* UIImageView.swift in Sources */,
 				4121D5DC1DD860ED0035EE0E /* AITextMacros.swift in Sources */,
 				4121D5D01DD860E20035EE0E /* UISegmentControl.swift in Sources */,
 				4121D6011DD8B78F0035EE0E /* LoanInformationViewController.swift in Sources */,
+				ECCC4DEF1DE1E9F6006B74F7 /* outerCircleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +782,7 @@
 				PROVISIONING_PROFILE = "4d45f3ac-2b87-4a1c-8d8c-9748d05f6c61";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Garrtech/Garrtech-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -714,6 +827,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "4d45f3ac-2b87-4a1c-8d8c-9748d05f6c61";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Garrtech/Garrtech-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

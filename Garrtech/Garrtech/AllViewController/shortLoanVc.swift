@@ -25,9 +25,7 @@ class shortLoanVc: UIViewController {
         lblHeadTitle.text=" Find out what you can borrow \n in second "
     }
     
-    
-    
-    
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

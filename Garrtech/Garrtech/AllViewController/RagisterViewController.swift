@@ -13,7 +13,7 @@ class RagisterViewController: UIViewController
 
     @IBOutlet var txtFirstName: AITextFieldSquare!
     @IBOutlet var txtLastName: AITextFieldSquare!
-    @IBOutlet var txtrEmail: AITextFieldSquare!
+    @IBOutlet var txtEmail: AITextFieldSquare!
     @IBOutlet var txtPassword: AITextFieldSquare!
     @IBOutlet var btnBack: UIButton!
     
@@ -32,6 +32,35 @@ class RagisterViewController: UIViewController
     
     @IBAction func btnBackClicked(_ sender: AnyObject) {
         popTo()
+    }
+    
+    @IBAction func btnRegsterPress(sender: UIButton) {
+        
+        
+        if  TextValidation.isValidate(textField: txtFirstName , validationType:.AI_VALIDATION_TYPE_FIRST_NAME) {
+            
+            if TextValidation.isValidate(textField: txtLastName, validationType: .AI_VALIDATION_TYPE_LAST_NAME) {
+                
+                if  TextValidation.isValidate(textField: txtEmail , validationType:.AI_VALIDATION_TYPE_EMAIL) {
+                    
+                    if TextValidation.isValidate(textField: txtPassword, validationType: .AI_VALIDATION_TYPE_PASSWORD) {
+                        
+                        let user = Register()
+                        user.first_name = txtFirstName.text!
+                        user.last_name = txtLastName.text!
+                        user.email = txtEmail.text!
+                        user.os_type = "iOS"
+                        user.password = txtPassword.text!
+                        user.push_token = "qwertyuiop"
+                        user.device_id = "dfsf"
+                        
+                        APIManager.sharedInstance.RegisterUser(user: user, completion: { (registeredUser:Register?, error:NSError?) in
+                            
+                        })
+                    }
+                }
+            }
+        }
     }
     
 

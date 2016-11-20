@@ -7,24 +7,39 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     var loginViewController: LoginViewController!
     var messageViewController: BusinessLoanViewController!
-    
     var navigationVC: UINavigationController?
-
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         self.redirectToLoginVC()
+        self.registerPushNotification(application)
         return true
     }
+    
+    func registerPushNotification(_ application: UIApplication) {
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+                // Enable or disable features based on authorization.
+            }
+            application.registerForRemoteNotifications()
+        } else {
+            // Fallback on earlier versions
+        }
+        
+    }
+    
+
 
     func redirectToLoginVC() {
         
@@ -43,6 +58,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         navigationVC = UINavigationController.init(rootViewController: messageViewController)
         self.window?.rootViewController = navigationVC
+        
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print(deviceTokenString)
+        
+        
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        
+        print("i am not available in simulator \(error)")
         
     }
     

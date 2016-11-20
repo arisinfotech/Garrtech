@@ -20,6 +20,14 @@ class ChangePasswordViewController: BaseViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        txtOldPassword.setUpTextFieldForLengthValidation(minLength: 6, maxLength: 50)
+        txtOldPassword.textFieldValidationType = .Password
+        
+        txtNewPassword.setUpTextFieldForLengthValidation(minLength: 6, maxLength: 50)
+        txtNewPassword.textFieldValidationType = .Password
+        
+        txtComfirmPassword.setUpTextFieldForLengthValidation(minLength: 6, maxLength: 50)
+        txtComfirmPassword.textFieldValidationType = .Password
 
         // Do any additional setup after loading the view.
     }
@@ -35,6 +43,28 @@ class ChangePasswordViewController: BaseViewController {
     func textFieldShouldReturn(_ textField: AITextFieldSquare) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    @IBAction func changePassPress(sender: UIButton) {
+        
+        
+        let password = ChangePassword()
+        password.old_password = txtOldPassword.text
+        password.new_password = txtNewPassword.text
+        password.confirm_password = txtComfirmPassword.text
+        
+        showHUD()
+        
+        APIManager.sharedInstance.ChangePassword(password: password) { (error:NSError?) in
+            
+            if error == nil {
+                
+            }
+            self.hideHUD()
+            
+        }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
