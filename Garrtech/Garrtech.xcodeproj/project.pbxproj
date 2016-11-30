@@ -50,6 +50,8 @@
 		4121D6111DD8F1000035EE0E /* CompanyLoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D60F1DD8F1000035EE0E /* CompanyLoanViewController.swift */; };
 		4121D6121DD8F1000035EE0E /* DocumentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D6101DD8F1000035EE0E /* DocumentListViewController.swift */; };
 		4121D6141DD8F1150035EE0E /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D6131DD8F1150035EE0E /* ChangePasswordViewController.swift */; };
+		41228A041DE8A2CD0001AA58 /* AIAllStepValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41228A031DE8A2CD0001AA58 /* AIAllStepValidation.swift */; };
+		4154A8DE1DEF61F300308B77 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 4154A8DD1DEF61F300308B77 /* home.png */; };
 		419330D71DDF664F00E36E28 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419330D61DDF664F00E36E28 /* BaseViewController.swift */; };
 		41E9505E1DDA11EB00FC7345 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E9505D1DDA11EB00FC7345 /* HomeViewController.swift */; };
 		41E950601DDA13CE00FC7345 /* HomwViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E9505F1DDA13CE00FC7345 /* HomwViewCell.swift */; };
@@ -69,6 +71,7 @@
 		BC5149851DE1E3DD00468489 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC51497B1DE1E3DD00468489 /* Login.swift */; };
 		BC5149861DE1E3DD00468489 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC51497C1DE1E3DD00468489 /* Profile.swift */; };
 		BC5149871DE1E3DD00468489 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC51497D1DE1E3DD00468489 /* Register.swift */; };
+		BC63BEDF1DEB4E5700F5E92C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC63BEDD1DEB4E5700F5E92C /* Reachability.swift */; };
 		BCC63CD01DDB67C900B8C688 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC63CAE1DDB67C900B8C688 /* IQNSArray+Sort.m */; };
 		BCC63CD11DDB67CA00B8C688 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC63CB01DDB67C900B8C688 /* IQUITextFieldView+Additions.m */; };
 		BCC63CD21DDB67CA00B8C688 /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC63CB21DDB67C900B8C688 /* IQUIView+Hierarchy.m */; };
@@ -130,6 +133,8 @@
 		4121D60F1DD8F1000035EE0E /* CompanyLoanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyLoanViewController.swift; sourceTree = "<group>"; };
 		4121D6101DD8F1000035EE0E /* DocumentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentListViewController.swift; sourceTree = "<group>"; };
 		4121D6131DD8F1150035EE0E /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		41228A031DE8A2CD0001AA58 /* AIAllStepValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAllStepValidation.swift; sourceTree = "<group>"; };
+		4154A8DD1DEF61F300308B77 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		419330D61DDF664F00E36E28 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		41E9505D1DDA11EB00FC7345 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		41E9505F1DDA13CE00FC7345 /* HomwViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomwViewCell.swift; sourceTree = "<group>"; };
@@ -141,6 +146,7 @@
 		BC326EC51DD7818700C53BFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC326EC81DD7818700C53BFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC326ECA1DD7818800C53BFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC45FE381DEF3F4D00936128 /* Garrtech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Garrtech.entitlements; sourceTree = "<group>"; };
 		BC51496D1DE1E26900468489 /* JTProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTProgressHUD.h; sourceTree = "<group>"; };
 		BC51496E1DE1E26900468489 /* JTProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTProgressHUD.m; sourceTree = "<group>"; };
 		BC5149701DE1E37700468489 /* Garrtech-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Garrtech-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 		BC51497B1DE1E3DD00468489 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		BC51497C1DE1E3DD00468489 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		BC51497D1DE1E3DD00468489 /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		BC63BEDD1DEB4E5700F5E92C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		BCC63CAD1DDB67C900B8C688 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
 		BCC63CAE1DDB67C900B8C688 /* IQNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Sort.m"; sourceTree = "<group>"; };
 		BCC63CAF1DDB67C900B8C688 /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
@@ -308,6 +315,7 @@
 		4121D5F01DD880990035EE0E /* AITextValidation */ = {
 			isa = PBXGroup;
 			children = (
+				41228A031DE8A2CD0001AA58 /* AIAllStepValidation.swift */,
 				4121D5F11DD880990035EE0E /* AITextValidation.swift */,
 			);
 			path = AITextValidation;
@@ -320,16 +328,16 @@
 				4121D5F41DD8B6260035EE0E /* LoginViewController.swift */,
 				412023ED1DE1B71800FD4C89 /* ForgotPasswordViewController.swift */,
 				4121D5F81DD8B78F0035EE0E /* CompletedStepView */,
-				4121D5FB1DD8B78F0035EE0E /* LoanInformationViewController.swift */,
 				4121D5FD1DD8B78F0035EE0E /* MyApplicationListViewController.swift */,
 				4121D5FE1DD8B78F0035EE0E /* PendingApplicationViewController.swift */,
-				4121D6131DD8F1150035EE0E /* ChangePasswordViewController.swift */,
 				4121D5F51DD8B6260035EE0E /* RagisterViewController.swift */,
-				4121D6051DD8BB040035EE0E /* loanOptionVC.swift */,
 				4121D6061DD8BB040035EE0E /* ProfileVc.swift */,
-				4121D6071DD8BB040035EE0E /* shortLoanVc.swift */,
+				4121D6131DD8F1150035EE0E /* ChangePasswordViewController.swift */,
+				4121D6051DD8BB040035EE0E /* loanOptionVC.swift */,
 				41E9505D1DDA11EB00FC7345 /* HomeViewController.swift */,
 				41E9505F1DDA13CE00FC7345 /* HomwViewCell.swift */,
+				4121D6071DD8BB040035EE0E /* shortLoanVc.swift */,
+				4121D5FB1DD8B78F0035EE0E /* LoanInformationViewController.swift */,
 				4121D60B1DD8C1090035EE0E /* BusinessLoanViewController.swift */,
 				4121D60F1DD8F1000035EE0E /* CompanyLoanViewController.swift */,
 				4121D60D1DD8EDE40035EE0E /* OwnerVc.swift */,
@@ -377,6 +385,8 @@
 		BC326EBD1DD7818600C53BFC /* Garrtech */ = {
 			isa = PBXGroup;
 			children = (
+				BC45FE381DEF3F4D00936128 /* Garrtech.entitlements */,
+				BC63BEDA1DEB4E5700F5E92C /* Reachability */,
 				BC5149731DE1E3DD00468489 /* Service */,
 				BC51496C1DE1E26900468489 /* JTProgressHUD */,
 				4121D5F31DD8B6260035EE0E /* AllViewController */,
@@ -385,6 +395,7 @@
 				4121D5A41DD860E20035EE0E /* Extension */,
 				BC326EBE1DD7818700C53BFC /* AppDelegate.swift */,
 				419330D61DDF664F00E36E28 /* BaseViewController.swift */,
+				4154A8DD1DEF61F300308B77 /* home.png */,
 				BC5149701DE1E37700468489 /* Garrtech-Bridging-Header.h */,
 				BC326EC21DD7818700C53BFC /* Main.storyboard */,
 				BC326EC51DD7818700C53BFC /* Assets.xcassets */,
@@ -418,6 +429,14 @@
 				BC51497D1DE1E3DD00468489 /* Register.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		BC63BEDA1DEB4E5700F5E92C /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				BC63BEDD1DEB4E5700F5E92C /* Reachability.swift */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		BCC63CAB1DDB67C900B8C688 /* IQKeyBoardManager */ = {
@@ -550,6 +569,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = ZNS343QM89;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -578,6 +602,7 @@
 			files = (
 				BCC63CDD1DDB67CA00B8C688 /* IQKeyboardManager.bundle in Resources */,
 				BC326EC91DD7818700C53BFC /* LaunchScreen.storyboard in Resources */,
+				4154A8DE1DEF61F300308B77 /* home.png in Resources */,
 				BC326EC61DD7818700C53BFC /* Assets.xcassets in Resources */,
 				4121D6001DD8B78F0035EE0E /* CompletedStepView.xib in Resources */,
 				BC326EC41DD7818700C53BFC /* Main.storyboard in Resources */,
@@ -646,6 +671,7 @@
 				BCC63CD61DDB67CA00B8C688 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				BCC63CD01DDB67C900B8C688 /* IQNSArray+Sort.m in Sources */,
 				419330D71DDF664F00E36E28 /* BaseViewController.swift in Sources */,
+				BC63BEDF1DEB4E5700F5E92C /* Reachability.swift in Sources */,
 				4121D5CA1DD860E20035EE0E /* UIColor.swift in Sources */,
 				BCC63CD91DDB67CA00B8C688 /* IQBarButtonItem.m in Sources */,
 				BC5149851DE1E3DD00468489 /* Login.swift in Sources */,
@@ -653,6 +679,7 @@
 				4121D5DB1DD860ED0035EE0E /* Alert.swift in Sources */,
 				4121D6141DD8F1150035EE0E /* ChangePasswordViewController.swift in Sources */,
 				BC5149831DE1E3DD00468489 /* LoanStepThree.swift in Sources */,
+				41228A041DE8A2CD0001AA58 /* AIAllStepValidation.swift in Sources */,
 				BC5149801DE1E3DD00468489 /* BaseRouter.swift in Sources */,
 				4121D5D21DD860E20035EE0E /* UIValidation.swift in Sources */,
 				4121D5CE1DD860E20035EE0E /* UILabel.swift in Sources */,
@@ -839,6 +866,7 @@
 			baseConfigurationReference = A381CAF21C8A367C23E77A9D /* Pods-Garrtech.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Garrtech/Garrtech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Parth Bhadaja (8W5CP5482X)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Parth Bhadaja (8W5CP5482X)";
 				DEVELOPMENT_TEAM = ZNS343QM89;
@@ -858,6 +886,7 @@
 			baseConfigurationReference = 1BAF82A7298D1FED3B854265 /* Pods-Garrtech.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Garrtech/Garrtech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Parth Bhadaja (8W5CP5482X)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Parth Bhadaja (8W5CP5482X)";
 				DEVELOPMENT_TEAM = ZNS343QM89;

@@ -9,14 +9,15 @@
 import Foundation
 import Alamofire
 
-public var MAIN_URL = "http://192.168.1.106/garrtech/api/"
+public var MAIN_URL = "http://garrtech-group.com/application/api/"
+
+public typealias JSONDictionary = [String: AnyObject]
+typealias APIParams = [String : AnyObject]?
 
 // swiftlint:disable type_body_length
 public class APIManager {
     
-    
     public var AUTH_HEADER = [String:String]()
-    
     
     public class var sharedInstance: APIManager {
         struct Singleton {
@@ -28,22 +29,23 @@ public class APIManager {
     init() {
         
     }
-
+    
     //MARK: -------------------- Register ---------------------
     
     func RegisterUser(user: Register, completion: @escaping (_ registeredUser: Register?, _ error: NSError?) -> ()) {
         
         Alamofire.request(MAIN_URL + "register", method: .post, parameters: user.toJsonDictionary()).responseJSON { response in
-
+            
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
                 
                 let JSON_ = JSON as! JSONDictionary
                 
                 if JSON_[kStatus] as? String == kSuccess {
-                
-                    print(JSON_[kData]!.firstObject!)
                     
+                    print(JSON_[kData]!)
+                    completion(nil,nil)
+                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                     completion(nil,SPErrors.EmptyResultError)
@@ -59,27 +61,32 @@ public class APIManager {
     
     func LoginUser(user: Login, completion: @escaping (_ error: NSError?) -> ()) {
         
+        showHUD()
+        
         print(user.toJsonDictionary())
         Alamofire.request(MAIN_URL + "login", method: .post, parameters: user.toJsonDictionary()).responseJSON { response in
             
             if let JSON = response.result.value {
-               
+                
                 print("JSON: \(JSON)")
                 
                 let JSON_ = JSON as! JSONDictionary
                 
                 if JSON_[kStatus] as? String == kSuccess {
-                    let tempDict = JSON_[kData]!.firstObject! as! JSONDictionary
+                    let tempDict = JSON_[kData]! as! JSONDictionary
                     UserDefaults.standard.set(nil, forKey: kUSERLOGIN)
                     UserDefaults.standard.set(tempDict, forKey: kUSERLOGIN)
                     CurrentUser.sharedInstance.populateWithJSON(dict:tempDict)
                     print(CurrentUser.sharedInstance.toJsonDictionary())
+                    hideHUD()
                     completion(nil)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    hideHUD()
                     completion(SPErrors.EmptyResultError)
                 }
             } else {
+                hideHUD()
                 completion(SPErrors.EmptyResultError)
             }
         }
@@ -90,12 +97,13 @@ public class APIManager {
     
     func ChangePassword(password:ChangePassword, completion: @escaping (_ error: NSError?) -> ()) {
         
+        showHUD()
         
         Alamofire.request(MAIN_URL + "change_password", method: .post, parameters: password.toJsonDictionary(), encoding: URLEncoding.default, headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
-//            print(response.request)  // original URL request
-//            print(response.response) // HTTP URL response
-//            print(response.data)     // server data
-//            print(response.result)   // result of response serialization
+            //            print(response.request)  // original URL request
+            //            print(response.response) // HTTP URL response
+            //            print(response.data)     // server data
+            //            print(response.result)   // result of response serialization
             
             if let JSON = response.result.value {
                 
@@ -104,13 +112,17 @@ public class APIManager {
                 let JSON_ = JSON as! JSONDictionary
                 
                 if JSON_[kStatus] as? String == kSuccess {
+                
+                    hideHUD()
                     completion(nil)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    hideHUD()
                     completion(SPErrors.EmptyResultError)
                 }
                 
             } else {
+                hideHUD()
                 completion(SPErrors.EmptyResultError)
             }
         }
@@ -120,7 +132,6 @@ public class APIManager {
     
     
     func UpdateProfile(profile:Profile, completion: @escaping (_ updatedProfile: Profile?, _ error: NSError?) -> ()) {
-        
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(UIImageJPEGRepresentation(profile.image!, 1)!, withName: kUser_avatar, fileName: "swift_file.jpeg", mimeType: "image/jpeg")
@@ -139,10 +150,43 @@ public class APIManager {
                 
                 upload.responseJSON { response in
                     //print response.result
+                    
+                    if let JSON = response.result.value {
+                        
+                        print("JSON: \(JSON)")
+                        
+                        let JSON_ = JSON as! JSONDictionary
+                        
+                        if JSON_[kStatus] as? String == kSuccess {
+                            
+                            let profile = Profile()
+                            profile.populateWithJSON(dict: JSON_[kData]! as! JSONDictionary)
+                            
+                            CurrentUser.sharedInstance.first_name = profile.first_name
+                            CurrentUser.sharedInstance.last_name = profile.last_name
+                            CurrentUser.sharedInstance.image = profile.imageURL
+                            print(CurrentUser.sharedInstance.toJsonDictionary())
+                            
+                            completion(profile,nil)
+                            Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                            hideHUD()
+                        } else {
+                            Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                            hideHUD()
+                        }
+                        
+                    } else {
+                        hideHUD()
+                        completion(nil,SPErrors.EmptyResultError)
+                    }
+                    
                 }
                 
-            case .failure(let encodingError): break
+            case .failure(let encodingError):
                 //print encodingError.description
+                print(encodingError.localizedDescription)
+                completion(nil,SPErrors.EmptyResultError)
+                break
             }
         }
     }
@@ -151,9 +195,9 @@ public class APIManager {
     //MARK: -------------------- Logout User ---------------------
     
     func LogoutUser(completion:@escaping (_ error:NSError?) -> ()) {
-     //
+        //
         
-        Alamofire.request(MAIN_URL + "logout", method: .post, headers:CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+        Alamofire.request(MAIN_URL + "logout", method: .get, headers:CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
                 
@@ -161,15 +205,82 @@ public class APIManager {
                 
                 if JSON_[kStatus] as? String == kSuccess {
                     
-                    print(JSON_[kData]!.firstObject!)
-                    
+                    let appDomain = Bundle.main.bundleIdentifier!
+                    UserDefaults.standard.removePersistentDomain(forName: appDomain)
+                    completion(nil)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                     completion(SPErrors.EmptyResultError)
                 }
-                
             } else {
                 completion(SPErrors.EmptyResultError)
+            }
+        }
+        
+    }
+    
+    
+    func ForgotPassword(forgotPass: ForgotPassword, completion: @escaping (_ error: NSError?) -> ()) {
+        
+        
+        showHUD()
+        
+        Alamofire.request(MAIN_URL + "forgot_password", method: .post, parameters: forgotPass.toJsonDict()).responseJSON { response in
+            
+            hideHUD()
+            if let JSON = response.result.value {
+                
+                let JSON_ = JSON as! JSONDictionary
+                
+                print(JSON_)
+                
+                if JSON_[kStatus] as? String == kSuccess {
+                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    completion(nil)
+                } else {
+                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    completion(SPErrors.EmptyResultError)
+                }
+            } else {
+                completion(SPErrors.EmptyResultError)
+            }
+        }
+
+    }
+    
+    //MARK: ----- Apply For loan Mehtods -----
+    //MARK:
+    
+    func ApplyForLoan(options: ApplyForLoan, completion: @escaping (_ loanDetails: LoanDetails?, _ error:
+        NSError?) -> ()) {
+        
+        showHUD()
+        
+        Alamofire.request(MAIN_URL + "apply_for_loan", method: .post, parameters: options.toJsonDict(), headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            
+            if let JSON = response.result.value {
+                
+                print("JSON: \(JSON)")
+                
+                let JSON_ = JSON as! JSONDictionary
+                
+                if JSON_[kStatus] as? String == kSuccess {
+                    let details = LoanDetails()
+                    
+                    details.populateWithJson(dict: (JSON_[kData] as? JSONDictionary)!)
+                    
+                    hideHUD()
+                    completion(details,nil)
+                    
+                } else {
+                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    hideHUD()
+                    completion(nil,SPErrors.EmptyResultError)
+                }
+                
+            } else {
+                hideHUD()
+                completion(nil,SPErrors.EmptyResultError)
             }
         }
         
@@ -179,6 +290,11 @@ public class APIManager {
     
     func LoanOption(completion:@escaping (_ annualRevenue:[LoanOptions], _ craditScore:[LoanOptions], _ loanAmountNeed:[LoanOptions], _ timeInBusiness:[LoanOptions]) -> (), error:@escaping ( _ error:NSError?) -> ())  {
         
+        //show loader
+        showHUD()
+
+        
+        // call api
         Alamofire.request(MAIN_URL + "app_manager/option_apply_loan", method: .get ,headers:CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
             if let JSON = response.result.value {
                 
@@ -223,20 +339,24 @@ public class APIManager {
                                 tempDict.populateWithJson(dic: dict)
                                 timeinBusinessArrTemp.append(tempDict)
                             }
-
+                            
                         }
                         
+                        hideHUD()
                         completion(annualRevenueArrTemo, cradit_scoreArrTemp, loanAmountNeedArrTemp, timeinBusinessArrTemp)
                         
                     } else {
+                        hideHUD()
                         error(SPErrors.EmptyResultError)
                     }
                     
                 } else {
+                    hideHUD()
                     error(SPErrors.EmptyResultError)
                 }
                 
             } else {
+                hideHUD()
                 error(SPErrors.EmptyResultError)
             }
         }
@@ -247,8 +367,9 @@ public class APIManager {
     
     func loanStepOne(stepOne: LoanStepOne, completion:@escaping (_ error: NSError?) -> ()) {
         
+        showHUD()
         Alamofire.request(MAIN_URL + "app_step_one", method: .post, parameters: stepOne.toJsonDictionary(), headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
-
+            
             
             if let JSON = response.result.value {
                 
@@ -258,13 +379,21 @@ public class APIManager {
                 
                 if JSON_[kStatus] as? String == kSuccess {
                     
+                    if let loanOptionData = JSON_[kData] as? JSONDictionary {
+                        print("\(loanOptionData[kApplication_id]!)")
+                        UserDefaults.standard.setValue("\(loanOptionData[kApplication_id]!)", forKeyPath: kApplication_id)
+                    }
+                    hideHUD()
+                    UserDefaults.standard.setValue(CompleteStep.BusinessInfo.hashValue, forKey: kCompletedStep)
                     completion(nil)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    hideHUD()
                     completion(SPErrors.EmptyResultError)
                 }
                 
             } else {
+                hideHUD()
                 completion(SPErrors.EmptyResultError)
             }
         }
@@ -276,8 +405,10 @@ public class APIManager {
     
     func loanStepTwo(stepTwo: LoanStepTwo, completion:@escaping (_ error: NSError?) -> ()) {
         
+        showHUD()
         Alamofire.request(MAIN_URL + "app_step_two", method: .post, parameters: stepTwo.toJsonDictionary(), headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
             
+            hideHUD()
             if let JSON = response.result.value {
                 
                 print("JSON: \(JSON)")
@@ -286,6 +417,7 @@ public class APIManager {
                 
                 if JSON_[kStatus] as? String == kSuccess {
                     completion(nil)
+                    UserDefaults.standard.setValue(CompleteStep.CompanyInfo.hashValue, forKey: kCompletedStep)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                     completion(SPErrors.EmptyResultError)
@@ -301,7 +433,10 @@ public class APIManager {
     
     func loanStepThree(stepThree: LoanStepThree, completion:@escaping (_ error: NSError?) -> ()) {
         
+        showHUD()
         Alamofire.request(MAIN_URL + "app_step_three", method: .post, parameters: stepThree.toJsonDictionary(), headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            
+            hideHUD()
             
             if let JSON = response.result.value {
                 
@@ -312,6 +447,7 @@ public class APIManager {
                 if JSON_[kStatus] as? String == kSuccess {
                     
                     completion(nil)
+                    UserDefaults.standard.setValue(CompleteStep.OwnerInfo.hashValue, forKey: kCompletedStep)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                     completion(SPErrors.EmptyResultError)
@@ -327,7 +463,12 @@ public class APIManager {
     
     func loanStepFour(stepFour: LoanStepFour, completion:@escaping (_ error: NSError?) -> ()) {
         
+        showHUD()
+
+        
         Alamofire.request(MAIN_URL + "app_step_four", method: .post, parameters: stepFour.toJsonDictionary(), headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            
+            hideHUD()
             
             if let JSON = response.result.value {
                 
@@ -336,8 +477,8 @@ public class APIManager {
                 let JSON_ = JSON as! JSONDictionary
                 
                 if JSON_[kStatus] as? String == kSuccess {
-                    
                     completion(nil)
+                    UserDefaults.standard.setValue(nil, forKey: kCompletedStep)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                     completion(SPErrors.EmptyResultError)

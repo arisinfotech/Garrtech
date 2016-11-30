@@ -267,13 +267,16 @@ import UIKit
 
 let TextValidation = AITextValidation.sharedManager
 
-enum validationTYPE : Int {
+enum validationTYPE : Int
+{
     case AI_VALIDATION_TYPE_FIRST_NAME
     case AI_VALIDATION_TYPE_LAST_NAME
     case AI_VALIDATION_TYPE_NAME
     case AI_VALIDATION_TYPE_EMAIL
     case AI_VALIDATION_TYPE_PHONE
     case AI_VALIDATION_TYPE_PASSWORD
+    case AI_VALIDATION_TYPE_OLDPASSWORD
+    case AI_VALIDATION_TYPE_NEWPASSWORD
     case AI_VALIDATION_TYPE_CONFIRMPASSWORD
     
     case AI_VALIDATION_TYPE_CAMPUS
@@ -283,7 +286,6 @@ enum validationTYPE : Int {
 
 
 class AITextValidation: NSObject {
-    
     
     
     // MARK:  ________________ SHARED MANAGER
@@ -380,6 +382,12 @@ class AITextValidation: NSObject {
         else if case .AI_VALIDATION_TYPE_PASSWORD = validationType {
             message = message_Password_Blank
         }
+        else if case .AI_VALIDATION_TYPE_OLDPASSWORD = validationType {
+            message = message_OldPassword_Blank
+        }
+        else if case .AI_VALIDATION_TYPE_NEWPASSWORD = validationType {
+            message = message_NewPassword_Blank
+        }
         else if case .AI_VALIDATION_TYPE_CONFIRMPASSWORD = validationType {
             message = message_ConfirmPassword_Blank
         }
@@ -419,6 +427,12 @@ class AITextValidation: NSObject {
         }
         else if case .AI_VALIDATION_TYPE_PASSWORD = validationType {
             message = message_Password_NotValid
+        }
+        else if case .AI_VALIDATION_TYPE_OLDPASSWORD = validationType {
+            message = message_OldPassword_NotValid
+        }
+        else if case .AI_VALIDATION_TYPE_NEWPASSWORD = validationType {
+            message = message_NewPassword_NotValid
         }
         else if case .AI_VALIDATION_TYPE_CONFIRMPASSWORD = validationType {
             message = message_ConfirmPassword_NotValid
@@ -522,8 +536,16 @@ let message_Email_NotValid = "Email address is invalid"
 let message_Password_Blank = "Password is required"
 let message_Password_NotValid = "Password must be having at least 6 characters"
 
+let message_OldPassword_Blank = "Old Password is required"
+let message_OldPassword_NotValid = "Old Password must be having at least 6 characters"
+
+let message_NewPassword_Blank = "New Password is required"
+let message_NewPassword_NotValid = "New Password must be having at least 6 characters"
+
 let message_ConfirmPassword_Blank = "Confirm Password is required"
 let message_ConfirmPassword_NotValid = "Confirm Password must be having at least 6 characters"
+let message_ConfirmPassword_NotMatch = "New Password and Confirm Password not match"
+
 
 let message_Campus_Blank = "Campus selection is required"
 let message_Location_Blank = "Delivery Location selection is required"

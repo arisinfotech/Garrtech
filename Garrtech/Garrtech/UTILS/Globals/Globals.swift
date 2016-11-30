@@ -43,7 +43,16 @@ func printT(_ items: Any...) {
     }
 }
 
+// MARK:- ________________________ APP LOADER  ________________________
+// MARK:
 
+func showHUD() {
+    JTProgressHUD.show()
+}
+
+func hideHUD() {
+    JTProgressHUD.hide()
+}
 
 
 //MARK:- ________________________ DEVICE CHECK ________________________
@@ -172,6 +181,12 @@ func remove_UD(key: String) {
 
 //MARK:- ________________________ ALL KEYS ________________________
 
+// NOTIFICATION KEYS
+
+let Notification_DropDown = "callNotificationDropDown"
+
+
+// API KEYS
 let key = "anyKey"
 
 let kUSERLOGIN          = "user"
@@ -202,12 +217,29 @@ let kCredit_score       = "credit_score"
 let kInvoice_business_customers = "invoice_business_customers"
 let kLoan_title          = "loan_title"
 let kLoan_desc           = "loan_desc"
+let kCompletedStep      = "completed_Step"
+
+let kDisp_Name      = "disp_name"
+let kMin_val        = "min_val"
+let kMax_val        = "max_val"
+let kType           = "type"
+let kannual_revenue = "annual_revenue"
+let kcredit_score   = "credit_score"
+let kloan_amt_need  = "loan_amt_need"
+let ktime_in_business = "time_in_business"
+
+let ac_rec_factor = "ac_rec_factor"
+let bankruptcy_allowed = "bankruptcy_allowed"
+let profitability_required = "profitability_required"
+let sec_pos_allowed = "sec_pos_allowed"
+let cc_volume_factor = "cc_volume_factor"
 
 
 //MARK: ----- Bank Step One -----
 
 let kSubmit_type                = "submit_type"
 let kApplication_id             = "application_id"
+let KLone_id                    = "loan_type_id"
 let kStep1Legal_business_name   = "legal_business_name"
 let kstep1Dba_name              = "dba_name"
 let kStep1legal_entity          = "legal_entity"
@@ -233,6 +265,18 @@ let kStep1rent_payment          = "rent_payment"
 let kStep1Bankruptcy_protection  = "bankruptcy_protection"
 let kStep1tax_liens_agains_business   = "tax_liens_agains_business"
 
+let kStep1phy_street_num = "phy_street_num"
+let kStep1phy_street_name = "phy_street_name"
+let kStep1phy_apt = "phy_apt"
+let kStep1phy_city = "phy_city"
+let kStep1phy_state = "phy_state"
+let kStep1phy_zip = "phy_zip"
+let kStep1mail_street_num = "mail_street_num"
+let kStep1mail_street_name = "mail_street_name"
+let kStep1mail_apt = "mail_apt"
+let kStep1mail_city = "mail_city"
+let kStep1mail_state = "mail_state"
+let kStep1mail_zip = "mail_zip"
 
 //MARK: -----  Step Two -----
 //MARK:
@@ -253,6 +297,13 @@ let kStep3owner_name            = "owner_name"
 let kStep3owner_title           = "owner_title"
 let kStep3percentage_of_ownership   = "percentage_of_ownership"
 let kStep3home_address          = "home_address"
+let kStep3add_street_num         = "add_street_num"
+let kStep3add_street_name        = "add_street_name"
+let kStep3add_apt               = "add_apt"
+let kStep3add_city              = "add_city"
+let kStep3add_state             = "add_state"
+let kStep3add_zip               = "add_zip"
+
 let kStep3home_phone            = "home_phone"
 let kStep3home_mobile_number    = "home_mobile_number"
 let kStep3owner_email           = "owner_email"
@@ -262,7 +313,6 @@ let kStep3drivers_licence       = "drivers_licence"
 let kStep3drivers_licence_states    = "drivers_licence_states"
 let kStep3how_fast_need         = "how_fast_need"
 let kStep3how_long_pay_back     = "how_long_pay_back"
-
 //MARK: ----- Step Four Mehtods -----
 //MARK:
 

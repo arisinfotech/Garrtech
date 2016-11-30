@@ -14,7 +14,7 @@ import UIKit
 
 
 //  APP NAME
-let APP_NAME = "Asra"
+let APP_NAME = "Garrtech"
 
 
 // ALL MESSAGES

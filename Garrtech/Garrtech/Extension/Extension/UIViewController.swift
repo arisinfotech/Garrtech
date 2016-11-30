@@ -41,6 +41,7 @@ extension UIViewController {
          */
     }
     
+    /*
     func showHUD() {
         JTProgressHUD.show()
     }
@@ -48,13 +49,21 @@ extension UIViewController {
     func hideHUD() {
         JTProgressHUD.hide()
     }
-   
+    */
+ 
     func statusBarLight(isLight: Bool) {
         UIApplication.shared.statusBarStyle = isLight ? .lightContent : .default
     }
     func removeNavigationBarItem() {
        self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.rightBarButtonItem = nil
+    }
+    func hideNavigationBar() {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    func showNavigationBar() {
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     func setAppearanceOfNavigationBar(navCont : UINavigationController)
@@ -72,8 +81,8 @@ extension UIViewController {
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize.zero
         self.navigationController?.navigationBar.layer.shadowRadius = 7
   
-        let item = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
-        self.navigationItem.backBarButtonItem = item
+//        let item = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+//        self.navigationItem.backBarButtonItem = item
         
     }
     
@@ -158,6 +167,11 @@ extension UIViewController {
     @IBAction public func presentRightMenuViewController(sender: AnyObject!) {
       //  self.sideMenuViewController!.presentRightMenuViewController()
         
+    }
+    
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     // MARK: - NAVIAGATE FUNCTION

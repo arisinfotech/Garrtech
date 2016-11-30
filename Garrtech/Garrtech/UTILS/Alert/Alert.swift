@@ -13,6 +13,9 @@ let cancelButtonIndex = 1000
 
 class Alert: NSObject {
 
+    class func displayErrorDevMessage(str: String) {
+        self.displayAlert(title: APP_NAME, message: str, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+    }
     
     class func displayAlertFromController(controller: UIViewController, withTitle: String, message: String?, otherButtonTitles: NSArray?, isOkayButton: Bool, preferredAlertStyle: UIAlertControllerStyle, withComplition: ((_ index: Int) -> Void)?){
     
@@ -80,6 +83,10 @@ class Alert: NSObject {
                         }
                     }
             }
+    }
+    
+    class func displayUnderDevMessage() {
+        self.displayAlert(title: APP_NAME, message: "This Functionlity is under development", otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
     }
     
     class func notImplemented() {

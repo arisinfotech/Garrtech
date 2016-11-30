@@ -7,31 +7,70 @@
 //
 
 import UIKit
+import MessageUI
 
 class MessageViewController: BaseViewController {
-   
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.title = "APPLICATION SUBMITTED"
-                
-      
+        
+        self.doSetUpScreen()
+        
     }
+    // MARK: - All Functions
+    
+    func doSetUpScreen() {
+        
+        self.title = "APPLICATION SUBMITTED"
+        self.navigationItem.hidesBackButton = true
+        self.setRightSideButtonWithImage(Name: "home.png", selector:  #selector(self.popToRoot))
+        
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func contactUSPress() {
+        if !MFMailComposeViewController.canSendMail() {
+            
+            Alert.displayErrorDevMessage(str: "Mail services are not available please configure email")
+            
+            print("Mail services are not available")
+            return
+        }
+        else
+        {
+            let composeVC = MFMailComposeViewController()
+            composeVC.mailComposeDelegate = self
+            
+            // Configure the fields of the interface.
+            composeVC.setToRecipients(["garraffaroberto@hotmail.com"])
+            composeVC.setSubject("")
+            composeVC.setMessageBody("", isHTML: false)
+            
+            // Present the view controller modally.
+            self.present(composeVC, animated: true, completion: nil)
+        }
     }
-    */
+    
+}
 
+extension MessageViewController : MFMailComposeViewControllerDelegate {
+    
+    
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult, error: Error?) {
+        // Check the result or perform other tasks.
+        
+        // Dismiss the mail compose view controller.
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
 }

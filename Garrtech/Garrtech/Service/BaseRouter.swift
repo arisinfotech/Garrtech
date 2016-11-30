@@ -9,5 +9,4 @@
 import Foundation
 import Alamofire
 
-public typealias JSONDictionary = [String: AnyObject]
-typealias APIParams = [String : AnyObject]?
+

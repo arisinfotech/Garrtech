@@ -31,6 +31,10 @@ enum AITextFieldValidationType_Square : Int {
     
     case CampusSelection
     
+    case Date
+    case BirthDate
+    
+    
 }
 
 enum characterset : String {
@@ -75,7 +79,7 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
             return self.textFieldValidationType
         }
         set {
-            txtType = newValue
+            self.txtType = newValue
         }
     }
     
@@ -147,7 +151,7 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
         self.borderStyle = .roundedRect
         self.backgroundColor = UIColor.Color_AppBackground()
         
-      
+        
 //        //SET SHADOW EFFECT
 //        self.layer.masksToBounds = false
 //        self.layer.shadowRadius = 5.0
@@ -155,6 +159,21 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
 //        self.layer.shadowOffset = CGSize(width: 0.0, height:0.0)
 //        self.layer.shadowOpacity = 0.5
     
+
+    
+        self.addTarget(self, action:#selector(self.textFieldEditing), for: .editingDidBegin)
+        
+//        UITextField *eTextField = [[UITextField alloc] initWithFrame:CGRectMake(110, 12, 145, 25)];
+//        eTextField.delegate = self;
+//        [eTextField addTarget:self action:@selector(showPicker)
+//        forControlEvents:UIControlEventTouchUpInside];
+//        
+//        if txtType == .Text
+//        {
+//
+//            
+//        }
+        
     }
     
     func fixUI()  {
@@ -210,6 +229,42 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
         self.setupBorderTextFiled()
     }
     
+    @IBAction func textFieldEditing(sender: UITextField) {
+        // 6
+        
+        let gregorian: NSCalendar = NSCalendar(calendarIdentifier: .gregorian)!
+        let currentDate: NSDate = NSDate()
+        let components: NSDateComponents = NSDateComponents()
+        components.year = -18
+        let minDate: NSDate = gregorian.date(byAdding: components as DateComponents, to: currentDate as Date, options:  NSCalendar.Options(rawValue: 0))! as NSDate
+        
+        
+        
+        if txtType == .Date || txtType == .BirthDate {
+        
+            let datePickerView:UIDatePicker = UIDatePicker()
+            datePickerView.datePickerMode = UIDatePickerMode.date
+            
+            if txtType == .Date {
+                datePickerView.maximumDate = NSDate() as Date
+            }else{
+                datePickerView.maximumDate = minDate as Date // NSDate() as Date
+            }
+                
+            sender.inputView = datePickerView
+            datePickerView.addTarget(self, action: #selector(self.datePickerValueChanged), for: UIControlEvents.valueChanged)
+      
+        }
+        
+        
+    }
+    func datePickerValueChanged(sender:UIDatePicker) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+       // dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+        self.text = dateFormatter.string(from: sender.date)
+    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
@@ -237,6 +292,14 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
         else if txtType == .Password {
             textField.keyboardType = UIKeyboardType.numbersAndPunctuation
             textField.isSecureTextEntry = true
+        }
+        else if txtType == .Date || txtType == .BirthDate{
+        
+            if textField.text?.length == 0{
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                self.text = dateFormatter.string(from: NSDate() as Date)
+            }
         }
         
         textField.autocorrectionType = UITextAutocorrectionType.no

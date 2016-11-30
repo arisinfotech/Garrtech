@@ -23,6 +23,8 @@ public class UIDropDown: UIControl {
     
     public fileprivate(set) var selectedIndex: Int?
     public var options = [String]()
+    public var loanOptionsArr = [LoanOptions]()
+    public var isloanOption: Bool = false
     public var hideOptionsWhenSelect = true
     public var placeholder: String! {
         didSet {
@@ -105,12 +107,13 @@ public class UIDropDown: UIControl {
     
     // Table Configurations
     public var animationType: UIDropDownAnimationType = .Default
-    public var tableHeight: CGFloat = 100.0
+    public var tableHeight: CGFloat = 200.0
     public var rowHeight: CGFloat?
     public var rowBackgroundColor: UIColor?
     
     // Closures
     fileprivate var privatedidSelect: (String, Int) -> () = {option, index in }
+    fileprivate var privatedidSelectLoanOption: (LoanOptions, Int) -> () = {option, index in }
     fileprivate var privateTableWillAppear: () -> () = { }
     fileprivate var privateTableDidAppear: () -> () = { }
     fileprivate var privateTableWillDisappear: () -> () = { }
@@ -156,9 +159,16 @@ public class UIDropDown: UIControl {
                                       y: arrowPadding),
                       size: arrowContainer.frame.width-(arrowPadding*2))
         arrow.backgroundColor = .black
-        arrowContainer.addSubview(arrow)
-       
-        self.tint=UIColor.lightGray
+        let imageName = "Icon-Dropdown"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: arrow.frame.origin.x, y: arrow.frame.origin.x, width: arrow.frame.size.width, height: arrow.frame.size.height)
+        
+        arrowContainer.addSubview(imageView)
+        imageView.contentMode = UIViewContentMode.center
+
+        self.tint=UIColor.Color_LightGray()
+        
         self.optionsTextColor=UIColor.gray
         self.backgroundColor = UIColor.clear
         self.layer.cornerRadius = cornerRadius
@@ -168,16 +178,17 @@ public class UIDropDown: UIControl {
     }
     
     @objc fileprivate func touch() {
+        
+        PostNotificatio_CALL(key: Notification_DropDown)
+        
         isSelected = !isSelected
         isSelected ? showTable() : hideTable()
         
-        print(isSelected)
+        //print(isSelected)
         
         if isSelected {
         
-            
         }else{
-        
             
         }
     }
@@ -328,6 +339,10 @@ public class UIDropDown: UIControl {
         privatedidSelect = completion
     }
     
+    func didSelectedLoan(completion: @escaping (_ selectedLoan: LoanOptions, _ index: Int) -> ()) {
+        privatedidSelectLoanOption = completion
+    }
+    
     public func tableWillAppear(completion: @escaping () -> ()) {
         privateTableWillAppear = completion
     }
@@ -348,6 +363,10 @@ public class UIDropDown: UIControl {
 extension UIDropDown: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if isloanOption == true {
+            return loanOptionsArr.count
+        }
         return options.count
     }
     
@@ -368,7 +387,14 @@ extension UIDropDown: UITableViewDataSource {
         cell!.textLabel?.font = UIFont.Font_Helvetica_Regular(fontSize: 14.0)
         cell!.textLabel!.textColor = optionsTextColor ?? tint ?? cell!.textLabel!.textColor
         cell!.textLabel!.textAlignment = optionsTextAlignment ?? cell!.textLabel!.textAlignment
-        cell!.textLabel!.text = "\(options[indexPath.row])"
+        
+        if isloanOption == true {
+            cell!.textLabel!.text = "\(loanOptionsArr[indexPath.row].disp_name!)"
+        } else {
+            cell!.textLabel!.text = "\(options[indexPath.row])"
+        }
+        
+        
         cell!.accessoryType = indexPath.row == selectedIndex ? .checkmark : .none
         cell!.selectionStyle = .none
         
@@ -382,7 +408,14 @@ extension UIDropDown: UITableViewDelegate {
         selectedIndex = (indexPath as NSIndexPath).row
         
         title.alpha = 0.0
-        title.text = "  \(self.options[(indexPath as NSIndexPath).row])"
+        
+        if isloanOption == true {
+                title.text = "  \(self.loanOptionsArr[(indexPath as NSIndexPath).row].disp_name!)"
+        } else {
+                title.text = "  \(self.options[(indexPath as NSIndexPath).row])"
+        }
+        
+        
         
         UIView.animate(withDuration: 0.6,
                        animations: { () -> Void in
@@ -395,7 +428,13 @@ extension UIDropDown: UITableViewDelegate {
             hideTable()
         }
         
-        privatedidSelect("\(self.options[indexPath.row])", selectedIndex!)
+        if isloanOption == true {
+            privatedidSelectLoanOption(self.loanOptionsArr[indexPath.row], selectedIndex!)
+        } else {
+            privatedidSelect("\(self.options[indexPath.row])", selectedIndex!)
+        }
+        
+        
     }
 }
 

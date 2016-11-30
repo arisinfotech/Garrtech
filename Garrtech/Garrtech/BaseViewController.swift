@@ -14,7 +14,6 @@ class BaseViewController: UIViewController {
     @IBOutlet var view_Upper: UIView! = UIView()
 
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

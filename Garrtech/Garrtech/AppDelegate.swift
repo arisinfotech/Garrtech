@@ -8,24 +8,39 @@
 
 import UIKit
 import UserNotifications
+import Alamofire
+
+var deviceTokenString = ""
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-    var loginViewController: LoginViewController!
-    var messageViewController: BusinessLoanViewController!
     var navigationVC: UINavigationController?
-    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        self.redirectToLoginVC()
+        sleep(3)
+        
+        Reachability.sharedInstance.checkReachability()
+        
+        if CurrentUser.sharedInstance.id != nil
+        {
+           // self.redirectToHomeVC()
+          // self.redirectToOtherVC()
+        //self.redirectToLoginVC()
+        }
+        else
+        {
+            self.redirectToLoginVC()
+        }
+
         self.registerPushNotification(application)
         return true
     }
-    
+        
     func registerPushNotification(_ application: UIApplication) {
         if #available(iOS 10.0, *) {
             let center = UNUserNotificationCenter.current()
@@ -36,34 +51,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         } else {
             // Fallback on earlier versions
         }
-        
     }
     
-
-
     func redirectToLoginVC() {
         
-        
-        
-        loginViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        
-//        let HomeViewControllerOnj = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-       navigationVC = UINavigationController.init(rootViewController: loginViewController)
+        let loginVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        navigationVC = UINavigationController.init(rootViewController: loginVC)
         self.window?.rootViewController = navigationVC
- 
     }
-    func redirectToHoneVC() {
+    
+    func redirectToHomeVC() {
         
-        messageViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BusinessLoanViewController") as! BusinessLoanViewController
-        
-        navigationVC = UINavigationController.init(rootViewController: messageViewController)
+        let HomeVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        navigationVC = UINavigationController.init(rootViewController: HomeVC)
         self.window?.rootViewController = navigationVC
-        
     }
+    func redirectToOtherVC() {
+        
+    
+        let objVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MessageViewController") as! MessageViewController
+        navigationVC = UINavigationController.init(rootViewController: objVC)
+        self.window?.rootViewController = navigationVC
+    }
+    
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
-        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         print(deviceTokenString)
         
         
@@ -96,7 +110,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 

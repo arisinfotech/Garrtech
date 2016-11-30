@@ -9,16 +9,8 @@
 import Foundation
 
 
-let kDisp_Name      = "disp_name"
-let kMin_val        = "min_val"
-let kMax_val        = "max_val"
-let kType           = "type"
-let kannual_revenue = "annual_revenue"
-let kcredit_score   = "credit_score"
-let kloan_amt_need  = "loan_amt_need"
-let ktime_in_business = "time_in_business"
 
-class LoanOptions {
+public class LoanOptions {
  
     var id: String?
     var disp_name: String?
@@ -51,3 +43,5 @@ class LoanOptions {
     }
     
 }
+
+

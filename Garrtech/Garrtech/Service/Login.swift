@@ -10,14 +10,18 @@ import Foundation
 import Alamofire
 
 
+enum CompleteStep {
+    case BusinessInfo,CompanyInfo,OwnerInfo,DocList
+}
+
 
 class Login {
     
     var email: String?
     var password: String?
-    var device_id: String?
-    var os_type: String?
-    var push_token: String?
+    var device_id: String? = deviceID
+    var os_type: String? = "iOS"
+    var push_token: String? = "qwertyuiop"
     
     func toJsonDictionary() -> JSONDictionary {
         
@@ -41,7 +45,7 @@ class CurrentUser {
     var email: String?
     var is_confirm: String?
     var api_key: String?
-    
+    var image: String?
     
     public class var sharedInstance: CurrentUser {
         struct Singleton {
@@ -60,7 +64,7 @@ class CurrentUser {
     
     func populateWithJSON(dict:JSONDictionary) {
         
-        if let id = dict[kID] as? String{
+        if let id = dict[KUser_id] as? String{
             self.id = id
         }
         
@@ -83,6 +87,10 @@ class CurrentUser {
         if let api_key = dict[kApi_key] as? String {
             self.api_key = api_key
         }
+        
+        if let image = dict[kUser_avatar] as? String{
+            self.image = image
+        }
     }
     
     func toJsonDictionary() -> JSONDictionary {
@@ -95,7 +103,8 @@ class CurrentUser {
         if let email = email { dict[kEmail] = email as AnyObject? }
         if let is_confirm = is_confirm { dict[kIS_confirm] = is_confirm as AnyObject? }
         if let api_key = api_key { dict[kApi_key] = api_key as AnyObject? }
-    
+        if let image = image { dict[kUser_avatar] = image as AnyObject? }
+        
         return dict
     }
     
@@ -105,5 +114,21 @@ class CurrentUser {
         return ["x-api-key":(self.api_key as AnyObject) as! String]
         
     }
+    
+}
+
+class ForgotPassword {
+    
+    var email: String?
+    
+    func toJsonDict() -> JSONDictionary {
+        
+        var dict: JSONDictionary = [:]
+        
+        if let email = email { dict[kEmail] = email as AnyObject? }
+        
+        return dict
+    }
+    
     
 }

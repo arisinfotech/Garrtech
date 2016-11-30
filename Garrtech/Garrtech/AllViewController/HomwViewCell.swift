@@ -16,5 +16,20 @@ class HomwViewCell: UICollectionViewCell {
     
     @IBOutlet var backgroundImageObj: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+    
+    
+    
+    func  selectCell() {
+        
+        
+        
+    }
+    
+   
     
 }
+

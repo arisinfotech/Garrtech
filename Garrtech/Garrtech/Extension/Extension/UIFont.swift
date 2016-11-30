@@ -74,10 +74,10 @@ extension UIFont  {
     
     //  SET PROPORTIONAL FONT SIZE
     class func PROPORTIONAL_FONT_SIZE(fontSize : CGFloat) -> CGFloat {
-        if IS_IPHONE_4_OR_4S()  {   return fontSize-3  }
-        else if IS_IPHONE_5_OR_5S() {   return fontSize-2  }
-        else if IS_IPHONE_6_OR_6S() {   return fontSize-1 }
-        else if IS_IPHONE_6P_OR_6SP(){  return fontSize-0 }
+        if IS_IPHONE_4_OR_4S()  {   return fontSize-1  }
+        else if IS_IPHONE_5_OR_5S() {   return fontSize-0  }
+        else if IS_IPHONE_6_OR_6S() {   return fontSize-0 }
+        else if IS_IPHONE_6P_OR_6SP(){  return fontSize+1 }
         else { return fontSize+10 }
     }
     

@@ -16,30 +16,28 @@ class loanOptionSecondVc: BaseViewController,UICollectionViewDelegate,UICollecti
     var items = ["1", "2", "3", "4", "5", "6", "7", "8"]
     var SelectedIndex = NSInteger()
     @IBOutlet var viewHead : UIView!
-    @IBOutlet var BtnApply : UIButton!
+    
+    @IBOutlet var leadingConstraintOfScrollview: NSLayoutConstraint!
     
     
     override func viewDidLoad()
     {
-       super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.isHidden = false
-       collectionviewObj.dataSource=self
-       collectionviewObj.delegate=self
-//        collectionviewObj.reloadData()
-       SelectedIndex=0;
-        
-        
-//        viewHead.clipsToBounds = false
-//        viewHead.layer.shadowColor = UIColor.lightGray.cgColor
-//        viewHead.layer.shadowOffset = CGSize.zero
-//        viewHead.layer.shadowOpacity = 0.5
-        
-        
-        BtnApply.layer.cornerRadius=5.0;
-        BtnApply.layer.masksToBounds=true
-        
+        super.viewDidLoad()
+        self.doSetUpScreen()
+    
        
+    }
+    
+    func doSetUpScreen()  {
+        
+  
+        self.setLeftSideButtonWithImage(Name: "back", selector:#selector(self.popTo))
+        
+        collectionviewObj.dataSource=self
+        collectionviewObj.delegate=self
+        SelectedIndex=0;
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -97,6 +95,9 @@ class loanOptionSecondVc: BaseViewController,UICollectionViewDelegate,UICollecti
     {
         if sender.tag==1
         {
+            
+          //  leadingConstraintOfScrollview
+            
             if SelectedIndex>0
             {
                 SelectedIndex=SelectedIndex-1;

@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import MessageUI
 
 class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
+    
+    
+    enum CellIndex {
+        case NEWAPP,MYAPP,LOANINFO,BIZANYLI,PENDINGAPP,MYPROF
+    }
     
     @IBOutlet var collectionViewObj: UICollectionView!
     var selectedImages = NSMutableArray()
@@ -18,9 +24,25 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     var checkCellSeleted = false
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        appDelegate.navigationVC?.navigationBar.isHidden = false
+        super.viewDidLoad()
+        self.doSetUpScreen()
+        self.navigationController?.isNavigationBarHidden = false
+        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: -  ALL FUNCTION
+    
+    func doSetUpScreen()  {
+        
+        self.showNavigationBar()
         
         let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: navigationController, action: nil)
         navigationItem.leftBarButtonItem = backButton
@@ -47,22 +69,15 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         cellText.add("MY PROFILE")
         
         
-        //      self.navigationController?.navigationItem.setHidesBackButton(true, animated: false)
-        
-        self.navigationItem.title = "GARRTECH FUND"
+        self.title = "GARRTECH FUND"
         
         collectionViewObj.dataSource = self
         collectionViewObj.delegate = self
         
-        // Do any additional setup after loading the view.
         
     }
     
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK: - UICollectionView Deleget
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
@@ -98,7 +113,15 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         
-        self.performSegue(withIdentifier : "PushToForm", sender: nil)
+        if !Reachability.sharedInstance.isReachable() {
+            return
+        }
+        
+        if indexPath.row != 0 && indexPath.row != 5  {
+            Alert.displayUnderDevMessage()
+            return
+        }
+        
         
         let cell = collectionViewObj.cellForItem(at: indexPath) as! HomwViewCell
         cell.backgroundImageObj.isHidden = false
@@ -118,17 +141,78 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         
         checkCellSeleted = true
         indexpathSelected = indexPath
+        
+        if indexPath.row == CellIndex.NEWAPP.hashValue {
+            
+            var viewControllerIdentifire = ""
+            
+            if let index = UserDefaults.standard.value(forKey: kCompletedStep) as? Int {
+                
+                if index == CompleteStep.BusinessInfo.hashValue {
+                    viewControllerIdentifire = "CompanyLoanViewController"
+                } else if index == CompleteStep.CompanyInfo.hashValue {
+                    viewControllerIdentifire = "OwnerVc"
+                } else if index == CompleteStep.OwnerInfo.hashValue {
+                    viewControllerIdentifire = "DocumentListViewController"
+                } else if index == CompleteStep.DocList.hashValue {
+                    viewControllerIdentifire = "shortLoanVc"
+                }
+            } else {
+                viewControllerIdentifire = "shortLoanVc"
+                
+            }
+            pushTo(viewController: viewControllerIdentifire)
+            
+        } else if indexPath.row == CellIndex.MYAPP.hashValue {
+            pushTo(viewController: "MyApplicationListViewController")
+        } else if indexPath.row == CellIndex.LOANINFO.hashValue {
+            pushTo(viewController: "loanOptionSecondVc")
+        } else if indexPath.row == CellIndex.BIZANYLI.hashValue {
+            Alert.displayUnderDevMessage()
+        } else if indexPath.row == CellIndex.PENDINGAPP.hashValue {
+            pushTo(viewController: "PendingApplicationViewController")
+        } else if indexPath.row == CellIndex.MYPROF.hashValue {
+            pushTo(viewController: "ProfileVc")
+        }
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    
+    @IBAction func contactUSPress() {
+        if !MFMailComposeViewController.canSendMail() {
+            
+            Alert.displayErrorDevMessage(str: "Mail services are not available please configure email")
+            
+            print("Mail services are not available")
+            return
+        }
+        else
+        {
+            let composeVC = MFMailComposeViewController()
+            composeVC.mailComposeDelegate = self
+            
+            // Configure the fields of the interface.
+            composeVC.setToRecipients(["garraffaroberto@hotmail.com"])
+            composeVC.setSubject("")
+            composeVC.setMessageBody("", isHTML: false)
+            
+            // Present the view controller modally.
+            self.present(composeVC, animated: true, completion: nil)
+        }
+    }
+    
+}
+
+extension HomeViewController : MFMailComposeViewControllerDelegate {
+    
+    
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult, error: Error?) {
+        // Check the result or perform other tasks.
+        
+        // Dismiss the mail compose view controller.
+        controller.dismiss(animated: true, completion: nil)
+    }
     
 }
