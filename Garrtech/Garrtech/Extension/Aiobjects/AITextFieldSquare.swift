@@ -290,15 +290,32 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
             textField.keyboardType = UIKeyboardType.emailAddress
         }
         else if txtType == .Password {
-            textField.keyboardType = UIKeyboardType.numbersAndPunctuation
+            textField.keyboardType = UIKeyboardType.default
             textField.isSecureTextEntry = true
         }
         else if txtType == .Date || txtType == .BirthDate{
         
             if textField.text?.length == 0{
+                
+                let gregorian: NSCalendar = NSCalendar(calendarIdentifier: .gregorian)!
+                let currentDate: NSDate = NSDate()
+                let components: NSDateComponents = NSDateComponents()
+                components.year = -18
+                let minDate: NSDate = gregorian.date(byAdding: components as DateComponents, to: currentDate as Date, options:  NSCalendar.Options(rawValue: 0))! as NSDate
+                
+                
+                
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd/MM/yyyy"
-                self.text = dateFormatter.string(from: NSDate() as Date)
+                
+                if txtType == .Date {
+                   self.text = dateFormatter.string(from: NSDate() as Date)
+                }else{
+                    self.text = dateFormatter.string(from: minDate as Date)
+                }
+
+                
+                
             }
         }
         

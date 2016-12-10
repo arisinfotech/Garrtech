@@ -23,6 +23,15 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
     var bankruptcy = String()
     var Principal = String()
     
+    @IBOutlet var btnYesBankrupt: UIButton!
+    @IBOutlet var btnNoBankrupt: UIButton!
+    
+    @IBOutlet var btnYesPrinciple: UIButton!
+    @IBOutlet var btnNoPrinciple: UIButton!
+    
+    @IBOutlet var viewLegalEntity: UIView!
+    @IBOutlet var viewOwnerShip: UIView!
+
     
     @IBOutlet var txtBusinessName: AITextFieldSquare!
     @IBOutlet var txtDbaName: AITextFieldSquare!
@@ -56,6 +65,8 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
     @IBOutlet var txtWebSite: AITextFieldSquare!
     @IBOutlet var txtMailState: AITextFieldSquare!
     var BusinessLoan = LoanStepOne()
+    var BusinessLoanData = LoanStepOne()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,9 +77,30 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         Principal = "Y"
         bankruptcy = "Y"
         
+//        BusinessLoan.k_StepOne_loan_type_id = "1"
+        
+        
+//        print(CurrentUser.sharedInstance.pendingApp?.applicationID)
         self.doSetUpScreen()
         
+        
+        if CurrentUser.sharedInstance.pendingApp?.isPending == "Y" {
+            
+            APIManager.sharedInstance.getStepOneData(appID: (CurrentUser.sharedInstance.pendingApp?.applicationID)!, stepId: "1", completion: { (loanData:LoanStepOne?, error:NSError?) in
+                
+                if error == nil {
+                    self.setFillData(loanData: loanData!)
+                    self.BusinessLoan.k_application_id = CurrentUser.sharedInstance.pendingApp?.applicationID!
+                }
+            })
+        } else {
+            BusinessLoan.k_StepOne_loan_type_id = loanID
+            
+        }
+        
     }
+    
+    
     
     // MARK:- allFunction
     
@@ -170,7 +202,6 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         txtProductSold.setUpTextFieldForLengthValidation(minLength: 1, maxLength: txtMax_Length)
         txtProductSold.textFieldValidationType = .Text
         
-        
     }
     
     
@@ -199,8 +230,22 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
     
     // MARK:- AllActions
     
-    @IBAction func btn_NextClick() {
+    @IBAction func btn_NextClick(sender: UIButton) {
         
+        if !Reachability.sharedInstance.isReachable() {
+            return
+        }
+        
+        self.dismissKeyboard()
+        
+        
+        if sender.tag == 1 {
+            self.valicationComplete(saveType: sender.tag)
+            return
+        } else {
+            BusinessLoan.k_submit_type = "next"
+        }
+
         if BusinessTextValidation.isValidate(textField: txtBusinessName, validationType: .AI_VALIDATION_TYPE_BUSINESS_NAME) {
             if BusinessTextValidation.isValidate(textField: txtDbaName, validationType: .AI_VALIDATION_TYPE_DBA_NAME) {
                 if BusinessTextValidation.isValidate(textField: txtDate, validationType: .AI_VALIDATION_TYPE_DATE_ESTABLISHED) {
@@ -230,11 +275,7 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
                                                                                                                 if BusinessTextValidation.isValidate(textField: txtLandlordContactName, validationType: .AI_VALIDATION_TYPE_BUSINESS_LANDLORD_MORTGAGE_COTACT_NAME) {
                                                                                                                     if BusinessTextValidation.isValidate(textField: txtLandlordMortgageCompanyPhone, validationType: .AI_VALIDATION_TYPE_BUSINESS_LANDLORD_MORTGAGE_COMPANY_PHONE) {
                                                                                                                         if BusinessTextValidation.isValidate(textField: txtRentMortgagePayment, validationType: .AI_VALIDATION_TYPE_BUSINESS_RENT_MORTGAGE_PAYMENT) {
-                                                                                                                            
-                                                                                                                            if !Reachability.sharedInstance.isReachable() {
-                                                                                                                                return
-                                                                                                                            }
-                                                                                                                            self.valicationComplete()
+                                                                                          self.valicationComplete(saveType: sender.tag)
                                                                                                                         }
                                                                                                                         
                                                                                                                     }
@@ -268,17 +309,28 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         
     }
     
-    func valicationComplete() {
+    func valicationComplete(saveType: Int)
+    {
+        
+        
         BusinessLoan.k_kuser_id = CurrentUser.sharedInstance.id
-        BusinessLoan.k_StepOne_loan_type_id = "1"
-        BusinessLoan.k_submit_type = "next"
-        
-        
-        
         BusinessLoan.k_legal_business_name = txtBusinessName.text
         BusinessLoan.k_dba_name = txtDbaName.text
-        BusinessLoan.k_legal_entity = LegalEntity
-        BusinessLoan.k_date_business_eslablished = txtDate.text
+        
+        BusinessLoan.k_legal_entity = self.trimText(str: LegalEntity)
+        
+//        BusinessLoan.k_legal_entity = LegalEntity
+        
+        let myDateString = txtDate.text
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let myDate = dateFormatter.date(from: myDateString!)!
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let somedateString = dateFormatter.string(from: myDate)
+        BusinessLoan.k_date_business_eslablished = somedateString
+        
+        
         BusinessLoan.k_business_classification = txt_Retail.text
         
         //Physical Address
@@ -310,7 +362,9 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         BusinessLoan.k_business_tax_number = txtTaxIDNumberOrBusinessNumber.text
         BusinessLoan.k_terminal_model = txtTerminalPosMakeModel.text
         
-        BusinessLoan.k_property_ownership = PropertyOwner
+        BusinessLoan.k_property_ownership = self.trimText(str: PropertyOwner)
+
+//        BusinessLoan.k_property_ownership = PropertyOwner
         BusinessLoan.k_years_in_control = txtYearsInControl.text
         BusinessLoan.k_months_in_control = txtMonthInControl.text
         BusinessLoan.k_product_sold = txtProductSold.text
@@ -323,19 +377,143 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         
         APIManager.sharedInstance.loanStepOne(stepOne: BusinessLoan) { (error:NSError?) in
             
-            
             if error == nil
             {
-                print(error)
-                self.moveToComanyLoanScreen()
+                if saveType == 1 {
+                    self.popToRoot()
+                } else {
+                    self.moveToComanyLoanScreen()
+                    
+                }
             }
             else
             {
                 print("Success")
             }
         }
+    }
+    
+    func setFillData(loanData: LoanStepOne) {
+        
+        BusinessLoan.k_kuser_id = CurrentUser.sharedInstance.id
+        
+        txtBusinessName.text = loanData.k_legal_business_name!
+        txtDbaName.text = loanData.k_dba_name!
+        LegalEntity = loanData.k_legal_entity!
+        txtDate.text = loanData.k_date_business_eslablished
+        
+        txt_Retail.text = loanData.k_business_classification
+        
+        //Physical Address
+        
+        txtPhyStreetNumber.text = loanData.k_phy_street_num
+        txtPhyStreetName.text = loanData.k_phy_street_name
+        txtPhyAptSuit.text = loanData.k_phy_apt
+        txtPhyCity.text = loanData.k_phy_city
+        txtPhyState.text = loanData.k_phy_state
+        txtPhyZipCode.text = loanData.k_phy_zip
+        
+        // Mailing Address
+        
+        txtMailStreenNo.text = loanData.k_mail_street_num
+        txtMailStreetName.text = loanData.k_mail_street_name
+        txtMailApiSuite.text = loanData.k_mail_apt
+        txtMailCity.text = loanData.k_mail_city
+        txtMailState.text = loanData.k_mail_state
+        txtMailZipCode.text = loanData.k_mail_zip
+        
+        
+        // Business Address
+        
+        txtPhone.text = loanData.k_business_phone
+        txtFax.text = loanData.k_business_fax
+        txtMobile.text = loanData.k_business_mobile
+        txtEmailAddress.text = loanData.k_business_email
+        txtWebSite.text = loanData.k_business_website
+        txtTaxIDNumberOrBusinessNumber.text = loanData.k_business_tax_number
+        txtTerminalPosMakeModel.text = loanData.k_terminal_model
+        
+        PropertyOwner = loanData.k_property_ownership!
+        txtYearsInControl.text = loanData.k_years_in_control
+        txtMonthInControl.text = loanData.k_months_in_control
+        txtProductSold.text = loanData.k_product_sold
+        txtLandlordMortgageCompanyName.text = loanData.k_landlord_company_name
+        txtLandlordContactName.text = loanData.k_landlord_contact_name
+        txtLandlordMortgageCompanyPhone.text = loanData.k_landlord_contact_number
+        txtRentMortgagePayment.text = loanData.k_rent_payment
+        
+        let myDateString = txtDate.text
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let myDate = dateFormatter.date(from: myDateString!)!
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let somedateString = dateFormatter.string(from: myDate)
+        txtDate.text = somedateString
+
+        
+        if loanData.k_bankruptcy_protection! == "N"
+        {
+            btnYesBankrupt.setImage(UIImage(named: "radiooff"), for: .normal)
+            btnNoBankrupt.setImage(UIImage(named: "radioon"), for: .normal)
+        }
+        else
+        {
+            btnYesBankrupt.setImage(UIImage(named: "radioon"), for: .normal)
+            btnNoBankrupt.setImage(UIImage(named: "radiooff"), for: .normal)
+        }
+        
+        if loanData.k_tax_liens_agains_business! == "N"
+        {
+            btnYesPrinciple.setImage(UIImage(named: "radiooff"), for: .normal)
+            btnNoPrinciple.setImage(UIImage(named: "radioon"), for: .normal)
+        }
+        else
+        {
+            btnYesPrinciple.setImage(UIImage(named: "radioon"), for: .normal)
+            btnNoPrinciple.setImage(UIImage(named: "radiooff"), for: .normal)
+        }
+        
+        
+        for view in viewLegalEntity.subviews as [UIView] {
+            
+            if let btn = view as? UIButton
+            {
+                let strbtn = self.trimText(str: (btn.titleLabel?.text)!)
+                
+                if strbtn == loanData.k_legal_entity! {
+                    btn.setImage(UIImage(named: "radioon"), for: .normal)
+                }
+                else
+                {
+                    btn.setImage(UIImage(named: "radiooff"), for: .normal)
+                }
+                
+            }
+        }
+        
+        for view in viewOwnerShip.subviews as [UIView] {
+            
+            if let btn = view as? UIButton
+            {
+                let strbtn = self.trimText(str: (btn.titleLabel?.text)!)
+                
+                if strbtn == PropertyOwner {
+                    btn.setImage(UIImage(named: "radioon"), for: .normal)
+                }
+                else
+                {
+                    btn.setImage(UIImage(named: "radiooff"), for: .normal)
+                }
+            }
+        }
+        
+  
+        bankruptcy = loanData.k_bankruptcy_protection!
+        Principal = loanData.k_tax_liens_agains_business!
         
     }
+    
     
     @IBAction func sameAsabovePress(sender: UIButton) {
         
@@ -345,13 +523,14 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         txtMailApiSuite.text = txtPhyAptSuit.text
         txtMailStreetName.text = txtPhyStreetName.text
         txtMailStreenNo.text = txtPhyStreetNumber.text
-        
     }
     
     
     func moveToComanyLoanScreen() {
         
-        pushTo(viewController: "CompanyLoanViewController")
+        let complenyVc = self.storyboard?.instantiateViewController(withIdentifier: "CompanyLoanViewController") as! CompanyLoanViewController
+        complenyVc.isNext = true
+        pushTOVC(controller: complenyVc)
         
     }
     
@@ -365,11 +544,14 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
                 btn.setImage(UIImage(named: "radiooff"), for: .normal)
             }
         }
+        
         sender.setImage(UIImage(named: "radioon"), for: .normal)
+        
         LegalEntity=(sender.titleLabel?.text)!
         print(LegalEntity)
         
     }
+    
     @IBAction func btn_SelectProperty(_ sender: UIButton) {
         
         let viewTmp = sender.superview! as UIView
@@ -383,6 +565,7 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         PropertyOwner=(sender.titleLabel?.text)!
         
     }
+    
     @IBAction func btn_PendingPrincipal(_ sender: UIButton) {
         
         let viewTmp = sender.superview! as UIView
@@ -407,12 +590,13 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         
         let viewTmp = sender.superview! as UIView
         for view in viewTmp.subviews as [UIView] {
-            
             if let btn = view as? UIButton {
                 btn.setImage(UIImage(named: "radiooff"), for: .normal)
             }
         }
+        
         sender.setImage(UIImage(named: "radioon"), for: .normal)
+        
         if sender.titleLabel?.text?.whiteSpaceTrimmedString() == "Yes"
         {
             bankruptcy = "Y"
@@ -438,11 +622,16 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
     // MARK:- scrollviewDeleget
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        let object1:Bool = drop_Retail.resign()
-        object1
+        _ = drop_Retail.resign()
         
     }
     
+    func trimText(str:String) -> String
+    {
+        let trimmedString = str.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        return trimmedString
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

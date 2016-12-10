@@ -70,8 +70,9 @@ class shortLoanVc: BaseViewController,UIScrollViewDelegate {
     
     
     func call_LoanOptionAPI()  {
+    
         
-        APIManager.sharedInstance.LoanOption(completion: { (amountYouNeed:[LoanOptions], inBusiness:[LoanOptions], annualRevenue:[LoanOptions], craditScore:[LoanOptions]) in
+        APIManager.sharedInstance.LoanOption(completion: { (amountYouNeed:[LoanOptions], craditScore:[LoanOptions], annualRevenue:[LoanOptions], inBusiness:[LoanOptions]) in
             
             self.loanAmountYouNeed = amountYouNeed
             self.timeInBusiness = inBusiness
@@ -99,8 +100,8 @@ class shortLoanVc: BaseViewController,UIScrollViewDelegate {
         }) { (error:NSError?) in
             
         }
-        
     }
+    
     func call_ApplyForLoanAPI()  {
         
         applyForLoan.user_id = CurrentUser.sharedInstance.id!

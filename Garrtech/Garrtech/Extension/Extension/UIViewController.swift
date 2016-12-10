@@ -179,6 +179,10 @@ extension UIViewController {
     func pushTo(viewController:String) {
         self.navigationController?.pushViewController((self.storyboard?.instantiateViewController(withIdentifier: viewController))!, animated: true)
     }
+    
+    func pushTOVC(controller: UIViewController) {
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     func popTo() {
         self.navigationController!.popViewController(animated: true)
     }

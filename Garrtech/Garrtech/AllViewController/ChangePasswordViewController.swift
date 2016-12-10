@@ -25,6 +25,7 @@ class ChangePasswordViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool)
     {
        // self.showNavigationBar()
+        super.viewWillAppear(animated)
         
     }
     // MARK: - ALL FUNCTIONS
@@ -49,15 +50,18 @@ class ChangePasswordViewController: BaseViewController {
     func call_ChangePasswordAPI() {
         
         let password = ChangePassword()
+        password.user_id = CurrentUser.sharedInstance.id!
         password.old_password = txtOldPassword.text
         password.new_password = txtNewPassword.text
         password.confirm_password = txtComfirmPassword.text
+        
+        
         
         APIManager.sharedInstance.ChangePassword(password: password) { (error:NSError?) in
             
             if error == nil
             {
-                
+                self.popTo()
             }
             
         }
@@ -86,9 +90,6 @@ class ChangePasswordViewController: BaseViewController {
                         if Reachability.sharedInstance.isReachable() {
                                 self.call_ChangePasswordAPI()
                         }
-                        
-                        
-                        
                     }else{
                     
                         Alert.displayAlertWithMessage(message: message_ConfirmPassword_NotMatch, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: { (index) in

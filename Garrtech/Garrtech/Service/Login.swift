@@ -46,6 +46,12 @@ class CurrentUser {
     var is_confirm: String?
     var api_key: String?
     var image: String?
+    var pendingApp: PendingApp?
+    
+    
+    //MARK: ----- Pending APP -----
+    //MARK:
+    
     
     public class var sharedInstance: CurrentUser {
         struct Singleton {
@@ -91,23 +97,36 @@ class CurrentUser {
         if let image = dict[kUser_avatar] as? String{
             self.image = image
         }
+        
+        if let pendingApp = dict[kAPP_Pending] as? JSONDictionary {
+            let pendingAppTemp = PendingApp()
+            pendingAppTemp.populateWithJSON(dict: pendingApp)
+            self.pendingApp = pendingAppTemp
+        }
     }
     
     func toJsonDictionary() -> JSONDictionary {
         
         var dict : JSONDictionary = [:]
-        
-        if let id = id { dict[kID] = id as AnyObject? }
+
+        if let id = id { dict[KUser_id] = id as AnyObject? }
         if let first_name = first_name { dict[kfirst_name] = first_name as AnyObject? }
         if let last_name = last_name { dict[klast_name] = last_name as AnyObject? }
         if let email = email { dict[kEmail] = email as AnyObject? }
         if let is_confirm = is_confirm { dict[kIS_confirm] = is_confirm as AnyObject? }
         if let api_key = api_key { dict[kApi_key] = api_key as AnyObject? }
         if let image = image { dict[kUser_avatar] = image as AnyObject? }
-        
+        if let pendingApp = pendingApp {
+            dict[kAPP_Pending] = pendingApp.toJsonDict() as AnyObject?
+        }
         return dict
     }
     
+    func saveToDEfault() {
+        UserDefaults.standard.set(nil, forKey: kUSERLOGIN)
+        UserDefaults.standard.set(self.toJsonDictionary(), forKey: kUSERLOGIN)
+        self.populateWithJSON(dict: self.toJsonDictionary())
+    }
     
     func setAuthHeader() -> HTTPHeaders {
         

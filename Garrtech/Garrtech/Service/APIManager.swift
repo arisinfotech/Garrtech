@@ -73,6 +73,7 @@ public class APIManager {
                 let JSON_ = JSON as! JSONDictionary
                 
                 if JSON_[kStatus] as? String == kSuccess {
+                    
                     let tempDict = JSON_[kData]! as! JSONDictionary
                     UserDefaults.standard.set(nil, forKey: kUSERLOGIN)
                     UserDefaults.standard.set(tempDict, forKey: kUSERLOGIN)
@@ -80,11 +81,15 @@ public class APIManager {
                     print(CurrentUser.sharedInstance.toJsonDictionary())
                     hideHUD()
                     completion(nil)
+                    
                 } else {
+                    
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                     hideHUD()
                     completion(SPErrors.EmptyResultError)
+                    
                 }
+                
             } else {
                 hideHUD()
                 completion(SPErrors.EmptyResultError)
@@ -104,7 +109,7 @@ public class APIManager {
             //            print(response.response) // HTTP URL response
             //            print(response.data)     // server data
             //            print(response.result)   // result of response serialization
-            
+            hideHUD()
             if let JSON = response.result.value {
                 
                 print("JSON: \(JSON)")
@@ -113,16 +118,15 @@ public class APIManager {
                 
                 if JSON_[kStatus] as? String == kSuccess {
                 
-                    hideHUD()
+                    
                     completion(nil)
+                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
-                    hideHUD()
                     completion(SPErrors.EmptyResultError)
                 }
                 
             } else {
-                hideHUD()
                 completion(SPErrors.EmptyResultError)
             }
         }
@@ -132,12 +136,17 @@ public class APIManager {
     
     
     func UpdateProfile(profile:Profile, completion: @escaping (_ updatedProfile: Profile?, _ error: NSError?) -> ()) {
+
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
-            multipartFormData.append(UIImageJPEGRepresentation(profile.image!, 1)!, withName: kUser_avatar, fileName: "swift_file.jpeg", mimeType: "image/jpeg")
-            for key in profile.toJsonDictionary()
+            
+            multipartFormData.append(UIImageJPEGRepresentation(profile.image!, 0.5)!, withName: kUser_avatar, fileName: "swift_file.jpeg", mimeType: "image/jpeg")
+            
+            for (key, value) in profile.toJsonDictionary()
             {
-                multipartFormData.append(key.value.data as Data, withName: key.key as String)
+                if key != kUser_avatar {
+                    multipartFormData.append("\(value)".data(using: .utf8, allowLossyConversion: false)! , withName: key)
+                }
             }
             }, to:MAIN_URL + "update_profile", method: .post, headers:CurrentUser.sharedInstance.setAuthHeader())
         { (result) in
@@ -165,6 +174,10 @@ public class APIManager {
                             CurrentUser.sharedInstance.first_name = profile.first_name
                             CurrentUser.sharedInstance.last_name = profile.last_name
                             CurrentUser.sharedInstance.image = profile.imageURL
+                            
+                            UserDefaults.standard.set(nil, forKey: kUSERLOGIN)
+                            UserDefaults.standard.set(CurrentUser.sharedInstance.toJsonDictionary(), forKey: kUSERLOGIN)
+                            CurrentUser.sharedInstance.populateWithJSON(dict:CurrentUser.sharedInstance.toJsonDictionary())
                             print(CurrentUser.sharedInstance.toJsonDictionary())
                             
                             completion(profile,nil)
@@ -218,6 +231,9 @@ public class APIManager {
         }
         
     }
+    
+    //MARK: ----- Forgot Pass Mehtods -----
+    //MARK:
     
     
     func ForgotPassword(forgotPass: ForgotPassword, completion: @escaping (_ error: NSError?) -> ()) {
@@ -296,6 +312,8 @@ public class APIManager {
         
         // call api
         Alamofire.request(MAIN_URL + "app_manager/option_apply_loan", method: .get ,headers:CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            
+            hideHUD()
             if let JSON = response.result.value {
                 
                 let JSON_ = JSON as! JSONDictionary
@@ -342,21 +360,17 @@ public class APIManager {
                             
                         }
                         
-                        hideHUD()
                         completion(annualRevenueArrTemo, cradit_scoreArrTemp, loanAmountNeedArrTemp, timeinBusinessArrTemp)
                         
                     } else {
-                        hideHUD()
                         error(SPErrors.EmptyResultError)
                     }
                     
                 } else {
-                    hideHUD()
                     error(SPErrors.EmptyResultError)
                 }
                 
             } else {
-                hideHUD()
                 error(SPErrors.EmptyResultError)
             }
         }
@@ -370,21 +384,25 @@ public class APIManager {
         showHUD()
         Alamofire.request(MAIN_URL + "app_step_one", method: .post, parameters: stepOne.toJsonDictionary(), headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
             
-            
-            if let JSON = response.result.value {
-                
+            if let JSON = response.result.value
+            {
                 print("JSON: \(JSON)")
                 
                 let JSON_ = JSON as! JSONDictionary
                 
                 if JSON_[kStatus] as? String == kSuccess {
                     
-                    if let loanOptionData = JSON_[kData] as? JSONDictionary {
-                        print("\(loanOptionData[kApplication_id]!)")
-                        UserDefaults.standard.setValue("\(loanOptionData[kApplication_id]!)", forKeyPath: kApplication_id)
+                    if let loanOptionData = JSON_[kData]![kAPP_Pending] as? JSONDictionary {
+                        
+                        print(CurrentUser.sharedInstance.toJsonDictionary())
+                        let pendingApp = PendingApp()
+                        pendingApp.populateWithJSON(dict: loanOptionData)
+                        CurrentUser.sharedInstance.pendingApp = pendingApp
+                        CurrentUser.sharedInstance.saveToDEfault()
+                        print(CurrentUser.sharedInstance.toJsonDictionary())
                     }
                     hideHUD()
-                    UserDefaults.standard.setValue(CompleteStep.BusinessInfo.hashValue, forKey: kCompletedStep)
+//                    UserDefaults.standard.setValue(CompleteStep.BusinessInfo.hashValue, forKey: kCompletedStep)
                     completion(nil)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
@@ -398,6 +416,38 @@ public class APIManager {
             }
         }
         
+    }
+    
+    
+    
+    func getStepOneData(appID: String, stepId: String, completion:@escaping (_ stepOne:LoanStepOne?, _ errror: NSError?) -> ()) {
+        
+        showHUD()
+        print([kApplication_id: appID, kAPP_application_step: stepId])
+        Alamofire.request(MAIN_URL + "application/application_detail", method: .post, parameters: [kApplication_id: appID, kAPP_application_step: stepId], headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            hideHUD()
+            if let JSON = response.result.value {
+                
+                print("JSON: \(JSON)")
+                
+                let JSON_ = JSON as! JSONDictionary
+                
+                if JSON_[kStatus] as? String == kSuccess {
+                    
+                    if let loanOptionData = JSON_[kData] as? JSONDictionary {
+                        let stepOneData = LoanStepOne()
+                        stepOneData.populateWithJSON(dict: loanOptionData)
+                        completion(stepOneData,nil)
+                    } else {
+                        completion(nil,SPErrors.EmptyResultError)
+                    }
+                }else {
+                    completion(nil,SPErrors.EmptyResultError)
+                }
+            } else {
+                completion(nil,SPErrors.EmptyResultError)
+            }
+        }
     }
     
     //MARK: ----- Step 2 Mehtods -----
@@ -416,14 +466,54 @@ public class APIManager {
                 let JSON_ = JSON as! JSONDictionary
                 
                 if JSON_[kStatus] as? String == kSuccess {
+                    if let loanOptionData = JSON_[kData]![kAPP_Pending] as? JSONDictionary {
+                        
+                        print(CurrentUser.sharedInstance.toJsonDictionary())
+                        let pendingApp = PendingApp()
+                        pendingApp.populateWithJSON(dict: loanOptionData)
+                        CurrentUser.sharedInstance.pendingApp = pendingApp
+                        CurrentUser.sharedInstance.saveToDEfault()
+                        print(CurrentUser.sharedInstance.toJsonDictionary())
+                    }
+                    hideHUD()
                     completion(nil)
-                    UserDefaults.standard.setValue(CompleteStep.CompanyInfo.hashValue, forKey: kCompletedStep)
+//                    UserDefaults.standard.setValue(CompleteStep.CompanyInfo.hashValue, forKey: kCompletedStep)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                     completion(SPErrors.EmptyResultError)
                 }
             } else {
                 completion(SPErrors.EmptyResultError)
+            }
+        }
+    }
+    
+    func getStepTwoData(appID: String, stepId: String, completion:@escaping (_ stepTwo:LoanStepTwo?, _ errror: NSError?) -> ()) {
+        
+        showHUD()
+        print([kApplication_id: appID, kAPP_application_step: stepId])
+        Alamofire.request(MAIN_URL + "application/application_detail", method: .post, parameters: [kApplication_id: appID, kAPP_application_step: stepId], headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            hideHUD()
+            if let JSON = response.result.value {
+                
+                print("JSON: \(JSON)")
+                
+                let JSON_ = JSON as! JSONDictionary
+                
+                if JSON_[kStatus] as? String == kSuccess {
+                    
+                    if let loanOptionData = JSON_[kData] as? JSONDictionary {
+                        let stepOneData = LoanStepTwo()
+                        stepOneData.populateWithJSON(dict: loanOptionData)
+                        completion(stepOneData,nil)
+                    } else {
+                        completion(nil,SPErrors.EmptyResultError)
+                    }
+                }else {
+                    completion(nil,SPErrors.EmptyResultError)
+                }
+            } else {
+                completion(nil,SPErrors.EmptyResultError)
             }
         }
     }
@@ -446,14 +536,51 @@ public class APIManager {
                 
                 if JSON_[kStatus] as? String == kSuccess {
                     
+                    if let loanOptionData = JSON_[kData]![kAPP_Pending] as? JSONDictionary {
+                        
+                        print(CurrentUser.sharedInstance.toJsonDictionary())
+                        let pendingApp = PendingApp()
+                        pendingApp.populateWithJSON(dict: loanOptionData)
+                        CurrentUser.sharedInstance.pendingApp = pendingApp
+                        CurrentUser.sharedInstance.saveToDEfault()
+                        print(CurrentUser.sharedInstance.toJsonDictionary())
+                    }
+                    hideHUD()
                     completion(nil)
-                    UserDefaults.standard.setValue(CompleteStep.OwnerInfo.hashValue, forKey: kCompletedStep)
+//                    UserDefaults.standard.setValue(CompleteStep.OwnerInfo.hashValue, forKey: kCompletedStep)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                     completion(SPErrors.EmptyResultError)
                 }
             } else {
                 completion(SPErrors.EmptyResultError)
+            }
+        }
+    }
+    
+    func getStepThreeData(appID: String, stepId: String, completion:@escaping (_ stepThree:LoanStepThree?, _ errror: NSError?) -> ()) {
+        
+        showHUD()
+        print([kApplication_id: appID, kAPP_application_step: stepId])
+        Alamofire.request(MAIN_URL + "application/application_detail", method: .post, parameters: [kApplication_id: appID, kAPP_application_step: stepId], headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            hideHUD()
+            if let JSON = response.result.value {
+                
+                print("JSON: \(JSON)")
+                let JSON_ = JSON as! JSONDictionary
+                if JSON_[kStatus] as? String == kSuccess {
+                    if let loanOptionData = JSON_[kData] as? JSONDictionary {
+                        let stepOneData = LoanStepThree()
+                        stepOneData.populateWithJSON(dict: loanOptionData)
+                        completion(stepOneData,nil)
+                    } else {
+                        completion(nil,SPErrors.EmptyResultError)
+                    }
+                }else {
+                    completion(nil,SPErrors.EmptyResultError)
+                }
+            } else {
+                completion(nil,SPErrors.EmptyResultError)
             }
         }
     }
@@ -478,6 +605,16 @@ public class APIManager {
                 
                 if JSON_[kStatus] as? String == kSuccess {
                     completion(nil)
+                    if let loanOptionData = JSON_[kData]![kAPP_Pending] as? JSONDictionary {
+                        
+                        print(CurrentUser.sharedInstance.toJsonDictionary())
+                        let pendingApp = PendingApp()
+                        pendingApp.populateWithJSON(dict: loanOptionData)
+                        CurrentUser.sharedInstance.pendingApp = pendingApp
+                        CurrentUser.sharedInstance.saveToDEfault()
+                        print(CurrentUser.sharedInstance.toJsonDictionary())
+                    }
+                    hideHUD()
                     UserDefaults.standard.setValue(nil, forKey: kCompletedStep)
                 } else {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
@@ -490,5 +627,182 @@ public class APIManager {
     }
     
     
+    func getStepFourData(appID: String, stepId: String, completion:@escaping (_ stepThree:LoanStepFour?, _ errror: NSError?) -> ()) {
+        
+        showHUD()
+    
+        Alamofire.request(MAIN_URL + "application/application_detail", method: .post, parameters: [kApplication_id: appID, kAPP_application_step: stepId], headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            hideHUD()
+            if let JSON = response.result.value {
+                
+                print("JSON: \(JSON)")
+                let JSON_ = JSON as! JSONDictionary
+                if JSON_[kStatus] as? String == kSuccess {
+                    if let loanOptionData = JSON_[kData] as? JSONDictionary {
+                        let stepOneData = LoanStepFour()
+                        stepOneData.populateWithJSON(dict: loanOptionData)
+                        completion(stepOneData,nil)
+                    } else {
+                        completion(nil,SPErrors.EmptyResultError)
+                    }
+                }else {
+                    completion(nil,SPErrors.EmptyResultError)
+                }
+            } else {
+                completion(nil,SPErrors.EmptyResultError)
+            }
+        }
+    }
+
+    
+    //MARK: ----- Pending app Mehtods -----
+    //MARK:
+    
+    
+    func getPendingApp(completion:@escaping (_ pendingApp:PendingApp?, _ error: NSError?) -> ()) {
+        
+        Alamofire.request(MAIN_URL + "app_manager", method: .post, parameters: [KUser_id:CurrentUser.sharedInstance.id!], headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            
+            if let JSON = response.result.value {
+                
+                print(JSON)
+                let JSON_ = JSON as! JSONDictionary
+                if JSON_[kStatus] as? String == kSuccess {
+                    
+                    if let pendingAppDict = JSON_[kData]![kAPP_Pending] as? JSONDictionary {
+                        let pendingApptemp = PendingApp()
+                        pendingApptemp.populateWithJSON(dict: pendingAppDict)
+                        print(pendingApptemp.toJsonDict())
+                        completion(pendingApptemp,nil)
+                    } else {
+                        completion(nil,SPErrors.EmptyResultError)
+                    }
+                } else {
+                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    completion(nil,SPErrors.EmptyResultError)
+                }
+            } else {
+                completion(nil,SPErrors.EmptyResultError)
+            }
+        }
+    }
+    
+    //MARK: ----- LoanDetails Mehtods -----
+    //MARK:
+    
+    
+    
+    
+    func getLoanInformation(completion:@escaping (_ loanDetails:[LoanDetails]?, _ error: NSError?) -> ()) {
+        
+        Alamofire.request(MAIN_URL + "loan_information", method: .post, parameters: [KUser_id:CurrentUser.sharedInstance.id!], headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            
+            if let JSON = response.result.value {
+                
+                print(JSON)
+                let JSON_ = JSON as! JSONDictionary
+                if JSON_[kStatus] as? String == kSuccess {
+                    
+                    var loanArrTemp = [LoanDetails]()
+                    
+                    if let loanDetails = JSON_[kData]![kLoanType] as? [JSONDictionary] {
+                        
+                        for loandetailObj in loanDetails {
+                            let loanDetail = LoanDetails()
+                            loanDetail.populateWithJson(dict: loandetailObj)
+                            loanArrTemp.append(loanDetail)
+                        }
+                        completion(loanArrTemp,nil)
+                    } else {
+                        completion(nil,SPErrors.EmptyResultError)
+                    }
+                } else {
+                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    completion(nil,SPErrors.EmptyResultError)
+                }
+            } else {
+                completion(nil,SPErrors.EmptyResultError)
+            }
+        }
+    }
+    
+    //MARK: ----- Get My Applications Mehtods -----
+    //MARK:
+    
+    func myApplications(completion:@escaping (_ myApplication:[MyApplication]?, _ error: NSError?) -> ()) {
+        
+        Alamofire.request(MAIN_URL + "application/my_application", method: .post, parameters: [KUser_id:CurrentUser.sharedInstance.id!], headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            
+            
+            print(response.result.value)
+            
+            if let JSON = response.result.value {
+                
+                print(JSON)
+                let JSON_ = JSON as! JSONDictionary
+                if JSON_[kStatus] as? String == kSuccess {
+                    
+                    var myAppArrTemp = [MyApplication]()
+                    
+                    if let myAppDetails = JSON_[kData] as? [JSONDictionary] {
+                        
+                        for myApp in myAppDetails {
+                            let myAppTemp = MyApplication()
+                            myAppTemp.populateWithJson(dict: myApp)
+                            myAppArrTemp.append(myAppTemp)
+                        }
+                        completion(myAppArrTemp,nil)
+                    } else {
+                        completion(nil,SPErrors.EmptyResultError)
+                    }
+                } else {
+                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    completion(nil,SPErrors.EmptyResultError)
+                }
+            } else {
+                completion(nil,SPErrors.EmptyResultError)
+            }
+        }
+    }
+    
+    /*
+     "application_id" = 4;
+     "bankruptcy_protection" = Y;
+     "business_classification" = Retail;
+     "business_email" = "";
+     "business_fax" = "";
+     "business_mobile" = "";
+     "business_phone" = "";
+     "business_tax_number" = "";
+     "business_website" = "";
+     "date_business_eslablished" = "0000-00-00";
+     "dba_name" = "";
+     id = 4;
+     "landlord_company_name" = "";
+     "landlord_contact_name" = "";
+     "landlord_contact_number" = "";
+     "legal_business_name" = "";
+     "legal_entity" = Crop;
+     "mail_apt" = "";
+     "mail_city" = "";
+     "mail_state" = "";
+     "mail_street_name" = "";
+     "mail_street_num" = "";
+     "mail_zip" = "";
+     "months_in_control" = "";
+     "phy_apt" = "";
+     "phy_city" = "";
+     "phy_state" = "";
+     "phy_street_name" = "";
+     "phy_street_num" = "";
+     "phy_zip" = "";
+     "product_sold" = "";
+     "property_ownership" = Lease;
+     "rent_payment" = "";
+     "tax_liens_agains_business" = Y;
+     "terminal_model" = "";
+     "user_id" = 1;
+     "years_in_control" = "";
+     */
     
 }

@@ -10,8 +10,8 @@ import UIKit
 import UserNotifications
 import Alamofire
 
-var deviceTokenString = ""
-
+var deviceTokenString = "DeviceToken"
+var loanID: String = ""
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -26,17 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         Reachability.sharedInstance.checkReachability()
         
+        print(UserDefaults.standard.object(forKey: kUSERLOGIN))
         if CurrentUser.sharedInstance.id != nil
         {
-           // self.redirectToHomeVC()
+            self.redirectToHomeVC()
           // self.redirectToOtherVC()
-        //self.redirectToLoginVC()
+            //self.redirectToLoginVC()
         }
         else
         {
             self.redirectToLoginVC()
         }
-
         self.registerPushNotification(application)
         return true
     }
@@ -66,9 +66,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         navigationVC = UINavigationController.init(rootViewController: HomeVC)
         self.window?.rootViewController = navigationVC
     }
+    
+    
+    
     func redirectToOtherVC() {
         
-    
         let objVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MessageViewController") as! MessageViewController
         navigationVC = UINavigationController.init(rootViewController: objVC)
         self.window?.rootViewController = navigationVC

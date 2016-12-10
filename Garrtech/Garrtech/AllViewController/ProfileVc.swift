@@ -12,7 +12,9 @@ class ProfileVc: BaseViewController, UIImagePickerControllerDelegate,UINavigatio
     
     
   
-    @IBOutlet var txt_UserName : AITextFieldSquare!
+    @IBOutlet var txt_UserFirstName : AITextFieldSquare!
+    @IBOutlet var txt_UserLastName : AITextFieldSquare!
+    
     @IBOutlet var txt_UserEmail : AITextFieldSquare!
     
     @IBOutlet var profileImage: UIImageView!
@@ -38,7 +40,7 @@ class ProfileVc: BaseViewController, UIImagePickerControllerDelegate,UINavigatio
         
         self.title = "PROFILE"
         self.setLeftSideButtonWithImage(Name: "back", selector:#selector(self.popTo))
-        self.setRightSideButtonWithTitle(Name: "Save", selector: #selector(self.btn_SaveClick))
+        self.setRightSideButtonWithImage(Name: "save.png", selector: #selector(self.btn_SaveClick))
         
         let tapGeature = UITapGestureRecognizer.init(target: self, action: #selector(self.selectImageFromPhotoLibrary(_:)))
         self.profileImage.addGestureRecognizer(tapGeature)
@@ -47,27 +49,32 @@ class ProfileVc: BaseViewController, UIImagePickerControllerDelegate,UINavigatio
         
         // Do any additional setup after loading the view.
         
-        txt_UserName.setUpTextFieldForLengthValidation(minLength: 1, maxLength: 50)
-        txt_UserName.textFieldValidationType = .Name
+        txt_UserFirstName.setUpTextFieldForLengthValidation(minLength: 1, maxLength: 50)
+        txt_UserLastName.textFieldValidationType = .Name_NOSPACE
+
+        txt_UserLastName.setUpTextFieldForLengthValidation(minLength: 1, maxLength: 50)
+        txt_UserLastName.textFieldValidationType = .Name_NOSPACE
         
         txt_UserEmail.setUpTextFieldForLengthValidation(minLength: 1, maxLength: 50)
         txt_UserEmail.textFieldValidationType = .Email
         
         txt_UserEmail.isUserInteractionEnabled = false
         
-        txt_UserName.text = CurrentUser.sharedInstance.first_name! + " " + CurrentUser.sharedInstance.last_name!
+        txt_UserFirstName.text = CurrentUser.sharedInstance.first_name!
+        txt_UserLastName.text =  CurrentUser.sharedInstance.last_name!
+        
         txt_UserEmail.text = CurrentUser.sharedInstance.email
         
-        self.profileImage.downloadedFrom(link: "\(CurrentUser.sharedInstance.image)")
+        self.profileImage.downloadedFrom(link: "\(CurrentUser.sharedInstance.image!)")
         
     }
     func btn_SaveClick() {
         
-        if  TextValidation.isValidate(textField: txt_UserName , validationType:.AI_VALIDATION_TYPE_NAME) {
-            
-            if TextValidation.isValidate(textField: txt_UserEmail, validationType: .AI_VALIDATION_TYPE_EMAIL) {
-                
-             self.call_UpdateProfileAPI()
+        if  TextValidation.isValidate(textField: txt_UserFirstName , validationType:.AI_VALIDATION_TYPE_NAME) {
+            if  TextValidation.isValidate(textField: txt_UserLastName , validationType:.AI_VALIDATION_TYPE_NAME) {
+                if TextValidation.isValidate(textField: txt_UserEmail, validationType: .AI_VALIDATION_TYPE_EMAIL) {
+                    self.call_UpdateProfileAPI()
+                }
             }
         }
         
@@ -75,8 +82,22 @@ class ProfileVc: BaseViewController, UIImagePickerControllerDelegate,UINavigatio
     
     func call_UpdateProfileAPI() {
         
+        profile.image = self.profileImage.image!
+        profile.first_name = self.txt_UserFirstName.text!
+        profile.last_name = self.txt_UserLastName.text!
+        profile.email = self.txt_UserEmail.text!
+        profile.user_id = CurrentUser.sharedInstance.id!
+        showHUD()
+        
         APIManager.sharedInstance.UpdateProfile(profile: profile) { (user:Profile?, error:NSError?) in
             
+            hideHUD()
+            
+            if error == nil {
+                
+            } else {
+                
+            }
             
         }
         
@@ -127,10 +148,14 @@ class ProfileVc: BaseViewController, UIImagePickerControllerDelegate,UINavigatio
         if Reachability.sharedInstance.isReachable() {
             Alert.displayAlert(title: APP_NAME, message: "Are you sure you want to logout?", otherButtonTitles: ["NO","YES"], preferredAlertStyle: .alert) { (index:Int) in
                 if index == 1 {
+                    
+                    showHUD()
                     APIManager.sharedInstance.LogoutUser { (error:NSError?) in
+                        
+                        hideHUD()
                         let loginVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                         appDelegate.navigationVC = UINavigationController.init(rootViewController: loginVC)
-                        appDelegate.navigationVC?.isNavigationBarHidden = true
+//                        appDelegate.navigationVC?.isNavigationBarHidden = true
                         UIView.transition(with: appDelegate.window!, duration: 0.5, options: UIViewAnimationOptions.transitionFlipFromLeft, animations: {
                             appDelegate.window?.rootViewController = appDelegate.navigationVC
                             }, completion: nil)
@@ -160,40 +185,17 @@ class ProfileVc: BaseViewController, UIImagePickerControllerDelegate,UINavigatio
             }
             
         }
-        
-        return
-        let actionController = UIAlertController(title: "Select From", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        
-        let cameraAction = UIAlertAction.init(title: "Camera", style: .default) { (action:UIAlertAction) in
-            self.presentPickerView(camera: true)
-        }
-        
-        let libraryAction = UIAlertAction.init(title: "Select from Photos", style: .default) { (action:UIAlertAction) in
-            self.presentPickerView(camera: false)
-        }
-        
-        actionController.addAction(cameraAction)
-        actionController.addAction(libraryAction)
-        
-        present(actionController, animated: true, completion: nil)
-        
     }
-    
-    
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
-    
+
 }
 
 extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFill) {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard
@@ -207,7 +209,7 @@ extension UIImageView {
             }
             }.resume()
     }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFill) {
         guard let url = URL(string: link) else { return }
         downloadedFrom(url: url, contentMode: mode)
     }

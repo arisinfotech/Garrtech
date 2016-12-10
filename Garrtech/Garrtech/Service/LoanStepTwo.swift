@@ -22,6 +22,44 @@ class LoanStepTwo {
     var k_held_with: String?
     var k_advance_balance: String?
     
+    
+    func populateWithJSON(dict:JSONDictionary) {
+        
+        if let k_user_id = dict[KUser_id] as? String {
+            self.k_user_id = k_user_id
+        }
+        if let k_application_id = dict[kApplication_id] as? String {
+            self.k_application_id = k_application_id
+        }
+        if let k_submit_type = dict[kSubmit_type] as? String {
+            self.k_submit_type = k_submit_type
+        }
+        if let k_avg_monthly_card_sale = dict[kStep2avg_monthly_card_sale] as? String {
+            self.k_avg_monthly_card_sale = k_avg_monthly_card_sale
+        }
+        if let k_total_monthly_sale = dict[kStep2total_monthly_sale] as? String {
+            self.k_total_monthly_sale = k_total_monthly_sale
+        }
+        if let k_annual_gross_sale = dict[kStep2annual_gross_sale] as? String {
+            self.k_annual_gross_sale = k_annual_gross_sale
+        }
+        if let k_desired_funding_amount = dict[kStep2desired_funding_amount] as? String {
+            self.k_desired_funding_amount = k_desired_funding_amount
+        }
+        if let k_use_of_funds = dict[kStep2use_of_funds] as? String {
+            self.k_use_of_funds = k_use_of_funds
+        }
+        if let k_is_advance_balance = dict[kStep2is_advance_balance] as? String {
+            self.k_is_advance_balance = k_is_advance_balance
+        }
+        if let k_held_with = dict[kStep2held_with] as? String {
+            self.k_held_with = k_held_with
+        }
+        if let k_advance_balance = dict[kStep2advance_balance] as? String {
+            self.k_advance_balance = k_advance_balance
+        }
+    }
+    
     func toJsonDictionary() -> JSONDictionary {
         
         var dict: JSONDictionary = [:]
@@ -41,4 +79,5 @@ class LoanStepTwo {
         return dict
     }
     
+       
 }

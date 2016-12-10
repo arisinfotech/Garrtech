@@ -34,6 +34,126 @@ class LoanStepThree {
     var k_how_long_pay_back: String?
     
     
+    func populateWithJSON(dict: JSONDictionary)
+    {
+        
+        if let user_id = dict[KUser_id] as? String
+        {
+            self.k_user_id = user_id
+        }
+        
+        if let application_id = dict[kApplication_id] as? String
+        {
+            self.k_application_id = application_id
+        }
+        
+        if let submit_type = dict[kSubmit_type] as? String
+        {
+            self.k_submit_type = submit_type
+        }
+        
+        if let owner_name = dict[kStep3owner_name] as? String
+        {
+            self.k_owner_name = owner_name
+        }
+        
+        if let owner_title = dict[kStep3owner_title] as? String
+        {
+            self.k_owner_title = owner_title
+        }
+        
+        
+        if let percentage_of_ownership = dict[kStep3percentage_of_ownership] as? String
+        {
+            self.k_percentage_of_ownership = percentage_of_ownership
+        }
+        
+        
+        if let Street_Name = dict[kStep3add_street_name] as? String
+        {
+            self.k_Street_Name = Street_Name
+        }
+        
+        
+        if let Street_Number = dict[kStep3add_street_num] as? String
+        {
+            self.k_Street_Number = Street_Number
+        }
+        
+        
+        if let street_Apt = dict[kStep3add_apt] as? String
+        {
+            self.k_street_Apt = street_Apt
+        }
+        
+        
+        if let City = dict[kStep3add_city] as? String
+        {
+            self.k_City = City
+        }
+        
+        if let State = dict[kStep3add_state] as? String
+        {
+            self.k_State = State
+        }
+        
+        if let zip = dict[kStep3add_zip] as? String
+        {
+            self.k_zip = zip
+        }
+        
+        if let home_phone = dict[kStep3home_phone] as? String
+        {
+            self.k_home_phone = home_phone
+        }
+        
+        if let home_mobile_number = dict[kStep3home_mobile_number] as? String
+        {
+            self.k_home_mobile_number = home_mobile_number
+        }
+        
+        
+        if let owner_email = dict[kStep3owner_email] as? String
+        {
+            self.k_owner_email = owner_email
+        }
+        
+        
+        if let owner_dob = dict[kStep3owner_dob] as? String
+        {
+            self.k_owner_dob = owner_dob
+        }
+        
+        if let social_security_insurance = dict[kStep3social_security_insurance] as? String
+        {
+            self.k_social_security_insurance = social_security_insurance
+        }
+        
+        
+        if let drivers_licence = dict[kStep3drivers_licence] as? String
+        {
+            self.k_drivers_licenceNumber = drivers_licence
+        }
+        
+        if let drivers_licence_states = dict[kStep3drivers_licence_states] as? String
+        {
+            self.k_drivers_licence_states = drivers_licence_states
+        }
+        
+        if let how_fast_need = dict[kStep3how_fast_need] as? String
+        {
+            self.k_how_fast_need = how_fast_need
+        }
+        
+        
+        if let how_long_pay_back = dict[kStep3how_long_pay_back] as? String
+        {
+            self.k_how_long_pay_back = how_long_pay_back
+        }
+        
+    }
+    
+    
     func toJsonDictionary() -> JSONDictionary {
         
         var dict: JSONDictionary = [:]
@@ -94,6 +214,27 @@ class LoanStepFour {
     var document_list: String?
     
     
+    func populateWithJSON(dict: JSONDictionary) {
+        
+        if let user_id = dict[KUser_id] as? String {
+            self.user_id = user_id
+        }
+        
+        if let application_id = dict[kApplication_id] as? String {
+            self.application_id = application_id
+        }
+        
+        if let submit_type = dict[kSubmit_type] as? String {
+            self.submit_type = submit_type
+        }
+        
+        if let document_list = dict[kStep4document_list] as? String {
+            self.document_list = document_list
+        }
+        
+    }
+    
+    
     func toJsonDictionary() -> JSONDictionary {
         
         var dict: JSONDictionary = [:]
@@ -106,5 +247,4 @@ class LoanStepFour {
         return dict
         
     }
-    
 }

@@ -19,17 +19,46 @@ class RagisterViewController: BaseViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        txtEmail.text = "aris.infotech99@gmail.com"
-        txtPassword.text = "1234567"
-        txtLastName.text = "Infotech"
-        txtFirstName.text = "Aris"
-        txtConfirmPassword.text = "1234567"
+//        self.registerStaticText()
         // Do any additional setup after loading the view.
+        self.doSetUpScreen()
+    }
+    
+    func registerStaticText() {
+            txtEmail.text = "aris.infotech99@gmail.com"
+            txtPassword.text = "1234567"
+            txtLastName.text = "Infotech"
+            txtFirstName.text = "Aris"
+            txtConfirmPassword.text = "1234567"
+    }
+    
+    func doSetUpScreen()  {
+        txtEmail.setUpTextFieldForLengthValidation(minLength: 1, maxLength: 50)
+        txtEmail.txtType = .Email
+        txtEmail.textFieldValidationType = .Email
+        // txtEmail.delegate = self
+        
+        
+        txtFirstName.setUpTextFieldForLengthValidation(minLength: 1, maxLength: 50)
+        txtFirstName.txtType = .Name_NOSPACE
+        
+        txtLastName.setUpTextFieldForLengthValidation(minLength: 1, maxLength: 50)
+        txtLastName.txtType = .Name_NOSPACE
+        
+        //txtPassword.delegate = self
+        txtPassword.setUpTextFieldForLengthValidation(minLength: 6, maxLength: 50)
+        txtPassword.textFieldValidationType = .Password
+        
+        txtConfirmPassword.setUpTextFieldForLengthValidation(minLength: 6, maxLength: 50)
+        txtConfirmPassword.textFieldValidationType = .Password
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool)
     {
+        
+        super.viewWillAppear(animated)
         self.showNavigationBar()
         self.view.window?.backgroundColor = UIColor.white
         self.setLeftSideButtonWithImage(Name: "back", selector:#selector(self.popTo))
@@ -54,27 +83,40 @@ class RagisterViewController: BaseViewController
                     
                     if TextValidation.isValidate(textField: txtPassword, validationType: .AI_VALIDATION_TYPE_PASSWORD) {
                         
-                        if TextValidation.isValidate(textField: txtPassword, validationType: .AI_VALIDATION_TYPE_CONFIRMPASSWORD) {
+                        if TextValidation.isValidate(textField: txtConfirmPassword, validationType: .AI_VALIDATION_TYPE_CONFIRMPASSWORD) {
                             
-                            if Reachability.sharedInstance.isReachable() {
-                                let user = Register()
-                                user.first_name = txtFirstName.text!
-                                user.last_name = txtLastName.text!
-                                user.email = txtEmail.text!
-                                user.os_type = "iOS"
-                                user.password = txtPassword.text!
-                                user.push_token = deviceTokenString
-                                user.device_id = deviceID
+                            
+                            if txtPassword.text == txtConfirmPassword.text {
                                 
-                                print(user.toJsonDictionary())
+                                if Reachability.sharedInstance.isReachable() {
+                                    
+                                    showHUD()
+                                    let user = Register()
+                                    user.first_name = txtFirstName.text!
+                                    user.last_name = txtLastName.text!
+                                    user.email = txtEmail.text!
+                                    user.os_type = "iOS"
+                                    user.password = txtPassword.text!
+                                    user.push_token = deviceTokenString
+                                    user.device_id = deviceID
+                                    
+                                    APIManager.sharedInstance.RegisterUser(user: user, completion: { (registeredUser:Register?, error:NSError?) in
+                                        
+                                        hideHUD()
+                                        
+                                        if error == nil {
+                                            self.popTo()
+                                        }
+                                        
+                                        
+                                    })
+                                }
                                 
-                                APIManager.sharedInstance.RegisterUser(user: user, completion: { (registeredUser:Register?, error:NSError?) in
-                                    self.popTo()
-                                })
+                            } else {
+                                Alert.displayErrorDevMessage(str: "Password does not match.")
                             }
+                        
                         }
-                        
-                        
                     }
                 }
             }

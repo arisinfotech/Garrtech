@@ -16,13 +16,12 @@ class LoanInformationViewController: UIViewController
     @IBOutlet var lblBussinessRequired: UILabel!
     @IBOutlet var lblRevenue: UILabel!
     @IBOutlet var lblCreditScore: UILabel!
-    
     @IBOutlet var lblPortabilityRequire: UILabel!
     @IBOutlet var lblBankruptcyallowed: UILabel!
     @IBOutlet var lblCreditCardVolumnFactor: UILabel!
     @IBOutlet var lblAccountsReceivableFactor: UILabel!
     @IBOutlet var lblSecondPositionAllowed: UILabel!
-        @IBOutlet var lblLoanTitle: UILabel!
+    @IBOutlet var lblLoanTitle: UILabel!
     @IBOutlet var lblLoanDescription: UILabel!
     
     
@@ -43,6 +42,7 @@ class LoanInformationViewController: UIViewController
         lblAccountsReceivableFactor.text = loanDtl.kac_rec_factor! as String
         lblSecondPositionAllowed.text = loanDtl.ksec_pos_allowed! as String
     
+        loanID = loanDtl.kid!
         if lblBankruptcyallowed.text?.length == 0
         {
             lblBankruptcyallowed.text = "CreditCard"

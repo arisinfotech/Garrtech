@@ -31,23 +31,10 @@ class ApplyForLoan {
         if let invoice_business_customers = invoice_business_customers { dict[kInvoice_business_customers] = invoice_business_customers as AnyObject? }
         
         return dict
-        
     }
-    
 }
 
 class LoanDetails {
-    
-    /*
-     "id": "1",
-     "loan_title": "test1",
-     "loan_desc": "desc",
-     "required_loan_amount": "10000",
-     "business_time": "2",
-     "annual_revenue": "20000",
-     "credit_score": "5",
-     "invoice_business_customers": "Y"
-     */
     
     var kid: String?
     var kloanTitle: String?
@@ -57,14 +44,12 @@ class LoanDetails {
     var kannualRevenue: String?
     var kcraditScore: String?
     var kinvoiceBusinessCustomer: String?
-    
     var kprofitability_required: String?
     var ksec_pos_allowed: String?
     var kcc_volume_factor: String?
     var kbankruptcy_allowed: String?
     var kac_rec_factor: String?
-    
-    
+
     func populateWithJson(dict: JSONDictionary) {
         
         if let id = dict[kID] as? String {

@@ -188,7 +188,7 @@ let Notification_DropDown = "callNotificationDropDown"
 
 // API KEYS
 let key = "anyKey"
-
+let kPENDINGAPPLICATION = "kPENDINGAPPLICATION"
 let kUSERLOGIN          = "user"
 let kEmail              = "email"
 let kPassword           = "password"
@@ -218,7 +218,8 @@ let kInvoice_business_customers = "invoice_business_customers"
 let kLoan_title          = "loan_title"
 let kLoan_desc           = "loan_desc"
 let kCompletedStep      = "completed_Step"
-
+let kPhone          = "phone"
+let kschedule_date_time = "schedule_date_time"
 let kDisp_Name      = "disp_name"
 let kMin_val        = "min_val"
 let kMax_val        = "max_val"
@@ -234,6 +235,7 @@ let profitability_required = "profitability_required"
 let sec_pos_allowed = "sec_pos_allowed"
 let cc_volume_factor = "cc_volume_factor"
 
+let kLoanType           = "loan_type"
 
 //MARK: ----- Bank Step One -----
 
@@ -320,9 +322,13 @@ let kStep4document_list         = "document_list"
 
 
 
+//MARK: ----- Pending App -----
+//MARK:
 
-
-
+let kAPP_Pending = "pending_app"
+let kAPP_StepComplete = "step_completed"
+let kAPP_IsPending = "is_pending"
+let kAPP_application_step = "application_step"
 
 
 

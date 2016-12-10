@@ -8,7 +8,33 @@
 
 import UIKit
 
+let k90_day = "k90_day"
+let k180_day = "180_day"
+let k365_day = "365_day"
+let k545_day = "545_day"
+
+let k48_hrs = "48_hrs"
+let k1_week = "1_week"
+let k1_month = "1_month"
+let k1_year = "1_year"
+
+
 class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
+    
+    
+    enum PayBack: Int {
+        case k90Days
+        case k180Days
+        case k365Days
+        case k545Days
+    }
+   
+    enum PayYouNeed: Int {
+        case k48_hrs
+        case k1_week
+        case k1_month
+        case k1_year
+    }
     
     
     var loanStep3 = LoanStepThree()
@@ -36,16 +62,92 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
     @IBOutlet var obj_ScrollView: UIScrollView!
     var array1 = [String]()
     
+    @IBOutlet var viewFastYouNeed: UIView!
+    @IBOutlet var viewLongPayBack: UIView!
     
+    var isNext: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.doSetUpScreen()
         
+        if isNext != true {
+            
+            if CurrentUser.sharedInstance.pendingApp?.isPending == "Y" {
+                
+                APIManager.sharedInstance.getStepThreeData(appID: (CurrentUser.sharedInstance.pendingApp?.applicationID)!, stepId: "3", completion: { (loanData:LoanStepThree?, error:NSError?) in
+                    
+                    if error == nil {
+                        self.setFillData(loanData: loanData!)
+                        self.loanStep3.k_application_id = CurrentUser.sharedInstance.pendingApp?.applicationID!
+                    }
+                })
+            } else {
+                loanStep3.k_how_fast_need = k48_hrs
+                loanStep3.k_how_long_pay_back  = k90_day
+            }
+        } else {
+            loanStep3.k_how_fast_need = k48_hrs
+            loanStep3.k_how_long_pay_back  = k90_day
+        }
     }
 
+    func setFillData(loanData: LoanStepThree) {
+        txtName.text = loanData.k_owner_name
+        txtTitle.text = loanData.k_owner_title
+        txtPercentage.text = loanData.k_percentage_of_ownership
+        
+        txtZipCode.text = loanData.k_zip
+        txtStreetNumber.text = loanData.k_Street_Number
+        txtStreenName.text = loanData.k_Street_Name
+        txtAptSuit.text = loanData.k_street_Apt
+        txtState.text = loanData.k_State
+        txtCity.text = loanData.k_City
+        
+        txtHomePhone.text = loanData.k_home_phone
+        txtMobileNumber.text = loanData.k_home_mobile_number
+        txtEmail.text = loanData.k_owner_email
+        txtDOB.text = loanData.k_owner_dob
+        txtSocialInsurance.text = loanData.k_social_security_insurance
+        txtStateProvince.text = loanData.k_drivers_licence_states
+        txtDrivingLicenceNumber.text = loanData.k_drivers_licenceNumber
+        
+        let fastNeed = loanData.k_how_fast_need!
+        let btn = UIButton.init()
+        
+        if fastNeed == k48_hrs {
+            btn.tag = PayYouNeed.k48_hrs.rawValue
+        } else if fastNeed == k1_week {
+            btn.tag = PayYouNeed.k1_week.rawValue
+        } else if fastNeed == k1_month {
+            btn.tag = PayYouNeed.k1_month.rawValue
+        } else if fastNeed == k1_year {
+            btn.tag = PayYouNeed.k1_year.rawValue
+        }
+        
+        self.btn_SelectNeed(btn)
+        
+        let payback = loanData.k_how_long_pay_back
+        
+        if payback == k90_day  {
+            btn.tag = PayBack.k90Days.rawValue
+        } else if payback == k180_day {
+            btn.tag = PayBack.k180Days.rawValue
+        } else if payback == k365_day {
+            btn.tag = PayBack.k365Days.rawValue
+        } else if payback == k545_day {
+            btn.tag = PayBack.k545Days.rawValue
+        }
+        
+        self.btn_SelectPayback(btn)
+
+        
+//        loanStep3.k_how_fast_need
+//        loanStep3.k_how_long_pay_back
+    }
+    
     // MARK: - ALL FUNCTIONS
     
     func doSetUpScreen() {
@@ -68,13 +170,9 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
         
         DispatchQueue.main.async
         {
-            
-            
             for i in 1...100 {
                 self.array1.append("\(i) %")
             }
-            
-            
             self.AddDropDown(sender: self.txtPercentage,array_Data: self.array1)
         }
         
@@ -131,8 +229,7 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
         txtStateProvince.setUpTextFieldForLengthValidation(minLength: 1, maxLength: 50)
         txtStateProvince.textFieldValidationType = .Text
         
-        loanStep3.k_how_fast_need = "48 Hours"
-        loanStep3.k_how_long_pay_back  = "90 Days"
+        
         
     }
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
@@ -147,9 +244,9 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
     {
         
         drop_Percentage = UIDropDown(frame: CGRect(x: sender.frame.origin.x, y: sender.frame.origin.y, width: sender.frame.width, height: sender.frame.height))
-        drop_Percentage.center = CGPoint(x: sender.frame.midX, y: sender.frame.midY)
-        drop_Percentage.placeholder = "  \(sender.placeholder!)"
-        sender.placeholder=""
+//        drop_Percentage.center = CGPoint(x: sender.frame.midX, y: sender.frame.midY)
+//        drop_Percentage.placeholder = "  \(sender.placeholder!)"
+//        sender.placeholder=""
         
         
         //Default,Bouncing,Classic
@@ -166,7 +263,24 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
     // MARK:- AllActions
     
     @IBAction func btn_NectClick(_ sender: AnyObject) {
-    
+
+        
+        self.dismissKeyboard()
+        
+        if !Reachability.sharedInstance.isReachable() {
+            return
+        }
+        
+        
+        let btn = sender as! UIButton
+        
+        if btn.tag == 1 {
+            self.call_LoanStepThreeApi(saveType: sender.tag)
+            return
+        } else {
+            loanStep3.k_submit_type = "next"
+        }
+
         
         if OwnerTextValidation.isValidate(textField: txtName, validationType: .AI_VALIDATION_TYPE_NAME) {
        
@@ -204,11 +318,7 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
                                                                             
                                                                             if OwnerTextValidation.isValidate(textField: txtDrivingLicenceNumber, validationType: .AI_VALIDATION_DRIVING_NUMBER) {
                                                                            
-                                                                                if !Reachability.sharedInstance.isReachable() {
-                                                                                    return
-                                                                                }
-                                                                                
-                                                                                self.call_LoanStepThreeApi()
+                                                                                self.call_LoanStepThreeApi(saveType: btn.tag)
                                                                                 
                                                                                 
                                                                             }
@@ -237,12 +347,12 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
         
     
     }
-    func call_LoanStepThreeApi() {
+    func call_LoanStepThreeApi(saveType: Int) {
     
         
         loanStep3.k_user_id = CurrentUser.sharedInstance.id!
         
-        loanStep3.k_submit_type = "next"
+        
         loanStep3.k_owner_name = txtName.text!
         loanStep3.k_owner_title = txtTitle.text!
         loanStep3.k_percentage_of_ownership = txtPercentage.text!
@@ -261,51 +371,83 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
         loanStep3.k_social_security_insurance = txtSocialInsurance.text!
         loanStep3.k_drivers_licence_states = txtStateProvince.text!
         loanStep3.k_drivers_licenceNumber = txtDrivingLicenceNumber.text!
-        
-        if let str = UserDefaults.standard.value(forKey: kApplication_id) as? String {
-            loanStep3.k_application_id = str
-            APIManager.sharedInstance.loanStepThree(stepThree: loanStep3) { (error:NSError?) in
-                let documentVC = self.storyboard?.instantiateViewController(withIdentifier: "DocumentListViewController") as! DocumentListViewController
-                self.navigationController?.pushViewController(documentVC, animated: true)
+        loanStep3.k_application_id = CurrentUser.sharedInstance.pendingApp?.applicationID!
+        APIManager.sharedInstance.loanStepThree(stepThree: loanStep3) { (error:NSError?) in
+                
+            if error == nil {
+                if saveType == 1 {
+                    self.popToRoot()
+                } else {
+                    let documentVC = self.storyboard?.instantiateViewController(withIdentifier: "DocumentListViewController") as! DocumentListViewController
+                    documentVC.isNext = true
+                    self.navigationController?.pushViewController(documentVC, animated: true)
+                }
             }
-        } else {
-            Alert.displayErrorDevMessage(str: "Application id is required")
         }
-        
     }
-    func moveToDocumentListScreen()  {
-        
-        pushTo(viewController: "DocumentListViewController")
-        
-    }
+
+    
     @IBAction func btn_SelectNeed(_ sender: UIButton) {
         
-        let viewTmp = sender.superview! as UIView
-        for view in viewTmp.subviews as [UIView] {
+        var value = ""
+        
+        if sender.tag == PayYouNeed.k48_hrs.rawValue {
+            value = k48_hrs
+        } else if sender.tag == PayYouNeed.k1_week.rawValue {
+            value = k1_week
+        } else if sender.tag == PayYouNeed.k1_month.rawValue {
+            value = k1_month
+        } else if sender.tag == PayYouNeed.k1_year.rawValue {
+            value = k1_year
+        }
+        
+        loanStep3.k_how_fast_need = "\(value)"
+        
+        for view in viewFastYouNeed.subviews as [UIView] {
             
             if let btn = view as? UIButton {
-                btn.setImage(UIImage(named: "radiooff"), for: .normal)
+                
+                if btn.tag == sender.tag {
+                    btn.setImage(UIImage(named: "radioon"), for: .normal)
+                } else {
+                    btn.setImage(UIImage(named: "radiooff"), for: .normal)
+                }
             }
         }
         
-        let strArr = sender.titleLabel?.text?.characters.split{$0 == " "}.map(String.init)
-        let value = strArr?[0]
-        loanStep3.k_how_fast_need = "\(value)"
+//        let strArr = sender.titleLabel?.text?.characters.split{$0 == " "}.map(String.init)
+//        let value = strArr?[0]
         
-        sender.setImage(UIImage(named: "radioon"), for: .normal)
+        
+        
         
     }
     @IBAction func btn_SelectPayback(_ sender: UIButton) {
         
-        let viewTmp = sender.superview! as UIView
-        for view in viewTmp.subviews as [UIView] {
+        for view in viewLongPayBack.subviews as [UIView] {
             
             if let btn = view as? UIButton {
-                btn.setImage(UIImage(named: "radiooff"), for: .normal)
+                if btn.tag == sender.tag {
+                    btn.setImage(UIImage(named: "radioon"), for: .normal)
+                } else {
+                    btn.setImage(UIImage(named: "radiooff"), for: .normal)
+                }
             }
         }
-        let strArr = sender.titleLabel?.text?.characters.split{$0 == " "}.map(String.init)
-        let value = strArr?[0]
+        
+
+        var value = ""
+        
+        if sender.tag == PayBack.k90Days.rawValue {
+            value = k90_day
+        } else if sender.tag == PayBack.k180Days.rawValue {
+            value = k180_day
+        } else if sender.tag == PayBack.k365Days.rawValue {
+            value = k365_day
+        } else if sender.tag == PayBack.k545Days.rawValue {
+            value = k545_day
+        }
+        
         loanStep3.k_how_long_pay_back  = "\(value)"
         
         sender.setImage(UIImage(named: "radioon"), for: .normal)
@@ -335,28 +477,29 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
     }
     
     // MARK - AllActions
-    @IBAction func btnNextPress(_ sender: AnyObject) {
-        
-        
-        loanStep3.k_user_id = CurrentUser.sharedInstance.id!
-        loanStep3.k_application_id = "1"
-        loanStep3.k_owner_name = txtName.text!
-        loanStep3.k_owner_title = txtTitle.text!
-        loanStep3.k_percentage_of_ownership = txtPercentage.text!
-        
-        loanStep3.k_home_phone = txtHomePhone.text!
-        loanStep3.k_home_mobile_number = txtMobileNumber.text!
-        loanStep3.k_owner_email = txtEmail.text!
-        loanStep3.k_owner_dob = txtDOB.text!
-        loanStep3.k_social_security_insurance = txtSocialInsurance.text!
-        loanStep3.k_drivers_licence_states = txtStateProvince.text!
-                
-        APIManager.sharedInstance.loanStepThree(stepThree: loanStep3) { (error:NSError?) in
-            let documentVC = self.storyboard?.instantiateViewController(withIdentifier: "DocumentListViewController") as! DocumentListViewController
-            self.navigationController?.pushViewController(documentVC, animated: true)
-        }
-
-    }
+//    @IBAction func btnNextPress(_ sender: AnyObject) {
+//        
+//        
+//        loanStep3.k_user_id = CurrentUser.sharedInstance.id!
+//        loanStep3.k_application_id = "1"
+//        loanStep3.k_owner_name = txtName.text!
+//        loanStep3.k_owner_title = txtTitle.text!
+//        loanStep3.k_percentage_of_ownership = txtPercentage.text!
+//        
+//        loanStep3.k_home_phone = txtHomePhone.text!
+//        loanStep3.k_home_mobile_number = txtMobileNumber.text!
+//        loanStep3.k_owner_email = txtEmail.text!
+//        loanStep3.k_owner_dob = txtDOB.text!
+//        loanStep3.k_social_security_insurance = txtSocialInsurance.text!
+//        loanStep3.k_drivers_licence_states = txtStateProvince.text!
+//                
+//        APIManager.sharedInstance.loanStepThree(stepThree: loanStep3) { (error:NSError?) in
+//            let documentVC = self.storyboard?.instantiateViewController(withIdentifier: "DocumentListViewController") as! DocumentListViewController
+//            documentVC.isNext = true
+//            self.navigationController?.pushViewController(documentVC, animated: true)
+//        }
+//
+//    }
 
     
     override func didReceiveMemoryWarning() {

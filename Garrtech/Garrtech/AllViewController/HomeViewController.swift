@@ -9,7 +9,8 @@
 import UIKit
 import MessageUI
 
-class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
+class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CAAnimationDelegate  {
+    
     
     
     enum CellIndex {
@@ -117,11 +118,11 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             return
         }
         
-        if indexPath.row != 0 && indexPath.row != 5  {
-            Alert.displayUnderDevMessage()
-            return
-        }
-        
+//        if indexPath.row != 0 && indexPath.row != 5  {
+//            Alert.displayUnderDevMessage()
+//            return
+//        }
+//        
         
         let cell = collectionViewObj.cellForItem(at: indexPath) as! HomwViewCell
         cell.backgroundImageObj.isHidden = false
@@ -146,20 +147,24 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             
             var viewControllerIdentifire = ""
             
-            if let index = UserDefaults.standard.value(forKey: kCompletedStep) as? Int {
+        
+            if CurrentUser.sharedInstance.pendingApp!.isPending! == "Y"{
                 
-                if index == CompleteStep.BusinessInfo.hashValue {
+                let step = CurrentUser.sharedInstance.pendingApp?.stepCompleted
+                
+                if step == "\(CompleteStep.BusinessInfo.hashValue)"  {
+                    viewControllerIdentifire = "BusinessLoanViewController"
+                } else if step == "\(CompleteStep.CompanyInfo.hashValue)"  {
                     viewControllerIdentifire = "CompanyLoanViewController"
-                } else if index == CompleteStep.CompanyInfo.hashValue {
+                } else if step == "\(CompleteStep.OwnerInfo.hashValue)"  {
                     viewControllerIdentifire = "OwnerVc"
-                } else if index == CompleteStep.OwnerInfo.hashValue {
+                } else if step == "\(CompleteStep.DocList.hashValue)"  {
                     viewControllerIdentifire = "DocumentListViewController"
-                } else if index == CompleteStep.DocList.hashValue {
+                } else {
                     viewControllerIdentifire = "shortLoanVc"
                 }
             } else {
                 viewControllerIdentifire = "shortLoanVc"
-                
             }
             pushTo(viewController: viewControllerIdentifire)
             
@@ -170,9 +175,18 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         } else if indexPath.row == CellIndex.BIZANYLI.hashValue {
             Alert.displayUnderDevMessage()
         } else if indexPath.row == CellIndex.PENDINGAPP.hashValue {
-            pushTo(viewController: "PendingApplicationViewController")
+            
+            if CurrentUser.sharedInstance.pendingApp?.isPending! == "Y" {
+                pushTo(viewController: "PendingApplicationViewController")                
+            } else {
+                Alert.displayErrorDevMessage(str: "You have no pending application")
+            }
+            
+            
         } else if indexPath.row == CellIndex.MYPROF.hashValue {
+            
             pushTo(viewController: "ProfileVc")
+            
         }
     }
     
@@ -180,6 +194,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     
     
     @IBAction func contactUSPress() {
+        
         if !MFMailComposeViewController.canSendMail() {
             
             Alert.displayErrorDevMessage(str: "Mail services are not available please configure email")
@@ -202,6 +217,11 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         }
     }
     
+    @IBAction func schedulePress()
+    {
+        let sceduleViewObj = self.storyboard?.instantiateViewController(withIdentifier: "SceduleCallViewController") as! SceduleCallViewController
+        pushTOVC(controller: sceduleViewObj)
+    }
 }
 
 extension HomeViewController : MFMailComposeViewControllerDelegate {

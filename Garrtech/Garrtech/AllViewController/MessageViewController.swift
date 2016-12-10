@@ -15,8 +15,9 @@ class MessageViewController: BaseViewController {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+
         self.doSetUpScreen()
+        
         
     }
     // MARK: - All Functions
