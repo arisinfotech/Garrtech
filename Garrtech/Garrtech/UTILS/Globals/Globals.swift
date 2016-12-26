@@ -205,6 +205,11 @@ let kStatus             = "status"
 let kMessage            = "message"
 let kData               = "data"
 let kSuccess            = "1"
+
+let kapiKey             = "apikey"
+let kInvalid            = "invalid"
+
+
 // Change Password
 let kOld_password       = "old_password"
 let kNew_password       = "new_password"
@@ -220,6 +225,7 @@ let kLoan_desc           = "loan_desc"
 let kCompletedStep      = "completed_Step"
 let kPhone          = "phone"
 let kschedule_date_time = "schedule_date_time"
+let kschedule_time = "schedule_time"
 let kDisp_Name      = "disp_name"
 let kMin_val        = "min_val"
 let kMax_val        = "max_val"
@@ -330,5 +336,11 @@ let kAPP_StepComplete = "step_completed"
 let kAPP_IsPending = "is_pending"
 let kAPP_application_step = "application_step"
 
+////MARK: ----- IBAction Mehtods -----
+//MARK:
+
+let kTotal_sore                 = "total_sore"
+let kTaken_score                = "taken_score"
+let kCreadit_score              = "creadit_score"
 
 

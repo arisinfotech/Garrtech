@@ -24,6 +24,10 @@ class LoanInformationViewController: UIViewController
     @IBOutlet var lblLoanTitle: UILabel!
     @IBOutlet var lblLoanDescription: UILabel!
     
+    var annualRevenue: String?
+    var businessTime: String?
+    var creditScore: String?
+
     
     override func viewDidLoad() {
         
@@ -72,8 +76,13 @@ class LoanInformationViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func nextBtnPress() {
-        pushTo(viewController: "BusinessLoanViewController")
+    @IBAction func nextBtnPress()
+    {
+        let BusinessLoanVC = self.storyboard?.instantiateViewController(withIdentifier: "BusinessLoanViewController") as! BusinessLoanViewController
+        BusinessLoanVC.annualRevenue = annualRevenue
+        BusinessLoanVC.businessTime = businessTime
+        BusinessLoanVC.creditScore = creditScore
+        self.navigationController?.pushViewController(BusinessLoanVC, animated: true)
     }
     
 

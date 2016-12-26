@@ -51,10 +51,12 @@
 		4121D6121DD8F1000035EE0E /* DocumentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D6101DD8F1000035EE0E /* DocumentListViewController.swift */; };
 		4121D6141DD8F1150035EE0E /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121D6131DD8F1150035EE0E /* ChangePasswordViewController.swift */; };
 		41228A041DE8A2CD0001AA58 /* AIAllStepValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41228A031DE8A2CD0001AA58 /* AIAllStepValidation.swift */; };
+		41359FAE1DFD64780013789A /* TermsAndConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41359FAD1DFD64780013789A /* TermsAndConditionVC.swift */; };
 		4154A8DE1DEF61F300308B77 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 4154A8DD1DEF61F300308B77 /* home.png */; };
 		419330D71DDF664F00E36E28 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419330D61DDF664F00E36E28 /* BaseViewController.swift */; };
 		41E9505E1DDA11EB00FC7345 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E9505D1DDA11EB00FC7345 /* HomeViewController.swift */; };
 		41E950601DDA13CE00FC7345 /* HomwViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E9505F1DDA13CE00FC7345 /* HomwViewCell.swift */; };
+		BC13CEDB1E0590D900E38A67 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = BC13CEDA1E0590D900E38A67 /* save.png */; };
 		BC326EBF1DD7818700C53BFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC326EBE1DD7818700C53BFC /* AppDelegate.swift */; };
 		BC326EC41DD7818700C53BFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC326EC21DD7818700C53BFC /* Main.storyboard */; };
 		BC326EC61DD7818700C53BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC326EC51DD7818700C53BFC /* Assets.xcassets */; };
@@ -72,7 +74,15 @@
 		BC5149861DE1E3DD00468489 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC51497C1DE1E3DD00468489 /* Profile.swift */; };
 		BC5149871DE1E3DD00468489 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC51497D1DE1E3DD00468489 /* Register.swift */; };
 		BC63BEDF1DEB4E5700F5E92C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC63BEDD1DEB4E5700F5E92C /* Reachability.swift */; };
+		BC77D9801DFD4E2800EED9A9 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = BC77D97D1DFD4E2800EED9A9 /* calendar.png */; };
+		BC77D9811DFD4E2800EED9A9 /* telephone.png in Resources */ = {isa = PBXBuildFile; fileRef = BC77D97E1DFD4E2800EED9A9 /* telephone.png */; };
+		BC77D9821DFD4E2800EED9A9 /* time-left.png in Resources */ = {isa = PBXBuildFile; fileRef = BC77D97F1DFD4E2800EED9A9 /* time-left.png */; };
+		BC7AB3C91E0FB6AA00E7FD12 /* ScorBiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB3C81E0FB6AA00E7FD12 /* ScorBiz.swift */; };
+		BC7AB3CB1E0FBA4700E7FD12 /* ScoreBizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB3CA1E0FBA4700E7FD12 /* ScoreBizViewController.swift */; };
 		BC87C9B51DF4211D00B6FD75 /* MyApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC87C9B41DF4211D00B6FD75 /* MyApplication.swift */; };
+		BCA1D2011E10394B00AE70FC /* VBPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1D1FD1E10394B00AE70FC /* VBPieChart.m */; };
+		BCA1D2021E10394B00AE70FC /* VBPiePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1D1FF1E10394B00AE70FC /* VBPiePiece.m */; };
+		BCA1D2051E103D9D00AE70FC /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA1D2041E103D9D00AE70FC /* UIColor+HexColor.m */; };
 		BCB9CC411DFC667A0036F5D9 /* SceduleCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9CC401DFC667A0036F5D9 /* SceduleCallViewController.swift */; };
 		BCB9CC431DFC6D660036F5D9 /* ScheduleCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB9CC421DFC6D660036F5D9 /* ScheduleCall.swift */; };
 		BCC63CD01DDB67C900B8C688 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC63CAE1DDB67C900B8C688 /* IQNSArray+Sort.m */; };
@@ -90,7 +100,6 @@
 		BCC63CDC1DDB67CA00B8C688 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC63CCC1DDB67C900B8C688 /* IQUIView+IQKeyboardToolbar.m */; };
 		BCC63CDD1DDB67CA00B8C688 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCC63CCF1DDB67C900B8C688 /* IQKeyboardManager.bundle */; };
 		BCE6D7091DF2E27F000A9029 /* PendingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6D7081DF2E27F000A9029 /* PendingApp.swift */; };
-		BCE6D70B1DF33249000A9029 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = BCE6D70A1DF33249000A9029 /* save.png */; };
 		ECCC4DEF1DE1E9F6006B74F7 /* outerCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC4DEE1DE1E9F6006B74F7 /* outerCircleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -139,12 +148,14 @@
 		4121D6101DD8F1000035EE0E /* DocumentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentListViewController.swift; sourceTree = "<group>"; };
 		4121D6131DD8F1150035EE0E /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		41228A031DE8A2CD0001AA58 /* AIAllStepValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIAllStepValidation.swift; sourceTree = "<group>"; };
+		41359FAD1DFD64780013789A /* TermsAndConditionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndConditionVC.swift; sourceTree = "<group>"; };
 		4154A8DD1DEF61F300308B77 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		419330D61DDF664F00E36E28 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		41E9505D1DDA11EB00FC7345 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		41E9505F1DDA13CE00FC7345 /* HomwViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomwViewCell.swift; sourceTree = "<group>"; };
 		7DB7F5E2B9971B8B8F9E9D38 /* Pods_Garrtech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Garrtech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A381CAF21C8A367C23E77A9D /* Pods-Garrtech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garrtech.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Garrtech/Pods-Garrtech.debug.xcconfig"; sourceTree = "<group>"; };
+		BC13CEDA1E0590D900E38A67 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		BC326EBB1DD7818600C53BFC /* Garrtech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garrtech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC326EBE1DD7818700C53BFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC326EC31DD7818700C53BFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -167,7 +178,19 @@
 		BC51497C1DE1E3DD00468489 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		BC51497D1DE1E3DD00468489 /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		BC63BEDD1DEB4E5700F5E92C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		BC77D97D1DFD4E2800EED9A9 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		BC77D97E1DFD4E2800EED9A9 /* telephone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = telephone.png; sourceTree = "<group>"; };
+		BC77D97F1DFD4E2800EED9A9 /* time-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "time-left.png"; sourceTree = "<group>"; };
+		BC7AB3C81E0FB6AA00E7FD12 /* ScorBiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScorBiz.swift; sourceTree = "<group>"; };
+		BC7AB3CA1E0FBA4700E7FD12 /* ScoreBizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBizViewController.swift; sourceTree = "<group>"; };
 		BC87C9B41DF4211D00B6FD75 /* MyApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyApplication.swift; sourceTree = "<group>"; };
+		BCA1D1FC1E10394B00AE70FC /* VBPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPieChart.h; sourceTree = "<group>"; };
+		BCA1D1FD1E10394B00AE70FC /* VBPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBPieChart.m; sourceTree = "<group>"; };
+		BCA1D1FE1E10394B00AE70FC /* VBPiePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPiePiece.h; sourceTree = "<group>"; };
+		BCA1D1FF1E10394B00AE70FC /* VBPiePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBPiePiece.m; sourceTree = "<group>"; };
+		BCA1D2001E10394B00AE70FC /* VBPiePiece_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPiePiece_private.h; sourceTree = "<group>"; };
+		BCA1D2031E103D9D00AE70FC /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
+		BCA1D2041E103D9D00AE70FC /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
 		BCB9CC401DFC667A0036F5D9 /* SceduleCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceduleCallViewController.swift; sourceTree = "<group>"; };
 		BCB9CC421DFC6D660036F5D9 /* ScheduleCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCall.swift; sourceTree = "<group>"; };
 		BCC63CAD1DDB67C900B8C688 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
@@ -201,7 +224,6 @@
 		BCC63CCD1DDB67C900B8C688 /* KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
 		BCC63CCF1DDB67C900B8C688 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		BCE6D7081DF2E27F000A9029 /* PendingApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingApp.swift; sourceTree = "<group>"; };
-		BCE6D70A1DF33249000A9029 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		ECCC4DEE1DE1E9F6006B74F7 /* outerCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = outerCircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -288,6 +310,7 @@
 		4121D5D51DD860ED0035EE0E /* UTILS */ = {
 			isa = PBXGroup;
 			children = (
+				BCA1D1FB1E10394B00AE70FC /* Chart */,
 				ECCC4DED1DE1E9F5006B74F7 /* OuterSlider */,
 				412023EF1DE1BFF100FD4C89 /* DropDown */,
 				BCC63CAB1DDB67C900B8C688 /* IQKeyBoardManager */,
@@ -354,6 +377,8 @@
 				4121D6101DD8F1000035EE0E /* DocumentListViewController.swift */,
 				4121D5FC1DD8B78F0035EE0E /* MessageViewController.swift */,
 				BCB9CC401DFC667A0036F5D9 /* SceduleCallViewController.swift */,
+				41359FAD1DFD64780013789A /* TermsAndConditionVC.swift */,
+				BC7AB3CA1E0FBA4700E7FD12 /* ScoreBizViewController.swift */,
 			);
 			path = AllViewController;
 			sourceTree = "<group>";
@@ -407,7 +432,10 @@
 				BC326EBE1DD7818700C53BFC /* AppDelegate.swift */,
 				419330D61DDF664F00E36E28 /* BaseViewController.swift */,
 				4154A8DD1DEF61F300308B77 /* home.png */,
-				BCE6D70A1DF33249000A9029 /* save.png */,
+				BC77D97D1DFD4E2800EED9A9 /* calendar.png */,
+				BC77D97E1DFD4E2800EED9A9 /* telephone.png */,
+				BC77D97F1DFD4E2800EED9A9 /* time-left.png */,
+				BC13CEDA1E0590D900E38A67 /* save.png */,
 				BC5149701DE1E37700468489 /* Garrtech-Bridging-Header.h */,
 				BC326EC21DD7818700C53BFC /* Main.storyboard */,
 				BC326EC51DD7818700C53BFC /* Assets.xcassets */,
@@ -442,6 +470,7 @@
 				BCE6D7081DF2E27F000A9029 /* PendingApp.swift */,
 				BC87C9B41DF4211D00B6FD75 /* MyApplication.swift */,
 				BCB9CC421DFC6D660036F5D9 /* ScheduleCall.swift */,
+				BC7AB3C81E0FB6AA00E7FD12 /* ScorBiz.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -452,6 +481,20 @@
 				BC63BEDD1DEB4E5700F5E92C /* Reachability.swift */,
 			);
 			path = Reachability;
+			sourceTree = "<group>";
+		};
+		BCA1D1FB1E10394B00AE70FC /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				BCA1D2031E103D9D00AE70FC /* UIColor+HexColor.h */,
+				BCA1D2041E103D9D00AE70FC /* UIColor+HexColor.m */,
+				BCA1D1FC1E10394B00AE70FC /* VBPieChart.h */,
+				BCA1D1FD1E10394B00AE70FC /* VBPieChart.m */,
+				BCA1D1FE1E10394B00AE70FC /* VBPiePiece.h */,
+				BCA1D1FF1E10394B00AE70FC /* VBPiePiece.m */,
+				BCA1D2001E10394B00AE70FC /* VBPiePiece_private.h */,
+			);
+			path = Chart;
 			sourceTree = "<group>";
 		};
 		BCC63CAB1DDB67C900B8C688 /* IQKeyBoardManager */ = {
@@ -615,12 +658,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC77D9811DFD4E2800EED9A9 /* telephone.png in Resources */,
 				BCC63CDD1DDB67CA00B8C688 /* IQKeyboardManager.bundle in Resources */,
+				BC77D9801DFD4E2800EED9A9 /* calendar.png in Resources */,
 				BC326EC91DD7818700C53BFC /* LaunchScreen.storyboard in Resources */,
 				4154A8DE1DEF61F300308B77 /* home.png in Resources */,
+				BC77D9821DFD4E2800EED9A9 /* time-left.png in Resources */,
+				BC13CEDB1E0590D900E38A67 /* save.png in Resources */,
 				BC326EC61DD7818700C53BFC /* Assets.xcassets in Resources */,
 				4121D6001DD8B78F0035EE0E /* CompletedStepView.xib in Resources */,
-				BCE6D70B1DF33249000A9029 /* save.png in Resources */,
 				BC326EC41DD7818700C53BFC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -708,16 +754,20 @@
 				4121D5C71DD860E20035EE0E /* String.swift in Sources */,
 				41E9505E1DDA11EB00FC7345 /* HomeViewController.swift in Sources */,
 				4121D5DD1DD860ED0035EE0E /* Globals.swift in Sources */,
+				41359FAE1DFD64780013789A /* TermsAndConditionVC.swift in Sources */,
 				4121D5D31DD860E20035EE0E /* UIView.swift in Sources */,
 				4121D5D11DD860E20035EE0E /* UITableViewExtension.swift in Sources */,
 				BC326EBF1DD7818700C53BFC /* AppDelegate.swift in Sources */,
 				4121D5F71DD8B6260035EE0E /* RagisterViewController.swift in Sources */,
 				BCC63CD11DDB67CA00B8C688 /* IQUITextFieldView+Additions.m in Sources */,
 				BC5149841DE1E3DD00468489 /* LoanStepTwo.swift in Sources */,
+				BCA1D2021E10394B00AE70FC /* VBPiePiece.m in Sources */,
 				4121D5CB1DD860E20035EE0E /* UIFont.swift in Sources */,
 				4121D5F61DD8B6260035EE0E /* LoginViewController.swift in Sources */,
 				4121D6081DD8BB040035EE0E /* loanOptionVC.swift in Sources */,
 				4121D5CC1DD860E20035EE0E /* UIImage.swift in Sources */,
+				BCA1D2051E103D9D00AE70FC /* UIColor+HexColor.m in Sources */,
+				BC7AB3CB1E0FBA4700E7FD12 /* ScoreBizViewController.swift in Sources */,
 				4121D60C1DD8C1090035EE0E /* BusinessLoanViewController.swift in Sources */,
 				BCC63CDA1DDB67CA00B8C688 /* IQTitleBarButtonItem.m in Sources */,
 				4121D5D41DD860E20035EE0E /* UIViewController.swift in Sources */,
@@ -725,6 +775,7 @@
 				4121D6111DD8F1000035EE0E /* CompanyLoanViewController.swift in Sources */,
 				4121D6091DD8BB040035EE0E /* ProfileVc.swift in Sources */,
 				4121D5C61DD860E20035EE0E /* Extension.swift in Sources */,
+				BCA1D2011E10394B00AE70FC /* VBPieChart.m in Sources */,
 				BCC63CDC1DDB67CA00B8C688 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				4121D6031DD8B78F0035EE0E /* MyApplicationListViewController.swift in Sources */,
 				BCC63CDB1DDB67CA00B8C688 /* IQToolbar.m in Sources */,
@@ -734,6 +785,7 @@
 				4121D6041DD8B78F0035EE0E /* PendingApplicationViewController.swift in Sources */,
 				BC5149721DE1E3C100468489 /* SPErrors.swift in Sources */,
 				BCB9CC431DFC6D660036F5D9 /* ScheduleCall.swift in Sources */,
+				BC7AB3C91E0FB6AA00E7FD12 /* ScorBiz.swift in Sources */,
 				BCC63CD51DDB67CA00B8C688 /* IQKeyboardManager.m in Sources */,
 				4121D6121DD8F1000035EE0E /* DocumentListViewController.swift in Sources */,
 				412023FA1DE1EE7A00FD4C89 /* loanOptionSecondVc.swift in Sources */,

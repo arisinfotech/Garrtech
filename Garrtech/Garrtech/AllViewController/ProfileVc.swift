@@ -115,14 +115,14 @@ class ProfileVc: BaseViewController, UIImagePickerControllerDelegate,UINavigatio
         
         // Make sure ViewController is notified when the user picks an image.
         imagePickerController.delegate = self
-        
+        imagePickerController.allowsEditing = true
         
         present(imagePickerController, animated: true, completion: nil)
     }
     
      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // The info dictionary contains multiple representations of the image, and this uses the original.
-        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let selectedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
      //   profileImage.image = originalImg;
         

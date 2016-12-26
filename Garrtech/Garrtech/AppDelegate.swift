@@ -25,17 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         sleep(3)
         
         Reachability.sharedInstance.checkReachability()
-        
+    
         print(UserDefaults.standard.object(forKey: kUSERLOGIN))
         if CurrentUser.sharedInstance.id != nil
         {
-            self.redirectToHomeVC()
-          // self.redirectToOtherVC()
+          //  self.redirectToHomeVC()
+           self.redirectToOtherVC()
             //self.redirectToLoginVC()
         }
         else
         {
             self.redirectToLoginVC()
+//            self.redirectToOtherVC()
+            
         }
         self.registerPushNotification(application)
         return true
@@ -71,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func redirectToOtherVC() {
         
-        let objVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MessageViewController") as! MessageViewController
+        let objVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoreBizViewController") as! ScoreBizViewController
         navigationVC = UINavigationController.init(rootViewController: objVC)
         self.window?.rootViewController = navigationVC
     }
@@ -89,6 +91,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         print("i am not available in simulator \(error)")
         
+    }
+    
+    
+    func clearUserDefault() {
+        let appDomain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: appDomain)
+        
+        
+        UserDefaults.standard.removeObject(forKey: kUSERLOGIN)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

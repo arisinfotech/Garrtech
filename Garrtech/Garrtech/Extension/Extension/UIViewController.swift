@@ -9,9 +9,8 @@
 import UIKit
 
 
-extension UIViewController {
-  
-    
+extension UIViewController
+{
     
     /*
     var sideMenuViewController: AKSideMenu? {
@@ -81,7 +80,7 @@ extension UIViewController {
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize.zero
         self.navigationController?.navigationBar.layer.shadowRadius = 7
   
-//        let item = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+//        let item = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 //        self.navigationItem.backBarButtonItem = item
         
     }
@@ -95,14 +94,14 @@ extension UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
-    func hideBottomLine() {
-        
+    func hideBottomLine()
+    {
         self.navigationController?.navigationBar.hideBottomHairline()
     }
     
-    func setDefaultLeftSideButtonWithImage() {
-   
-        self.setLeftSideButtonWithImage(Name: "menu", selector:#selector(self.presentLeftMenuViewController(sender:)))
+    func setDefaultLeftSideButtonWithImage()
+    {
+       self.setLeftSideButtonWithImage(Name: "menu", selector:#selector(self.presentLeftMenuViewController(sender:)))
     }
     
     func setDefaultLeftSideButtonWithTitle() {

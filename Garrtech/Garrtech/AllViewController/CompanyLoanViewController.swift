@@ -77,13 +77,7 @@ class CompanyLoanViewController: BaseViewController {
             btnNO.setImage(UIImage(named: "radiooff"), for: .normal)
         }
         
-        if balanceType=="Y"
-        {
-            txtBalanceIfYes.text = loanData.k_advance_balance
-            txtBalanceIfYes.isUserInteractionEnabled = true
-            
-        }
-        else if balanceType=="N"
+        if balanceType == "N"
         {
             txtBalanceIfYes.isUserInteractionEnabled = false
             stepTwo.k_advance_balance = ""
@@ -92,6 +86,7 @@ class CompanyLoanViewController: BaseViewController {
         } else {
             txtBalanceIfYes.text = loanData.k_advance_balance
             txtBalanceIfYes.isUserInteractionEnabled = true
+            balanceType = "Y"
 
         }
         
@@ -101,6 +96,7 @@ class CompanyLoanViewController: BaseViewController {
         
         self.title = "COMPANY INFORMATION"
         self.setLeftSideButtonWithImage(Name: "back", selector:#selector(self.popTo))
+        self.setRightSideButtonWithImage(Name: "home.png", selector:  #selector(self.popToRoot))
         
         
         txtAvgMothnlyCardSales.setUpTextFieldForLengthValidation(minLength: 1, maxLength: 35)

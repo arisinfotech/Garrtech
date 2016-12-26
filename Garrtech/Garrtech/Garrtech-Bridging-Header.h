@@ -10,5 +10,6 @@
 #define Garrtech_Bridging_Header_h
 
 #import "JTProgressHUD.h"
+#import "VBPieChart.h"
 
 #endif /* Garrtech_Bridging_Header_h */

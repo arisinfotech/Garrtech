@@ -52,7 +52,7 @@ class MessageViewController: BaseViewController {
             composeVC.mailComposeDelegate = self
             
             // Configure the fields of the interface.
-            composeVC.setToRecipients(["garraffaroberto@hotmail.com"])
+            composeVC.setToRecipients(["funding@garrtech-group.com"])
             composeVC.setSubject("")
             composeVC.setMessageBody("", isHTML: false)
             

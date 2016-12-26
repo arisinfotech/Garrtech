@@ -17,6 +17,10 @@ class RagisterViewController: BaseViewController
     @IBOutlet var txtPassword: AITextFieldSquare!
     @IBOutlet var txtConfirmPassword: AITextFieldSquare!
     
+    
+    @IBOutlet var btnTermsAndConditions: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.registerStaticText()
@@ -52,6 +56,8 @@ class RagisterViewController: BaseViewController
         txtConfirmPassword.setUpTextFieldForLengthValidation(minLength: 6, maxLength: 50)
         txtConfirmPassword.textFieldValidationType = .Password
         
+     //   btnTermsAndConditions.setAttributedTitle(self.attributedString(button:btnTermsAndConditions), for: .normal)
+        btnTermsAndConditions.underlineButton(text: "TERMS & CONDITIONS")
         
     }
     
@@ -123,6 +129,29 @@ class RagisterViewController: BaseViewController
         }
     }
     
+    @IBAction func btnClickedTermsAndCondition(_ sender: UIButton)
+    {
+         let TermsandConditionVCobj = self.storyboard?.instantiateViewController(withIdentifier: "TermsAndConditionVC") as! TermsAndConditionVC
+        
+        let navigation = UINavigationController.init(rootViewController: TermsandConditionVCobj)
+        
+        self.present(navigation, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func btnClickedCheckUncheck(_ sender: UIButton)
+    {
+        if sender.isSelected
+        {
+            sender.isSelected = false
+            sender.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+        else
+        {
+            sender.isSelected = true
+            sender.setImage(UIImage(named: "check"), for: .normal)
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

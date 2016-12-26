@@ -52,8 +52,24 @@ class LoanStepOne {
     var k_mail_state: String?
     var k_mail_zip: String?
     
+    var k_annualRev: String?
+    var k_bussiness_time: String?
+    var k_creditScore: String?
+    
     func populateWithJSON(dict: JSONDictionary) {
 
+        
+        if let k_annualRev = dict[kannual_revenue] as? String {
+            self.k_annualRev = k_annualRev
+        }
+        
+        if let k_bussiness_time = dict[kBusiness_time] as? String {
+            self.k_bussiness_time = k_bussiness_time
+        }
+        
+        if let k_creditScore = dict[kCredit_score] as? String {
+            self.k_creditScore = k_creditScore
+        }
         
         if let k_id = dict[kID] as? String {
             self.k_id = k_id
@@ -289,6 +305,10 @@ class LoanStepOne {
         if let mail_city = k_mail_city { dict[kStep1mail_city] = mail_city as AnyObject? }
         if let mail_state = k_mail_state { dict[kStep1mail_state] = mail_state as AnyObject? }
         if let mail_zip = k_mail_zip { dict[kStep1mail_zip] = mail_zip as AnyObject? }
+        
+        if let annualRevObj = k_annualRev { dict[kannual_revenue] = annualRevObj as AnyObject? }
+        if let bussiness_timeObj = k_bussiness_time { dict[kBusiness_time] = bussiness_timeObj as AnyObject? }
+        if let Credit_scoreObj = k_creditScore { dict[kCredit_score] = Credit_scoreObj as AnyObject? }
         
         return dict
         

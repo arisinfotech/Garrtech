@@ -65,7 +65,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         cellText.add("NEW APPLICATION")
         cellText.add("MY APPLICATION")
         cellText.add("LOAN INFORMATION")
-        cellText.add("BIZ ANALYZER")
+        cellText.add("SCROR BIZ")
         cellText.add("PENDING APPLICATION")
         cellText.add("MY PROFILE")
         
@@ -173,7 +173,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         } else if indexPath.row == CellIndex.LOANINFO.hashValue {
             pushTo(viewController: "loanOptionSecondVc")
         } else if indexPath.row == CellIndex.BIZANYLI.hashValue {
-            Alert.displayUnderDevMessage()
+            pushTo(viewController: "ScoreBizViewController")
         } else if indexPath.row == CellIndex.PENDINGAPP.hashValue {
             
             if CurrentUser.sharedInstance.pendingApp?.isPending! == "Y" {
@@ -208,7 +208,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             composeVC.mailComposeDelegate = self
             
             // Configure the fields of the interface.
-            composeVC.setToRecipients(["garraffaroberto@hotmail.com"])
+            composeVC.setToRecipients(["funding@garrtech-group.com"])
             composeVC.setSubject("")
             composeVC.setMessageBody("", isHTML: false)
             

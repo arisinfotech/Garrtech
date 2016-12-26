@@ -99,6 +99,17 @@ class AIButton: UIButton {
     
 }
 
+extension UIButton
+{
+    func underlineButton(text: String)
+    {
+        let titleString = NSMutableAttributedString(string: text)
+        titleString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: NSMakeRange(0, text.characters.count))
+        self.setAttributedTitle(titleString, for: .normal)
+    }
+}
+
+
 
 
 

@@ -19,7 +19,6 @@ class LoginViewController: BaseViewController,CloseForgotPasswordScreenDelegate 
     
     var forgotPasswordObj = ForgotPasswordViewController()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.doSetUpScreen()

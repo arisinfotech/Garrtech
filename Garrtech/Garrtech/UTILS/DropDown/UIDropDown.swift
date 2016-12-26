@@ -19,7 +19,7 @@ public class UIDropDown: UIControl {
     fileprivate var title: UILabel!
     fileprivate var arrow: Arrow!
      var table: UITableView!
-    
+    var imageView: UIImageView!
     
     public fileprivate(set) var selectedIndex: Int?
     public var options = [String]()
@@ -161,7 +161,7 @@ public class UIDropDown: UIControl {
         arrow.backgroundColor = .black
         let imageName = "Icon-Dropdown"
         let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image!)
+        imageView = UIImageView(image: image!)
         imageView.frame = CGRect(x: arrow.frame.origin.x, y: arrow.frame.origin.x, width: arrow.frame.size.width, height: arrow.frame.size.height)
         
         arrowContainer.addSubview(imageView)

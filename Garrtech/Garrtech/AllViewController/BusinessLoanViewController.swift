@@ -67,10 +67,13 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
     var BusinessLoan = LoanStepOne()
     var BusinessLoanData = LoanStepOne()
 
+    var annualRevenue: String?
+    var businessTime: String?
+    var creditScore: String?
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        
         
         LegalEntity = "Crop"
         PropertyOwner = "Lease"
@@ -108,7 +111,7 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         
         self.title = "BUSINESS INFORMATION"
         self.setLeftSideButtonWithImage(Name: "back", selector:#selector(self.popTo))
-        
+        self.setRightSideButtonWithImage(Name: "home.png", selector:  #selector(self.popToRoot))
         obj_ScrollView.delegate = self
         txt_Retail.delegate = self
         
@@ -182,9 +185,12 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         txtTerminalPosMakeModel.textFieldValidationType = .Text
         
         txtYearsInControl.setUpTextFieldForLengthValidation(minLength: 1, maxLength: txtMax_Length)
+        txtYearsInControl.setUpTextFieldMaxMinValue(minValue: 1, maxValue: 100)
         txtYearsInControl.textFieldValidationType = .Number
         
+        
         txtMonthInControl.setUpTextFieldForLengthValidation(minLength: 1, maxLength: txtMax_Length)
+        txtMonthInControl.setUpTextFieldMaxMinValue(minValue: 1, maxValue: 12)
         txtMonthInControl.textFieldValidationType = .Number
         
         txtLandlordMortgageCompanyName.setUpTextFieldForLengthValidation(minLength: 1, maxLength: txtMax_Length)
@@ -312,6 +318,19 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
     func valicationComplete(saveType: Int)
     {
         
+        if let annualRev = self.annualRevenue {
+            BusinessLoan.k_annualRev = annualRev
+        }
+        
+        if let bussinesstime = self.businessTime {
+            BusinessLoan.k_bussiness_time = bussinesstime
+        }
+        
+        if let credit_Score = self.creditScore
+        {
+            BusinessLoan.k_creditScore = credit_Score
+        }
+        
         
         BusinessLoan.k_kuser_id = CurrentUser.sharedInstance.id
         BusinessLoan.k_legal_business_name = txtBusinessName.text
@@ -324,11 +343,15 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         let myDateString = txtDate.text
         let dateFormatter = DateFormatter()
         
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        let myDate = dateFormatter.date(from: myDateString!)!
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        let somedateString = dateFormatter.string(from: myDate)
-        BusinessLoan.k_date_business_eslablished = somedateString
+        if myDateString != "" {
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            let myDate = dateFormatter.date(from: myDateString!)!
+            dateFormatter.dateFormat = "yyyy/MM/dd"
+            let somedateString = dateFormatter.string(from: myDate)
+            BusinessLoan.k_date_business_eslablished = somedateString
+        }
+        
+        
         
         
         BusinessLoan.k_business_classification = txt_Retail.text
@@ -443,13 +466,20 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         txtRentMortgagePayment.text = loanData.k_rent_payment
         
         let myDateString = txtDate.text
-        let dateFormatter = DateFormatter()
         
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        let myDate = dateFormatter.date(from: myDateString!)!
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        let somedateString = dateFormatter.string(from: myDate)
-        txtDate.text = somedateString
+        if myDateString != "0000-00-00" && myDateString != "" {
+            let dateFormatter = DateFormatter()
+            
+            dateFormatter.dateFormat = "yyyy/MM/dd"
+            let myDate = dateFormatter.date(from: myDateString!)!
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            let somedateString = dateFormatter.string(from: myDate)
+            txtDate.text = somedateString
+        } else {
+            txtDate.text = ""
+        }
+       
+        
 
         
         if loanData.k_bankruptcy_protection! == "N"
@@ -517,12 +547,25 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
     
     @IBAction func sameAsabovePress(sender: UIButton) {
         
-        txtMailCity.text = txtPhyCity.text
-        txtMailState.text = txtPhyState.text
-        txtMailZipCode.text = txtPhyZipCode.text
-        txtMailApiSuite.text = txtPhyAptSuit.text
-        txtMailStreetName.text = txtPhyStreetName.text
-        txtMailStreenNo.text = txtPhyStreetNumber.text
+        
+        if sender.isSelected {
+            sender.isSelected = false
+            txtMailCity.text = ""
+            txtMailState.text = ""
+            txtMailZipCode.text = ""
+            txtMailApiSuite.text = ""
+            txtMailStreetName.text = ""
+            txtMailStreenNo.text = ""
+        } else {
+            sender.isSelected = true
+            txtMailCity.text = txtPhyCity.text
+            txtMailState.text = txtPhyState.text
+            txtMailZipCode.text = txtPhyZipCode.text
+            txtMailApiSuite.text = txtPhyAptSuit.text
+            txtMailStreetName.text = txtPhyStreetName.text
+            txtMailStreenNo.text = txtPhyStreetNumber.text
+        }
+        
     }
     
     

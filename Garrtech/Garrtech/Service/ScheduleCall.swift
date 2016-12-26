@@ -14,7 +14,7 @@ class ScheduleCall {
     var userID: String?
     var phone: String?
     var dateTime: String?
-    
+    var time: String?
     
     func toJsonDict() -> JSONDictionary {
         
@@ -23,7 +23,7 @@ class ScheduleCall {
         if let userID = userID { dict[KUser_id] = userID as AnyObject? }
         if let phone = phone { dict[kPhone] = phone as AnyObject? }
         if let dateTime = dateTime { dict[kschedule_date_time] = dateTime as AnyObject? }
+        if let time = time { dict[kschedule_time] = time as AnyObject? }
         return dict
     }
-    
 }

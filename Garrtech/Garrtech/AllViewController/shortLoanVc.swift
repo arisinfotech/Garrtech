@@ -33,6 +33,9 @@ class shortLoanVc: BaseViewController,UIScrollViewDelegate {
     var drop_AnnualReveness: UIDropDown!
     var drop_creditScore: UIDropDown!
     
+    var annualRevenueObj: String?
+    var businessTimeObj: String?
+    var creditScoreObj: String?
     
     override func viewDidLoad()
     {
@@ -89,6 +92,10 @@ class shortLoanVc: BaseViewController,UIScrollViewDelegate {
             self.applyForLoan.credit_score = self.yourCraditScor[0].id!
             self.applyForLoan.required_loan_amount = self.loanAmountYouNeed[0].id!
             
+            self.annualRevenueObj = self.yourAnnualRevenue[0].id!
+            self.businessTimeObj = self.timeInBusiness[0].id!
+            self.creditScoreObj = self.yourCraditScor[0].id!
+            
             
             self.AddDropDownloanAmount(sender: self.txtloanAmountObj, array_Data: self.loanAmountYouNeed)
             self.AddDropDownTimeBussiness(sender: self.txtTimeBussiness, array_Data: self.timeInBusiness)
@@ -111,6 +118,10 @@ class shortLoanVc: BaseViewController,UIScrollViewDelegate {
             {
                 let loanInfo = self.storyboard?.instantiateViewController(withIdentifier: "LoanInformationViewController") as! LoanInformationViewController
                 loanInfo.loanDtl = loanDetails!
+                loanInfo.annualRevenue = self.annualRevenueObj
+                loanInfo.businessTime = self.businessTimeObj
+                loanInfo.creditScore = self.creditScoreObj
+        
                 self.navigationController?.pushViewController(loanInfo, animated: true)
             }
             
@@ -151,6 +162,7 @@ class shortLoanVc: BaseViewController,UIScrollViewDelegate {
         drop_timeBussiness.loanOptionsArr = array_Data
         drop_timeBussiness.didSelectedLoan { (loan: LoanOptions, index: Int) in
             self.applyForLoan.business_time = loan.id!
+            self.businessTimeObj = loan.id!
             sender.text=loan.disp_name;
             sender.textColor=UIColor.clear
         }
@@ -171,6 +183,7 @@ class shortLoanVc: BaseViewController,UIScrollViewDelegate {
         drop_AnnualReveness.loanOptionsArr = array_Data
         drop_AnnualReveness.didSelectedLoan { (loan: LoanOptions, index: Int) in
             self.applyForLoan.credit_score = loan.id!
+            self.annualRevenueObj = loan.id!
             sender.text=loan.disp_name;
             sender.textColor=UIColor.clear
         }
@@ -191,6 +204,7 @@ class shortLoanVc: BaseViewController,UIScrollViewDelegate {
         drop_creditScore.loanOptionsArr = array_Data
         drop_creditScore.didSelectedLoan { (loan: LoanOptions, index: Int) in
             self.applyForLoan.required_loan_amount = loan.id!
+            self.creditScoreObj = loan.id!
             sender.text=loan.disp_name;
             sender.textColor=UIColor.clear
         }

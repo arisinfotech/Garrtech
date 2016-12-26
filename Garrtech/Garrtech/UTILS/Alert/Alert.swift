@@ -89,6 +89,19 @@ class Alert: NSObject {
         self.displayAlert(title: APP_NAME, message: "This Functionlity is under development", otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
     }
     
+    class func displayInvalidApiKey() {
+        self.displayAlert(title: APP_NAME, message: "Invalid Api Key", otherButtonTitles: ["OK"], preferredAlertStyle: .alert) { (tag) in
+            let loginVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            appDelegate.clearUserDefault()
+            appDelegate.navigationVC = UINavigationController.init(rootViewController: loginVC)
+            //                        appDelegate.navigationVC?.isNavigationBarHidden = true
+            UIView.transition(with: appDelegate.window!, duration: 0.5, options: UIViewAnimationOptions.transitionFlipFromLeft, animations: {
+                appDelegate.window?.rootViewController = appDelegate.navigationVC
+                }, completion: nil)
+
+        }
+    }
+    
     class func notImplemented() {
      
         self.displayAlertWithMessage(message: message_featureNotImplemented, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)

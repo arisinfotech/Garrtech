@@ -125,6 +125,8 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
             btn.tag = PayYouNeed.k1_month.rawValue
         } else if fastNeed == k1_year {
             btn.tag = PayYouNeed.k1_year.rawValue
+        } else {
+            btn.tag = PayYouNeed.k48_hrs.rawValue
         }
         
         self.btn_SelectNeed(btn)
@@ -139,6 +141,8 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
             btn.tag = PayBack.k365Days.rawValue
         } else if payback == k545_day {
             btn.tag = PayBack.k545Days.rawValue
+        } else {
+            btn.tag = PayBack.k90Days.rawValue
         }
         
         self.btn_SelectPayback(btn)
@@ -154,6 +158,7 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
         
         self.title = "OWNER PRINCIPAL INFORMATION"
         self.setLeftSideButtonWithImage(Name: "back", selector:#selector(self.popTo))
+        self.setRightSideButtonWithImage(Name: "home.png", selector:  #selector(self.popToRoot))
         
 //        let tapGeature = UITapGestureRecognizer.init(target: self, action: #selector(self.selectImageFromPhotoLibrary(_:)))
 //        self.obj_ScrollView.addGestureRecognizer(tapGeature)

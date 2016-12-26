@@ -108,7 +108,7 @@ class PendingApplicationViewController: BaseViewController {
         let circleView = outerCircleView(frame: frame)
         viewCircle.addSubview(circleView)
         // Animate the drawing of the circle over the course of 1 second
-        circleView.animateCircle(duration: 2.0)
+        circleView.animateCircle(duration: 1.0)
     }
     
     @IBAction func pendingApp(sender: UIButton) {

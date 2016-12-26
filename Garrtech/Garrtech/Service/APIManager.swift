@@ -47,7 +47,11 @@ public class APIManager {
                     completion(nil,nil)
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                 } else {
-                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(nil,SPErrors.EmptyResultError)
                 }
                 
@@ -67,11 +71,8 @@ public class APIManager {
         Alamofire.request(MAIN_URL + "login", method: .post, parameters: user.toJsonDictionary()).responseJSON { response in
             
             if let JSON = response.result.value {
-                
                 print("JSON: \(JSON)")
-                
                 let JSON_ = JSON as! JSONDictionary
-                
                 if JSON_[kStatus] as? String == kSuccess {
                     
                     let tempDict = JSON_[kData]! as! JSONDictionary
@@ -81,15 +82,15 @@ public class APIManager {
                     print(CurrentUser.sharedInstance.toJsonDictionary())
                     hideHUD()
                     completion(nil)
-                    
                 } else {
-                    
-                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     hideHUD()
                     completion(SPErrors.EmptyResultError)
-                    
                 }
-                
             } else {
                 hideHUD()
                 completion(SPErrors.EmptyResultError)
@@ -122,7 +123,11 @@ public class APIManager {
                     completion(nil)
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                 } else {
-                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(SPErrors.EmptyResultError)
                 }
                 
@@ -184,7 +189,11 @@ public class APIManager {
                             Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                             hideHUD()
                         } else {
-                            Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                            if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                             hideHUD()
                         }
                         
@@ -218,11 +227,14 @@ public class APIManager {
                 
                 if JSON_[kStatus] as? String == kSuccess {
                     
-                    let appDomain = Bundle.main.bundleIdentifier!
-                    UserDefaults.standard.removePersistentDomain(forName: appDomain)
+                    appDelegate.clearUserDefault()
                     completion(nil)
                 } else {
-                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(SPErrors.EmptyResultError)
                 }
             } else {
@@ -254,7 +266,11 @@ public class APIManager {
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
                     completion(nil)
                 } else {
-                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(SPErrors.EmptyResultError)
                 }
             } else {
@@ -289,7 +305,11 @@ public class APIManager {
                     completion(details,nil)
                     
                 } else {
-                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     hideHUD()
                     completion(nil,SPErrors.EmptyResultError)
                 }
@@ -367,6 +387,11 @@ public class APIManager {
                     }
                     
                 } else {
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     error(SPErrors.EmptyResultError)
                 }
                 
@@ -405,7 +430,11 @@ public class APIManager {
 //                    UserDefaults.standard.setValue(CompleteStep.BusinessInfo.hashValue, forKey: kCompletedStep)
                     completion(nil)
                 } else {
-                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     hideHUD()
                     completion(SPErrors.EmptyResultError)
                 }
@@ -442,6 +471,11 @@ public class APIManager {
                         completion(nil,SPErrors.EmptyResultError)
                     }
                 }else {
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(nil,SPErrors.EmptyResultError)
                 }
             } else {
@@ -479,7 +513,11 @@ public class APIManager {
                     completion(nil)
 //                    UserDefaults.standard.setValue(CompleteStep.CompanyInfo.hashValue, forKey: kCompletedStep)
                 } else {
-                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(SPErrors.EmptyResultError)
                 }
             } else {
@@ -510,6 +548,11 @@ public class APIManager {
                         completion(nil,SPErrors.EmptyResultError)
                     }
                 }else {
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(nil,SPErrors.EmptyResultError)
                 }
             } else {
@@ -549,7 +592,11 @@ public class APIManager {
                     completion(nil)
 //                    UserDefaults.standard.setValue(CompleteStep.OwnerInfo.hashValue, forKey: kCompletedStep)
                 } else {
-                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(SPErrors.EmptyResultError)
                 }
             } else {
@@ -577,6 +624,11 @@ public class APIManager {
                         completion(nil,SPErrors.EmptyResultError)
                     }
                 }else {
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(nil,SPErrors.EmptyResultError)
                 }
             } else {
@@ -617,7 +669,11 @@ public class APIManager {
                     hideHUD()
                     UserDefaults.standard.setValue(nil, forKey: kCompletedStep)
                 } else {
-                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(SPErrors.EmptyResultError)
                 }
             } else {
@@ -646,6 +702,11 @@ public class APIManager {
                         completion(nil,SPErrors.EmptyResultError)
                     }
                 }else {
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(nil,SPErrors.EmptyResultError)
                 }
             } else {
@@ -678,7 +739,11 @@ public class APIManager {
                         completion(nil,SPErrors.EmptyResultError)
                     }
                 } else {
-                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(nil,SPErrors.EmptyResultError)
                 }
             } else {
@@ -717,7 +782,11 @@ public class APIManager {
                         completion(nil,SPErrors.EmptyResultError)
                     }
                 } else {
-                    Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(nil,SPErrors.EmptyResultError)
                 }
             } else {
@@ -756,7 +825,78 @@ public class APIManager {
                         completion(nil,SPErrors.EmptyResultError)
                     }
                 } else {
+                    
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
+
+                    completion(nil,SPErrors.EmptyResultError)
+                }
+            } else {
+                completion(nil,SPErrors.EmptyResultError)
+            }
+        }
+    }
+    
+    
+    func setscheduleCall(scheduleCall: ScheduleCall, completion: @escaping(_ error: NSError?) -> ()) {
+        showHUD()
+        Alamofire.request(MAIN_URL + "schedule_call/add_schedule_call", method: .post, parameters: scheduleCall.toJsonDict(), headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            hideHUD()
+            
+            
+            print(response.result.value)
+            
+            if let JSON = response.result.value {
+                
+                print(JSON)
+                let JSON_ = JSON as! JSONDictionary
+                if JSON_[kStatus] as? String == kSuccess {
+                    completion(nil)
                     Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                } else {
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
+                    completion(SPErrors.EmptyResultError)
+                }
+            } else {
+                completion(SPErrors.EmptyResultError)
+            }
+        }
+    }
+    
+    
+    func ScoreBiz(completion: @escaping(_ scoreBiz:ScorBiz?,_ error: NSError?) -> ()) {
+        showHUD()
+        Alamofire.request(MAIN_URL + "schedule_call/add_schedule_call", method: .post, parameters: [KUser_id:CurrentUser.sharedInstance.id!], headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+            hideHUD()
+            
+            
+            print(response.result.value)
+            
+            if let JSON = response.result.value {
+                
+                print(JSON)
+                let JSON_ = JSON as! JSONDictionary
+                if JSON_[kStatus] as? String == kSuccess {
+                    
+                    if let data = JSON_[kData] as? JSONDictionary {
+                        let scorBiz = ScorBiz()
+                        scorBiz.populateWithJson(dict: data)
+                        completion(scorBiz,nil)
+                    }
+                } else {
+                    
+                    if JSON_[kapiKey] as? String == kInvalid {
+                        Alert.displayInvalidApiKey()
+                    } else {
+                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                    }
                     completion(nil,SPErrors.EmptyResultError)
                 }
             } else {

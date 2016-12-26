@@ -68,6 +68,9 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
     var maxLength : NSInteger?
     var minLength : NSInteger?
     
+    var minValue : NSInteger?
+    var maxValue : NSInteger?
+    
     var cornerRadius : CGFloat = 7.0
     
     var viewBack : UIView! = UIView()
@@ -116,6 +119,10 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
     func setUpTextFieldForLengthValidation(minLength : NSInteger, maxLength : NSInteger) {
         self.maxLength = maxLength
         self.minLength = minLength
+    }
+    func setUpTextFieldMaxMinValue(minValue : NSInteger, maxValue : NSInteger) {
+        self.maxValue = maxValue
+        self.minValue = minValue
     }
     
     func setupUI() {
@@ -476,6 +483,18 @@ class AITextFieldSquare: UITextField, UITextFieldDelegate {
             charactersToBlock = NSCharacterSet(charactersIn: characterset.Name_NOSPACE.rawValue)
         }
         
+        
+        // CHECK VALUE CONDITION
+        if minValue != nil && maxValue != nil {
+        
+            let value : String = textField.text! + string
+            if Int(value)! >= minValue! && Int(value)! <= maxValue!{}
+            else{
+                return false;
+            }
+        }
+        
+        // CHECK LENGTH VALIDATION
         if range.location == 0 {
             if string.hasPrefix(" ") {
                 return false

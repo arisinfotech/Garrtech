@@ -94,6 +94,7 @@ class DocumentListViewController: BaseViewController {
     func doSetUpScreen() {
         self.title = "DOCUMENT LIST"
         self.setLeftSideButtonWithImage(Name: "back", selector:#selector(self.btnBackClick))
+        self.setRightSideButtonWithImage(Name: "home.png", selector:  #selector(self.popToRoot))
         
     }
     func btnBackClick() {
