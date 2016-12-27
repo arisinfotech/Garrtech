@@ -8,7 +8,7 @@
 
 import UIKit
 
-let k90_day = "k90_day"
+let k90_day = "90_day"
 let k180_day = "180_day"
 let k365_day = "365_day"
 let k545_day = "545_day"
@@ -133,6 +133,7 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
         
         let payback = loanData.k_how_long_pay_back
         
+        print(payback)
         if payback == k90_day  {
             btn.tag = PayBack.k90Days.rawValue
         } else if payback == k180_day {
@@ -180,7 +181,6 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
             }
             self.AddDropDown(sender: self.txtPercentage,array_Data: self.array1)
         }
-        
         
         // SET UP TEXTFILED VALIDATION
         txtName.setUpTextFieldForLengthValidation(minLength: 1, maxLength: 50)
@@ -407,7 +407,7 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
         }
         
         loanStep3.k_how_fast_need = "\(value)"
-        
+        print(loanStep3.k_how_fast_need)
         for view in viewFastYouNeed.subviews as [UIView] {
             
             if let btn = view as? UIButton {
@@ -454,7 +454,7 @@ class OwnerVc: BaseViewController,UIScrollViewDelegate,UITextFieldDelegate {
         }
         
         loanStep3.k_how_long_pay_back  = "\(value)"
-        
+        print(loanStep3.k_how_long_pay_back)
         sender.setImage(UIImage(named: "radioon"), for: .normal)
         
     }

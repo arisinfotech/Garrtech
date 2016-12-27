@@ -23,7 +23,16 @@ extension UILabel
     func customiseLabel(){
         self.adjustsFontSizeToFitWidth = true
         self.minimumScaleFactor = 0.5
-        self.font = UIFont.Font_Helvetica_Regular(fontSize: self.font.pointSize)
+        
+        let fontName : String = self.font.fontName
+        
+        self.font = UIFont.Font(name: fontName, fontSize: self.font.pointSize)
+        
+        
+//        NSString *fontName = self.label.font.fontName;
+//        CGFloat fontSize = self.label.font.pointSize;
+//        
+//        self.font = UIFont.Font_Helvetica_Regular(fontSize: self.font.pointSize)
         self.textColor =  UIColor.Color_AppText()
     }
 

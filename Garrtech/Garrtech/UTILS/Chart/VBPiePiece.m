@@ -138,7 +138,7 @@
     self.endAnimationBlock = nil;
     
     self.label = [[CATextLayer alloc] init];
-    self.label.fontSize = 10;
+    self.label.fontSize = 15;
     self.label.alignmentMode = kCAAlignmentCenter;
     self.label.foregroundColor = [UIColor whiteColor].CGColor;
     self.label.contentsScale = [UIScreen mainScreen].scale;

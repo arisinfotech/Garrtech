@@ -377,11 +377,8 @@ public class APIManager {
                                 tempDict.populateWithJson(dic: dict)
                                 timeinBusinessArrTemp.append(tempDict)
                             }
-                            
                         }
-                        
-                        completion(annualRevenueArrTemo, cradit_scoreArrTemp, loanAmountNeedArrTemp, timeinBusinessArrTemp)
-                        
+                        completion(loanAmountNeedArrTemp, cradit_scoreArrTemp, annualRevenueArrTemo, timeinBusinessArrTemp)
                     } else {
                         error(SPErrors.EmptyResultError)
                     }
@@ -846,7 +843,6 @@ public class APIManager {
         Alamofire.request(MAIN_URL + "schedule_call/add_schedule_call", method: .post, parameters: scheduleCall.toJsonDict(), headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
             hideHUD()
             
-            
             print(response.result.value)
             
             if let JSON = response.result.value {
@@ -873,9 +869,8 @@ public class APIManager {
     
     func ScoreBiz(completion: @escaping(_ scoreBiz:ScorBiz?,_ error: NSError?) -> ()) {
         showHUD()
-        Alamofire.request(MAIN_URL + "schedule_call/add_schedule_call", method: .post, parameters: [KUser_id:CurrentUser.sharedInstance.id!], headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+        Alamofire.request(MAIN_URL + "app_manager/get_scorebiz", method: .post, parameters: [KUser_id:CurrentUser.sharedInstance.id!], headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
             hideHUD()
-            
             
             print(response.result.value)
             

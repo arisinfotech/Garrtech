@@ -207,7 +207,6 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         
         txtProductSold.setUpTextFieldForLengthValidation(minLength: 1, maxLength: txtMax_Length)
         txtProductSold.textFieldValidationType = .Text
-        
     }
     
     
@@ -509,7 +508,7 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
             
             if let btn = view as? UIButton
             {
-                let strbtn = self.trimText(str: (btn.titleLabel?.text)!)
+                let strbtn = self.trimText(str: (btn.titleLabel?.text)!.lowercased())
                 
                 if strbtn == loanData.k_legal_entity! {
                     btn.setImage(UIImage(named: "radioon"), for: .normal)
@@ -526,7 +525,7 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
             
             if let btn = view as? UIButton
             {
-                let strbtn = self.trimText(str: (btn.titleLabel?.text)!)
+                let strbtn = self.trimText(str: (btn.titleLabel?.text)!.lowercased())
                 
                 if strbtn == PropertyOwner {
                     btn.setImage(UIImage(named: "radioon"), for: .normal)
@@ -590,7 +589,7 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         
         sender.setImage(UIImage(named: "radioon"), for: .normal)
         
-        LegalEntity=(sender.titleLabel?.text)!
+        LegalEntity=(sender.titleLabel?.text)!.lowercased()
         print(LegalEntity)
         
     }
@@ -605,7 +604,7 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
             }
         }
         sender.setImage(UIImage(named: "radioon"), for: .normal)
-        PropertyOwner=(sender.titleLabel?.text)!
+        PropertyOwner=(sender.titleLabel?.text)!.lowercased()
         
     }
     

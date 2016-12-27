@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print(UserDefaults.standard.object(forKey: kUSERLOGIN))
         if CurrentUser.sharedInstance.id != nil
         {
-          //  self.redirectToHomeVC()
-           self.redirectToOtherVC()
+            self.redirectToHomeVC()
+//           self.redirectToOtherVC()
             //self.redirectToLoginVC()
         }
         else
