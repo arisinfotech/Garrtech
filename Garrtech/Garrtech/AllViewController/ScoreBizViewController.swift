@@ -30,6 +30,12 @@ class ScoreBizViewController: BaseViewController {
         self.title = "SCORE BIZ"
         self.setLeftSideButtonWithImage(Name: "back", selector:#selector(self.popTo))
         
+        self.lblBusinesstime.text = ""
+        self.lblAnnualrev.text = ""
+        self.creditScore.text = ""
+        self.totalMonthlysale.text = ""
+        self.propertyown.text = ""
+        
         DispatchQueue.main.async {
             self.addChart()
             showHUD()
