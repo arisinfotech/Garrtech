@@ -67,9 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let HomeVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         navigationVC = UINavigationController.init(rootViewController: HomeVC)
         self.window?.rootViewController = navigationVC
-    }
-    
-    
+    }    
     
     func redirectToOtherVC() {
         

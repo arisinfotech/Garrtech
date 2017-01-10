@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Z4s-c8-3YU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BN2-7d-GFg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -593,7 +593,7 @@ Cg
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entar user first name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sl-Ul-flG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter user first name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sl-Ul-flG">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.44705882349999998" green="0.48627450979999998" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -603,12 +603,12 @@ Cg
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eenter your email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUa-Gd-1gy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUa-Gd-1gy">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.44705882349999998" green="0.48627450979999998" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eenter your last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPm-2s-4Wk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPm-2s-4Wk">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.44705882349999998" green="0.48627450979999998" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2040,7 +2040,7 @@ List</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFe-sL-pdD">
-                                        <state key="normal" title="SCHADULE  A CALL">
+                                        <state key="normal" title="SCHEDULE  A CALL">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -4072,7 +4072,7 @@ List</string>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRB-ul-Lm7">
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <string key="text">Before text editors existed, computer text was punched into cards with keypunch machines. Physical boxes of these thin cardboard cards were then inserted into a card-reader. Magnetic tape and disk "card-image" files created from such card decks often had no line-separation characters at all, and assumed fixed-length 80-character records.</string>
+                                                <mutableString key="text">Before text editors existed, computer text was punched into cards with keypunch machines. Physical boxes of these thin cardboard cards were then inserted into a card-reader. Magnetic tape and disk "card-image" files created from such card decks often had no line-separation characters at all, and assumed fixed-length 80-character records.  You are required to send all the check marked documents to this email address :</mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -4080,6 +4080,15 @@ List</string>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="customercare@garrtech-group.com" translatesAutoresizingMaskIntoConstraints="NO" id="Uc8-yM-1MZ">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="T0V-sn-sjs"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document check list:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSf-7L-USD">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -4389,6 +4398,8 @@ List</string>
                                     <constraint firstItem="Eo8-RT-OxV" firstAttribute="leading" secondItem="UPh-wx-7tl" secondAttribute="leading" id="1Wx-fO-GEc"/>
                                     <constraint firstItem="SSf-7L-USD" firstAttribute="leading" secondItem="WVM-Xi-BcY" secondAttribute="leading" constant="30" id="2BN-s7-hpq"/>
                                     <constraint firstItem="vCp-WH-rLb" firstAttribute="width" secondItem="b7O-me-j7I" secondAttribute="width" id="3Aw-9G-4qw"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uc8-yM-1MZ" secondAttribute="trailing" id="3Pv-Aj-Vlo"/>
+                                    <constraint firstItem="Uc8-yM-1MZ" firstAttribute="top" secondItem="Exv-2z-PNG" secondAttribute="bottom" id="3ap-2x-1sP"/>
                                     <constraint firstItem="IHC-BZ-sjM" firstAttribute="top" secondItem="SDR-wH-zIx" secondAttribute="bottom" constant="10" id="469-JL-qrF"/>
                                     <constraint firstItem="ero-ZW-Wvz" firstAttribute="height" secondItem="Eo8-RT-OxV" secondAttribute="height" id="4Lh-Cg-bWK"/>
                                     <constraint firstItem="zYy-ui-go8" firstAttribute="top" secondItem="ouu-OM-STJ" secondAttribute="bottom" constant="38" id="5Xa-98-cJl"/>
@@ -4397,6 +4408,7 @@ List</string>
                                     <constraint firstItem="SDR-wH-zIx" firstAttribute="height" secondItem="vCp-WH-rLb" secondAttribute="height" id="7La-6g-LDD"/>
                                     <constraint firstItem="SDR-wH-zIx" firstAttribute="width" secondItem="vCp-WH-rLb" secondAttribute="width" id="7TQ-Bg-oHV"/>
                                     <constraint firstItem="ouu-OM-STJ" firstAttribute="leading" secondItem="ero-ZW-Wvz" secondAttribute="leading" id="7qL-Ow-OWM"/>
+                                    <constraint firstItem="SSf-7L-USD" firstAttribute="top" secondItem="Uc8-yM-1MZ" secondAttribute="bottom" constant="5" id="8ae-Pk-QT6"/>
                                     <constraint firstItem="ouu-OM-STJ" firstAttribute="height" secondItem="ero-ZW-Wvz" secondAttribute="height" id="BJR-KB-bPK"/>
                                     <constraint firstItem="zYy-ui-go8" firstAttribute="height" secondItem="b7O-me-j7I" secondAttribute="height" multiplier="60:44" id="Bva-Dm-2UN"/>
                                     <constraint firstItem="zYy-ui-go8" firstAttribute="width" secondItem="b7O-me-j7I" secondAttribute="width" multiplier="280:315" id="BzI-Et-Bsw"/>
@@ -4415,8 +4427,8 @@ List</string>
                                     <constraint firstItem="IHC-BZ-sjM" firstAttribute="height" secondItem="SDR-wH-zIx" secondAttribute="height" id="TcF-sQ-LXM"/>
                                     <constraint firstItem="UPh-wx-7tl" firstAttribute="top" secondItem="IHC-BZ-sjM" secondAttribute="bottom" constant="10" id="UAs-lE-aPx"/>
                                     <constraint firstItem="Eo8-RT-OxV" firstAttribute="top" secondItem="UPh-wx-7tl" secondAttribute="bottom" constant="10" id="UWi-Tu-je4"/>
-                                    <constraint firstItem="SSf-7L-USD" firstAttribute="top" secondItem="Exv-2z-PNG" secondAttribute="bottom" constant="20" id="VIK-nj-S6p"/>
                                     <constraint firstAttribute="trailing" secondItem="Exv-2z-PNG" secondAttribute="trailing" constant="30" id="Vk1-qM-sHJ"/>
+                                    <constraint firstItem="Uc8-yM-1MZ" firstAttribute="leading" secondItem="WVM-Xi-BcY" secondAttribute="leading" constant="23" id="W0s-8n-8OG"/>
                                     <constraint firstItem="zYy-ui-go8" firstAttribute="centerX" secondItem="LsI-1q-mfv" secondAttribute="centerX" id="W2j-8Q-bf7"/>
                                     <constraint firstItem="vCp-WH-rLb" firstAttribute="top" secondItem="b7O-me-j7I" secondAttribute="bottom" constant="10" id="XvU-Ff-TFP"/>
                                     <constraint firstAttribute="trailing" secondItem="SSf-7L-USD" secondAttribute="trailing" constant="30" id="ZrJ-js-qaD"/>
@@ -4448,6 +4460,8 @@ List</string>
                             <constraint firstItem="WVM-Xi-BcY" firstAttribute="leading" secondItem="jiR-p0-0Lv" secondAttribute="leading" id="yC7-Z9-pIG"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="constrain_Space" destination="uuB-sU-04A" id="BPs-jF-p0v"/>
                         <outlet property="scrollObj" destination="WVM-Xi-BcY" id="rtB-rO-WRH"/>
@@ -4456,7 +4470,7 @@ List</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uzF-AV-sSj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5577" y="860"/>
+            <point key="canvasLocation" x="5576.25" y="859.85915492957747"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ceW-fS-jZ2">
@@ -4861,7 +4875,7 @@ List</string>
         <image name="close-button" width="128" height="128"/>
         <image name="date" width="24" height="24"/>
         <image name="file" width="128" height="128"/>
-        <image name="logo" width="139" height="141"/>
+        <image name="logo" width="350" height="350"/>
         <image name="malePlaceHolder" width="218" height="218"/>
         <image name="next" width="37" height="37"/>
         <image name="pre" width="37" height="37"/>

@@ -57,6 +57,7 @@
 		41E9505E1DDA11EB00FC7345 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E9505D1DDA11EB00FC7345 /* HomeViewController.swift */; };
 		41E950601DDA13CE00FC7345 /* HomwViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E9505F1DDA13CE00FC7345 /* HomwViewCell.swift */; };
 		BC13CEDB1E0590D900E38A67 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = BC13CEDA1E0590D900E38A67 /* save.png */; };
+		BC2237E21E1ED4A700E9120F /* splashLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = BC2237E11E1ED4A700E9120F /* splashLogo.png */; };
 		BC326EBF1DD7818700C53BFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC326EBE1DD7818700C53BFC /* AppDelegate.swift */; };
 		BC326EC41DD7818700C53BFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC326EC21DD7818700C53BFC /* Main.storyboard */; };
 		BC326EC61DD7818700C53BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC326EC51DD7818700C53BFC /* Assets.xcassets */; };
@@ -100,6 +101,7 @@
 		BCC63CDC1DDB67CA00B8C688 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC63CCC1DDB67C900B8C688 /* IQUIView+IQKeyboardToolbar.m */; };
 		BCC63CDD1DDB67CA00B8C688 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCC63CCF1DDB67C900B8C688 /* IQKeyboardManager.bundle */; };
 		BCE6D7091DF2E27F000A9029 /* PendingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6D7081DF2E27F000A9029 /* PendingApp.swift */; };
+		BCF0EF0B1E1EC6A800228954 /* SPLASHNEW.png in Resources */ = {isa = PBXBuildFile; fileRef = BCF0EF0A1E1EC6A800228954 /* SPLASHNEW.png */; };
 		ECCC4DEF1DE1E9F6006B74F7 /* outerCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC4DEE1DE1E9F6006B74F7 /* outerCircleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +158,7 @@
 		7DB7F5E2B9971B8B8F9E9D38 /* Pods_Garrtech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Garrtech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A381CAF21C8A367C23E77A9D /* Pods-Garrtech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garrtech.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Garrtech/Pods-Garrtech.debug.xcconfig"; sourceTree = "<group>"; };
 		BC13CEDA1E0590D900E38A67 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
+		BC2237E11E1ED4A700E9120F /* splashLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashLogo.png; sourceTree = "<group>"; };
 		BC326EBB1DD7818600C53BFC /* Garrtech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garrtech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC326EBE1DD7818700C53BFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC326EC31DD7818700C53BFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -224,6 +227,7 @@
 		BCC63CCD1DDB67C900B8C688 /* KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
 		BCC63CCF1DDB67C900B8C688 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		BCE6D7081DF2E27F000A9029 /* PendingApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingApp.swift; sourceTree = "<group>"; };
+		BCF0EF0A1E1EC6A800228954 /* SPLASHNEW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SPLASHNEW.png; sourceTree = "<group>"; };
 		ECCC4DEE1DE1E9F6006B74F7 /* outerCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = outerCircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -436,6 +440,8 @@
 				BC77D97E1DFD4E2800EED9A9 /* telephone.png */,
 				BC77D97F1DFD4E2800EED9A9 /* time-left.png */,
 				BC13CEDA1E0590D900E38A67 /* save.png */,
+				BCF0EF0A1E1EC6A800228954 /* SPLASHNEW.png */,
+				BC2237E11E1ED4A700E9120F /* splashLogo.png */,
 				BC5149701DE1E37700468489 /* Garrtech-Bridging-Header.h */,
 				BC326EC21DD7818700C53BFC /* Main.storyboard */,
 				BC326EC51DD7818700C53BFC /* Assets.xcassets */,
@@ -619,6 +625,9 @@
 		BC326EB31DD7818000C53BFC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Ankit;
@@ -659,6 +668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC77D9811DFD4E2800EED9A9 /* telephone.png in Resources */,
+				BC2237E21E1ED4A700E9120F /* splashLogo.png in Resources */,
 				BCC63CDD1DDB67CA00B8C688 /* IQKeyboardManager.bundle in Resources */,
 				BC77D9801DFD4E2800EED9A9 /* calendar.png in Resources */,
 				BC326EC91DD7818700C53BFC /* LaunchScreen.storyboard in Resources */,
@@ -668,6 +678,7 @@
 				BC326EC61DD7818700C53BFC /* Assets.xcassets in Resources */,
 				4121D6001DD8B78F0035EE0E /* CompletedStepView.xib in Resources */,
 				BC326EC41DD7818700C53BFC /* Main.storyboard in Resources */,
+				BCF0EF0B1E1EC6A800228954 /* SPLASHNEW.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -878,7 +889,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "b7f7579c-dff8-4e3b-ad29-869cf65780bd";
+				PROVISIONING_PROFILE = "54914d07-467d-4b4c-b4b9-36f5e4387a81";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "Garrtech/Garrtech-Bridging-Header.h";
@@ -924,7 +935,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "b7f7579c-dff8-4e3b-ad29-869cf65780bd";
+				PROVISIONING_PROFILE = "54914d07-467d-4b4c-b4b9-36f5e4387a81";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Garrtech/Garrtech-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -947,7 +958,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.garrtech.group;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b7f7579c-dff8-4e3b-ad29-869cf65780bd";
+				PROVISIONING_PROFILE = "54914d07-467d-4b4c-b4b9-36f5e4387a81";
 				PROVISIONING_PROFILE_SPECIFIER = GarrtechDevelopment;
 				SWIFT_VERSION = 3.0;
 			};
@@ -967,7 +978,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.garrtech.group;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b7f7579c-dff8-4e3b-ad29-869cf65780bd";
+				PROVISIONING_PROFILE = "54914d07-467d-4b4c-b4b9-36f5e4387a81";
 				PROVISIONING_PROFILE_SPECIFIER = GarrtechDevelopment;
 				SWIFT_VERSION = 3.0;
 			};

@@ -52,9 +52,12 @@ extension UILabel
         
     }
     
+}
 
-    
-    
-
-    
+extension UITextView
+{
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        self.textColor =  UIColor.Color_AppText()
+    }
 }

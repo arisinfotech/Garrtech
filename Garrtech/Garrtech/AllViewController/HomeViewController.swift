@@ -65,12 +65,13 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         cellText.add("NEW APPLICATION")
         cellText.add("MY APPLICATION")
         cellText.add("LOAN INFORMATION")
-        cellText.add("SCROR BIZ")
+        //bizscore
+        cellText.add("SCOREBIZ")
         cellText.add("PENDING APPLICATION")
         cellText.add("MY PROFILE")
         
         
-        self.title = "GARRTECH FUND"
+        self.title = "GARRTECH FUNDING"
         
         collectionViewObj.dataSource = self
         collectionViewObj.delegate = self
@@ -208,7 +209,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             composeVC.mailComposeDelegate = self
             
             // Configure the fields of the interface.
-            composeVC.setToRecipients(["funding@garrtech-group.com"])
+            composeVC.setToRecipients(["customercare@garrtech-group.com"])
             composeVC.setSubject("")
             composeVC.setMessageBody("", isHTML: false)
             

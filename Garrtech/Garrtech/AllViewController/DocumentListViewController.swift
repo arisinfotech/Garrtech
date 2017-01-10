@@ -11,7 +11,7 @@ import UIKit
 
 let ktax_report = "tax_report"
 let kdriver_licence = "driver_licence"
-let kback_statement = "back_statement"
+let kback_statement = "bank_statement"
 let kcredit_crd_statement = "credit_crd_statement"
 let kprove_ownership = "prove_ownership"
 let klandlord_lease_cotract = "landlord_lease_cotract"
@@ -71,9 +71,7 @@ class DocumentListViewController: BaseViewController {
         self.IDARR = strArr
         print(strArr)
         stepFour.document_list = self.IDARR.joined(separator: ",")
-        
-        
-        for str in self.IDARR {
+                for str in self.IDARR {
             
             for viewObj in self.scrollObj.subviews as [UIView] {
                 if viewObj.tag == 5 {

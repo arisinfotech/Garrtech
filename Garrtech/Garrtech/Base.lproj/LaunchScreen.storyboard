@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,26 +15,35 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="SPLASH" translatesAutoresizingMaskIntoConstraints="NO" id="Rr6-eP-fjt"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="SPLASHNEW" translatesAutoresizingMaskIntoConstraints="NO" id="Rr6-eP-fjt"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="splashLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="PkH-aU-55F">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PkH-aU-55F" secondAttribute="height" multiplier="1:1" id="0Jt-4Y-LAt"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Rr6-eP-fjt" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="V44-8f-7RE"/>
-                            <constraint firstAttribute="trailing" secondItem="Rr6-eP-fjt" secondAttribute="trailing" id="giH-Hs-NJw"/>
-                            <constraint firstItem="Rr6-eP-fjt" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="qzf-5J-khG"/>
-                            <constraint firstAttribute="bottom" secondItem="Rr6-eP-fjt" secondAttribute="bottom" id="whH-UF-xKR"/>
+                            <constraint firstItem="PkH-aU-55F" firstAttribute="centerX" secondItem="Rr6-eP-fjt" secondAttribute="centerX" id="4df-v5-EPY"/>
+                            <constraint firstItem="PkH-aU-55F" firstAttribute="centerY" secondItem="Rr6-eP-fjt" secondAttribute="centerY" id="Co3-6h-zRR"/>
+                            <constraint firstItem="Rr6-eP-fjt" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="afG-wo-69P"/>
+                            <constraint firstAttribute="trailing" secondItem="Rr6-eP-fjt" secondAttribute="trailing" id="fVc-fN-92g"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Rr6-eP-fjt" secondAttribute="bottom" id="mRs-Ma-95q"/>
+                            <constraint firstItem="PkH-aU-55F" firstAttribute="width" secondItem="Rr6-eP-fjt" secondAttribute="height" multiplier="25:71" constant="-50" id="tyH-cs-I5k"/>
+                            <constraint firstItem="Rr6-eP-fjt" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="uQF-0e-XRq"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98" y="276"/>
+            <point key="canvasLocation" x="95.625" y="275.7042253521127"/>
         </scene>
     </scenes>
     <resources>
-        <image name="SPLASH" width="640" height="1136"/>
+        <image name="SPLASHNEW" width="640" height="1136"/>
+        <image name="splashLogo.png" width="350" height="350"/>
     </resources>
 </document>
