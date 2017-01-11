@@ -378,7 +378,7 @@ public class APIManager {
                                 timeinBusinessArrTemp.append(tempDict)
                             }
                         }
-                        completion(loanAmountNeedArrTemp, cradit_scoreArrTemp, annualRevenueArrTemo, timeinBusinessArrTemp)
+                        completion(annualRevenueArrTemo, cradit_scoreArrTemp, loanAmountNeedArrTemp, timeinBusinessArrTemp)
                     } else {
                         error(SPErrors.EmptyResultError)
                     }

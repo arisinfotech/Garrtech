@@ -123,6 +123,38 @@
             endingLineNumber = "81"
             landmarkName = "application(_:didRegisterForRemoteNotificationsWithDeviceToken:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Garrtech.AppDelegate.application (__ObjC.UIApplication, didRegisterForRemoteNotificationsWithDeviceToken : Foundation.Data) -&gt; ()"
+                  moduleName = "Garrtech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankit/Downloads/Garrtech%202/Garrtech/AppDelegate.swift"
+                  timestampString = "505856457.734943"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Garrtech.AppDelegate.(application (__ObjC.UIApplication, didRegisterForRemoteNotificationsWithDeviceToken : Foundation.Data) -&gt; ()).(closure #1)"
+                  moduleName = "Garrtech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankit/Downloads/Garrtech%202/Garrtech/AppDelegate.swift"
+                  timestampString = "505856457.737444"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -137,7 +169,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
             endingLineNumber = "61"
-            landmarkName = "viewWillAppear(_:)"
+            landmarkName = "doSetUpScreen()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -372,12 +404,12 @@
                   moduleName = "Garrtech"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ankit/Downloads/Garrtech%202/Garrtech/Service/APIManager.swift"
-                  timestampString = "504558225.863216"
+                  timestampString = "505856457.797303"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "481"
                   endingLineNumber = "481"
-                  offsetFromSymbolStart = "1363">
+                  offsetFromSymbolStart = "1080">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -387,12 +419,12 @@
                   moduleName = "Garrtech"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ankit/Downloads/Garrtech%202/Garrtech/Service/APIManager.swift"
-                  timestampString = "504558225.86519"
+                  timestampString = "505856457.799273"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "481"
                   endingLineNumber = "481"
-                  offsetFromSymbolStart = "4253">
+                  offsetFromSymbolStart = "3092">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -468,12 +500,12 @@
                   moduleName = "Garrtech"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ankit/Downloads/Garrtech%202/Garrtech/AllViewController/CompanyLoanViewController.swift"
-                  timestampString = "504558225.882341"
+                  timestampString = "505856457.813631"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "253"
                   endingLineNumber = "253"
-                  offsetFromSymbolStart = "6202">
+                  offsetFromSymbolStart = "5172">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -483,12 +515,12 @@
                   moduleName = "Garrtech"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ankit/Downloads/Garrtech%202/Garrtech/AllViewController/CompanyLoanViewController.swift"
-                  timestampString = "504558225.884318"
+                  timestampString = "505856457.815602"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "253"
                   endingLineNumber = "253"
-                  offsetFromSymbolStart = "523">
+                  offsetFromSymbolStart = "520">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -660,12 +692,12 @@
                   moduleName = "Garrtech"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ankit/Downloads/Garrtech%202/Garrtech/AllViewController/OwnerVc.swift"
-                  timestampString = "504558225.924282"
+                  timestampString = "505856457.850854"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "80"
                   endingLineNumber = "80"
-                  offsetFromSymbolStart = "668">
+                  offsetFromSymbolStart = "528">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -675,12 +707,12 @@
                   moduleName = "Garrtech"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ankit/Downloads/Garrtech%202/Garrtech/AllViewController/OwnerVc.swift"
-                  timestampString = "504558225.926619"
+                  timestampString = "505856457.852825"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "82"
                   endingLineNumber = "82"
-                  offsetFromSymbolStart = "23">
+                  offsetFromSymbolStart = "28">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -948,11 +980,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Garrtech/AllViewController/shortLoanVc.swift"
-            timestampString = "504553191.340827"
+            timestampString = "505856457.449184"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "AddDropDownAnnualRevenus(sender:array_Data:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1018,6 +1050,38 @@
             startingLineNumber = "83"
             endingLineNumber = "83"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Garrtech/AllViewController/shortLoanVc.swift"
+            timestampString = "505855961.255706"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "call_LoanOptionAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Garrtech/AllViewController/shortLoanVc.swift"
+            timestampString = "505856773.025813"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "CloseDropdown()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
