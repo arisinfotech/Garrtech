@@ -62,7 +62,7 @@ class CompanyLoanViewController: BaseViewController {
         txtAnnualGrossSales.text = loanData.k_annual_gross_sale
         txtDesireFundingAmount.text = loanData.k_desired_funding_amount
         txtUserOfFunds.text = loanData.k_use_of_funds
-        txtHeldWith.text = loanData.k_held_with
+        
         balanceType = loanData.k_is_advance_balance!
         
         
@@ -83,11 +83,19 @@ class CompanyLoanViewController: BaseViewController {
             stepTwo.k_advance_balance = ""
             stepTwo.k_is_advance_balance = balanceType
             txtBalanceIfYes.layer.borderColor = UIColor.RGB(R: 219, G: 219, B: 219, A: 1).cgColor
+            
+            txtHeldWith.isUserInteractionEnabled = false
+            stepTwo.k_held_with = ""
+            txtHeldWith.layer.borderColor = UIColor.RGB(R: 219, G: 219, B: 219, A: 1).cgColor
+            
+            
         } else {
             txtBalanceIfYes.text = loanData.k_advance_balance
             txtBalanceIfYes.isUserInteractionEnabled = true
             balanceType = "Y"
 
+            txtHeldWith.isUserInteractionEnabled = true
+            txtHeldWith.text = loanData.k_held_with
         }
         
     }
@@ -159,9 +167,8 @@ class CompanyLoanViewController: BaseViewController {
                             if balanceType == "N" || (CompanyTextValidation.isValidate(textField: txtBalanceIfYes,  validationType: .AI_VALIDATION_TYPE_BALANCE_IF_YES))
 
                             {
-                                if CompanyTextValidation.isValidate(textField: txtHeldWith, validationType: .AI_VALIDATION_TYPE_TOTAL_HELD_WIDTH)
+                                if balanceType == "N" || CompanyTextValidation.isValidate(textField: txtHeldWith, validationType: .AI_VALIDATION_TYPE_TOTAL_HELD_WIDTH)
                                 {
-                                    
                                     self.saveSecondStep(saveType: sender.tag)
                                     
                                 }
@@ -185,17 +192,19 @@ class CompanyLoanViewController: BaseViewController {
         stepTwo.k_desired_funding_amount = txtDesireFundingAmount.text!
         stepTwo.k_use_of_funds = txtUserOfFunds.text!
         
-        stepTwo.k_held_with = txtHeldWith.text!
+        
         
         if balanceType=="Y"
         {
             stepTwo.k_advance_balance = txtBalanceIfYes.text!
             stepTwo.k_is_advance_balance = balanceType
+            stepTwo.k_held_with = txtHeldWith.text!
         }
         else
         {
             stepTwo.k_advance_balance = ""
             stepTwo.k_is_advance_balance = balanceType
+            stepTwo.k_held_with = ""
         }
         
         print(stepTwo.toJsonDictionary())
@@ -229,17 +238,19 @@ class CompanyLoanViewController: BaseViewController {
         stepTwo.k_desired_funding_amount = txtDesireFundingAmount.text!
         stepTwo.k_use_of_funds = txtUserOfFunds.text!
         
-        stepTwo.k_held_with = txtHeldWith.text!
+        
         
         if balanceType=="Y"
         {
             stepTwo.k_advance_balance = txtBalanceIfYes.text!
             stepTwo.k_is_advance_balance = balanceType
+            stepTwo.k_held_with = txtHeldWith.text!
         }
         else
         {
             stepTwo.k_advance_balance = ""
             stepTwo.k_is_advance_balance = balanceType
+            stepTwo.k_held_with = ""
         }
         
         
@@ -271,14 +282,23 @@ class CompanyLoanViewController: BaseViewController {
             txtBalanceIfYes.isUserInteractionEnabled = true
             txtBalanceIfYes.layer.borderColor = UIColor.Color_LightGray().cgColor
             txtBalanceIfYes.becomeFirstResponder()
+            
+            txtHeldWith.isUserInteractionEnabled = true
+            txtHeldWith.layer.borderColor = UIColor.Color_LightGray().cgColor
+//            txtBalanceIfYes.becomeFirstResponder()
         }
         else
         {
             balanceType="N"
             txtBalanceIfYes.isUserInteractionEnabled = false
             txtBalanceIfYes.layer.borderColor = UIColor.RGB(R: 219, G: 219, B: 219, A: 1).cgColor
-            self.view.endEditing(true)
+            
+            
+            txtHeldWith.isUserInteractionEnabled = true
+            txtHeldWith.layer.borderColor = UIColor.RGB(R: 219, G: 219, B: 219, A: 1).cgColor
+            
             txtBalanceIfYes.text = ""
+            self.view.endEditing(true)
         }
         
     }

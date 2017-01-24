@@ -105,8 +105,8 @@
                   symbolName = "Garrtech.LoginViewController.MoveRegisterVC () -&gt; ()"
                   moduleName = "Garrtech"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/ankit/Downloads/Garrtech%202/Garrtech/AllViewController/LoginViewController.swift"
-                  timestampString = "504353312.973005"
+                  urlString = "file:///Volumes/Govind/Documents/GIT/Garrtech/Garrtech%202/Garrtech/AllViewController/LoginViewController.swift"
+                  timestampString = "506367066.768653"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
@@ -120,8 +120,8 @@
                   symbolName = "Garrtech.LoginViewController.MoveRegisterVC () -&gt; ()"
                   moduleName = "Garrtech"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/ankit/Downloads/Garrtech%202/Garrtech/AllViewController/LoginViewController.swift"
-                  timestampString = "504353312.975297"
+                  urlString = "file:///Volumes/Govind/Documents/GIT/Garrtech/Garrtech%202/Garrtech/AllViewController/LoginViewController.swift"
+                  timestampString = "506367066.770712"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
@@ -257,38 +257,22 @@
             endingLineNumber = "321"
             landmarkName = "valicationComplete(saveType:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Garrtech.BusinessLoanViewController.valicationComplete (saveType : Swift.Int) -&gt; ()"
-                  moduleName = "Garrtech"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/ankit/Downloads/Garrtech%202/Garrtech/AllViewController/BusinessLoanViewController.swift"
-                  timestampString = "504353313.013549"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "321"
-                  endingLineNumber = "321"
-                  offsetFromSymbolStart = "30">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Garrtech.BusinessLoanViewController.valicationComplete (saveType : Swift.Int) -&gt; ()"
-                  moduleName = "Garrtech"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/ankit/Downloads/Garrtech%202/Garrtech/AllViewController/BusinessLoanViewController.swift"
-                  timestampString = "504353313.015549"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "321"
-                  endingLineNumber = "321"
-                  offsetFromSymbolStart = "149">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Garrtech/AllViewController/DocumentListViewController.swift"
+            timestampString = "506366837.360913"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "getImageAndSetImageinArray(imgae:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

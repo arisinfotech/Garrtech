@@ -100,7 +100,6 @@ class ProfileVc: BaseViewController, UIImagePickerControllerDelegate,UINavigatio
             }
             
         }
-        
     }
     
     
@@ -168,6 +167,47 @@ class ProfileVc: BaseViewController, UIImagePickerControllerDelegate,UINavigatio
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         // Hide the keyboard.
         
+        
+        
+        let optionMenu = UIAlertController(title: "Select From", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let option1 = UIAlertAction(title: "Camera", style: .default, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+            self.presentPickerView(camera: true)
+        })
+        
+        let option2 = UIAlertAction(title: "Select from Photos", style: .default, handler: {
+            
+            (alert: UIAlertAction!) -> Void in
+            self.presentPickerView(camera: false)
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Cancelled")
+        })
+        
+        optionMenu.addAction(option1)
+        optionMenu.addAction(option2)
+        optionMenu.addAction(cancelAction)
+        
+        
+        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad )
+        {
+            if let currentPopoverpresentioncontroller = optionMenu.popoverPresentationController{
+                currentPopoverpresentioncontroller.sourceView = profileImage
+                currentPopoverpresentioncontroller.sourceRect = profileImage.bounds;
+                currentPopoverpresentioncontroller.permittedArrowDirections = UIPopoverArrowDirection.up;
+                self.present(optionMenu, animated: true, completion: nil)
+            }
+        }else{
+            self.present(optionMenu, animated: true, completion: nil)
+ 
+        }
+ 
+        
+       /*
         Alert.displayAlertWithMessage(message: "Select From", otherButtonTitles: ["Camera","Select from Photos","Cancel"], preferredAlertStyle: .actionSheet) { (
             select) in
             
@@ -183,8 +223,8 @@ class ProfileVc: BaseViewController, UIImagePickerControllerDelegate,UINavigatio
             }else{
             
             }
-            
         }
+ */
     }
     
     override func didReceiveMemoryWarning() {

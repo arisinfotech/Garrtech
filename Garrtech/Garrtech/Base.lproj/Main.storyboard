@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1QK-8p-MoW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pXd-CA-5ow">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -54,7 +54,7 @@
                         <viewControllerLayoutGuide type="bottom" id="bS7-sc-vAt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2Lt-RU-Nvy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vye-s3-TBt">
@@ -87,7 +87,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company loan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eh9-eZ-ia4">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Company loan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eh9-eZ-ia4">
+                                                <frame key="frameInset" minX="74" width="75" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -205,15 +206,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="MyApplicationListViewController" id="9Aq-1T-mvj" customClass="MyApplicationListViewController" customModule="Garrtech" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="b6N-gg-PHL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="68" id="RAY-5a-cbN" customClass="ApplicaitonCell" customModule="Garrtech" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="68"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RAY-5a-cbN" id="6iC-7o-dNt">
-                                    <frame key="frameInset" width="320" height="67"/>
+                                    <frame key="frameInset" width="375" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6vd-qS-9B4">
@@ -255,7 +256,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6Pb-bI-FKR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5w4-SG-X1p">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcW-gF-OLx">
@@ -444,7 +445,7 @@ List</string>
                         <viewControllerLayoutGuide type="bottom" id="xKI-3v-lhP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YVd-yz-QFT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f6Z-bT-msl" customClass="AITextFieldSquare" customModule="Garrtech" customModuleProvider="target">
@@ -580,7 +581,7 @@ Cg
                         <viewControllerLayoutGuide type="bottom" id="gAv-1g-mpJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v8R-xr-WOY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="malePlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="9qa-ef-FGA">
@@ -697,7 +698,7 @@ Cg
                         <viewControllerLayoutGuide type="bottom" id="yUj-Ty-XBS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oyH-5A-EzW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwY-al-ihy">
@@ -855,7 +856,7 @@ List</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3k-9e-ndR">
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XL1-vW-vUU">
-                                                <state key="normal" title="  Crop" image="radioon">
+                                                <state key="normal" title="  Corp" image="radioon">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -887,7 +888,7 @@ List</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MyV-MT-wLf">
-                                                <state key="normal" title="  Ptop" image="radiooff">
+                                                <state key="normal" title="  Prop" image="radiooff">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -1706,7 +1707,7 @@ List</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Current loan/advanse balance" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4X-Es-RVc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Current loan/Advance balance" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4X-Es-RVc">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="jzj-rF-Wo4"/>
                                         </constraints>
@@ -1914,7 +1915,7 @@ List</string>
                         <viewControllerLayoutGuide type="bottom" id="PWk-o5-gLp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YcZ-fU-12O">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThE-R3-fXS">
@@ -2026,7 +2027,7 @@ List</string>
                         <viewControllerLayoutGuide type="bottom" id="1Lv-e5-5Rf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="355-wY-cHq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aj8-Hw-ihp">
@@ -2070,7 +2071,7 @@ List</string>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomwViewCell" id="Urx-5L-lMq" customClass="HomwViewCell" customModule="Garrtech" customModuleProvider="target">
-                                        <rect key="frame" x="77" y="0.0" width="166" height="166"/>
+                                        <rect key="frame" x="10" y="0.0" width="166" height="166"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="166" height="166"/>
@@ -2146,7 +2147,7 @@ List</string>
                         <viewControllerLayoutGuide type="bottom" id="h0r-og-A0y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HIf-aS-P5P">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hg-be-kha">
@@ -2597,7 +2598,7 @@ List</string>
                         <viewControllerLayoutGuide type="bottom" id="9V5-GH-qXI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6nq-2d-WmW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IW-Ou-wAm">
@@ -2840,10 +2841,10 @@ List</string>
                         <viewControllerLayoutGuide type="bottom" id="4Mi-G6-JVj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5qj-9H-fHX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KhM-lk-4cz">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KhM-lk-4cz">
                                 <frame key="frameInset" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Juh-MQ-22C">
@@ -2972,7 +2973,7 @@ List</string>
                         <viewControllerLayoutGuide type="bottom" id="OsA-Xv-SFY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hHH-KW-Kuj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dta-UB-FLz">
@@ -3154,7 +3155,7 @@ List</string>
                         <viewControllerLayoutGuide type="bottom" id="pZF-rJ-egW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="J2j-He-uz0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEK-MZ-E6l">
@@ -3186,7 +3187,7 @@ List</string>
                         <viewControllerLayoutGuide type="bottom" id="AAQ-Gh-aw4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c35-Rj-0ct">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3uR-nu-O5J">
@@ -4072,7 +4073,7 @@ List</string>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRB-ul-Lm7">
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <mutableString key="text">Before text editors existed, computer text was punched into cards with keypunch machines. Physical boxes of these thin cardboard cards were then inserted into a card-reader. Magnetic tape and disk "card-image" files created from such card decks often had no line-separation characters at all, and assumed fixed-length 80-character records.  You are required to send all the check marked documents to this email address :</mutableString>
+                                                <string key="text">You undertand that by signing the application immediately following this notice, you are providing 'Written Instructions' to Garrtech Group LLC. Under the fair credit reporting act authorizing Garrtech Group LLC to obtain information from your</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -4094,9 +4095,31 @@ List</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8FT-be-Jsh" userLabel="scrollview">
+                                        <subviews>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bky-eU-rLT">
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1mv-Yh-y4E">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells/>
+                                            </collectionView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Bky-eU-rLT" secondAttribute="trailing" id="CRP-Hu-6tA"/>
+                                            <constraint firstItem="Bky-eU-rLT" firstAttribute="leading" secondItem="8FT-be-Jsh" secondAttribute="leading" id="FMR-aI-dQG"/>
+                                            <constraint firstItem="Bky-eU-rLT" firstAttribute="top" secondItem="8FT-be-Jsh" secondAttribute="top" id="q7B-BJ-6tG"/>
+                                            <constraint firstAttribute="bottom" secondItem="Bky-eU-rLT" secondAttribute="bottom" id="qM0-WV-NNl"/>
+                                            <constraint firstAttribute="height" constant="43" id="uRd-yM-sbi"/>
+                                        </constraints>
+                                    </view>
                                     <view tag="5" contentMode="scaleToFill" restorationIdentifier="tax_report" translatesAutoresizingMaskIntoConstraints="NO" id="b7O-me-j7I">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qW-Rq-rs6">
+                                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qW-Rq-rs6">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="4qW-Rq-rs6" secondAttribute="height" multiplier="1:1" id="VoY-z0-u7B"/>
                                                 </constraints>
@@ -4129,7 +4152,7 @@ List</string>
                                     </view>
                                     <view tag="5" contentMode="scaleToFill" restorationIdentifier="driver_licence" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-WH-rLb">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbQ-lQ-A1b">
+                                            <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbQ-lQ-A1b">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="UbQ-lQ-A1b" secondAttribute="height" multiplier="1:1" id="pX9-qB-Lwt"/>
                                                 </constraints>
@@ -4143,7 +4166,7 @@ List</string>
                                                     <action selector="btnSelectDocumentWithButton:" destination="BN2-7d-GFg" eventType="touchUpInside" id="B77-XA-gWI"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver license" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BE8-Wx-Anq">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver licenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BE8-Wx-Anq">
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -4160,9 +4183,9 @@ List</string>
                                             <constraint firstItem="UbQ-lQ-A1b" firstAttribute="leading" secondItem="vCp-WH-rLb" secondAttribute="leading" id="tUy-M0-6e3"/>
                                         </constraints>
                                     </view>
-                                    <view tag="5" contentMode="scaleToFill" restorationIdentifier="back_statement" translatesAutoresizingMaskIntoConstraints="NO" id="SDR-wH-zIx">
+                                    <view tag="5" contentMode="scaleToFill" restorationIdentifier="bank_statement" translatesAutoresizingMaskIntoConstraints="NO" id="SDR-wH-zIx">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irD-O5-lvL">
+                                            <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irD-O5-lvL">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="irD-O5-lvL" secondAttribute="height" multiplier="1:1" id="cbn-32-Xpx"/>
                                                 </constraints>
@@ -4195,7 +4218,7 @@ List</string>
                                     </view>
                                     <view tag="5" contentMode="scaleToFill" restorationIdentifier="credit_crd_statement" translatesAutoresizingMaskIntoConstraints="NO" id="IHC-BZ-sjM">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6P-jg-wcT">
+                                            <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6P-jg-wcT">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Z6P-jg-wcT" secondAttribute="height" multiplier="1:1" id="sw9-JA-jkL"/>
                                                 </constraints>
@@ -4209,7 +4232,7 @@ List</string>
                                                     <action selector="btnSelectDocumentWithButton:" destination="BN2-7d-GFg" eventType="touchUpInside" id="dVh-Pd-CfT"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 cradit card statements" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEE-VO-ueR">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 credit cards statements" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEE-VO-ueR">
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -4228,7 +4251,7 @@ List</string>
                                     </view>
                                     <view tag="5" contentMode="scaleToFill" restorationIdentifier="prove_ownership" translatesAutoresizingMaskIntoConstraints="NO" id="UPh-wx-7tl">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h34-Nt-LJY">
+                                            <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h34-Nt-LJY">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="h34-Nt-LJY" secondAttribute="height" multiplier="1:1" id="qTe-04-baQ"/>
                                                 </constraints>
@@ -4242,7 +4265,7 @@ List</string>
                                                     <action selector="btnSelectDocumentWithButton:" destination="BN2-7d-GFg" eventType="touchUpInside" id="RVQ-R2-eoj"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proof of ownership" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyJ-Iv-S1Q">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prove of ownership" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyJ-Iv-S1Q">
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -4261,7 +4284,7 @@ List</string>
                                     </view>
                                     <view tag="5" contentMode="scaleToFill" restorationIdentifier="landlord_lease_cotract" translatesAutoresizingMaskIntoConstraints="NO" id="Eo8-RT-OxV">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2V-23-wfz">
+                                            <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2V-23-wfz">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="P2V-23-wfz" secondAttribute="height" multiplier="1:1" id="Mo0-gQ-6j6"/>
                                                 </constraints>
@@ -4294,7 +4317,7 @@ List</string>
                                     </view>
                                     <view tag="5" contentMode="scaleToFill" restorationIdentifier="company_void_check" translatesAutoresizingMaskIntoConstraints="NO" id="ero-ZW-Wvz">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ih-G8-h7n">
+                                            <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ih-G8-h7n">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="8ih-G8-h7n" secondAttribute="height" multiplier="1:1" id="lYl-5r-aye"/>
                                                 </constraints>
@@ -4308,7 +4331,7 @@ List</string>
                                                     <action selector="btnSelectDocumentWithButton:" destination="BN2-7d-GFg" eventType="touchUpInside" id="nTu-hN-Rrb"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Com void check" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1V-hv-miy">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company void check" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1V-hv-miy">
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -4327,7 +4350,7 @@ List</string>
                                     </view>
                                     <view tag="5" contentMode="scaleToFill" restorationIdentifier="mortage_statement_balance" translatesAutoresizingMaskIntoConstraints="NO" id="ouu-OM-STJ">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPj-Wf-48u">
+                                            <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPj-Wf-48u">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="BPj-Wf-48u" secondAttribute="height" multiplier="1:1" id="v53-jg-vuI"/>
                                                 </constraints>
@@ -4341,7 +4364,7 @@ List</string>
                                                     <action selector="btnSelectDocumentWithButton:" destination="BN2-7d-GFg" eventType="touchUpInside" id="puI-Jq-5kZ"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amy-ba-3cQ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mortgage statements balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amy-ba-3cQ">
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -4412,7 +4435,6 @@ List</string>
                                     <constraint firstItem="ouu-OM-STJ" firstAttribute="height" secondItem="ero-ZW-Wvz" secondAttribute="height" id="BJR-KB-bPK"/>
                                     <constraint firstItem="zYy-ui-go8" firstAttribute="height" secondItem="b7O-me-j7I" secondAttribute="height" multiplier="60:44" id="Bva-Dm-2UN"/>
                                     <constraint firstItem="zYy-ui-go8" firstAttribute="width" secondItem="b7O-me-j7I" secondAttribute="width" multiplier="280:315" id="BzI-Et-Bsw"/>
-                                    <constraint firstItem="b7O-me-j7I" firstAttribute="top" secondItem="SSf-7L-USD" secondAttribute="bottom" constant="20" id="DDk-vd-4UA"/>
                                     <constraint firstItem="b7O-me-j7I" firstAttribute="width" secondItem="SSf-7L-USD" secondAttribute="width" id="Enu-Rj-RqZ"/>
                                     <constraint firstAttribute="trailing" secondItem="LsI-1q-mfv" secondAttribute="trailing" id="FoJ-R1-Cbp"/>
                                     <constraint firstItem="Exv-2z-PNG" firstAttribute="top" secondItem="hQv-z9-lkl" secondAttribute="bottom" constant="20" id="Fup-eY-bmy"/>
@@ -4423,6 +4445,8 @@ List</string>
                                     <constraint firstItem="UPh-wx-7tl" firstAttribute="leading" secondItem="IHC-BZ-sjM" secondAttribute="leading" id="Mfj-e6-VY1"/>
                                     <constraint firstItem="SDR-wH-zIx" firstAttribute="top" secondItem="vCp-WH-rLb" secondAttribute="bottom" constant="10" id="Oz5-K0-TJs"/>
                                     <constraint firstItem="LsI-1q-mfv" firstAttribute="top" secondItem="WVM-Xi-BcY" secondAttribute="top" id="PkA-Nc-3tG"/>
+                                    <constraint firstItem="8FT-be-Jsh" firstAttribute="leading" secondItem="SSf-7L-USD" secondAttribute="leading" id="R5j-RP-p3i"/>
+                                    <constraint firstItem="8FT-be-Jsh" firstAttribute="trailing" secondItem="SSf-7L-USD" secondAttribute="trailing" id="RKn-Ah-cLU"/>
                                     <constraint firstItem="UPh-wx-7tl" firstAttribute="height" secondItem="IHC-BZ-sjM" secondAttribute="height" id="Rqa-fc-LWb"/>
                                     <constraint firstItem="IHC-BZ-sjM" firstAttribute="height" secondItem="SDR-wH-zIx" secondAttribute="height" id="TcF-sQ-LXM"/>
                                     <constraint firstItem="UPh-wx-7tl" firstAttribute="top" secondItem="IHC-BZ-sjM" secondAttribute="bottom" constant="10" id="UAs-lE-aPx"/>
@@ -4431,6 +4455,7 @@ List</string>
                                     <constraint firstItem="Uc8-yM-1MZ" firstAttribute="leading" secondItem="WVM-Xi-BcY" secondAttribute="leading" constant="23" id="W0s-8n-8OG"/>
                                     <constraint firstItem="zYy-ui-go8" firstAttribute="centerX" secondItem="LsI-1q-mfv" secondAttribute="centerX" id="W2j-8Q-bf7"/>
                                     <constraint firstItem="vCp-WH-rLb" firstAttribute="top" secondItem="b7O-me-j7I" secondAttribute="bottom" constant="10" id="XvU-Ff-TFP"/>
+                                    <constraint firstItem="b7O-me-j7I" firstAttribute="top" secondItem="8FT-be-Jsh" secondAttribute="bottom" constant="20" id="Zoh-wP-DdK"/>
                                     <constraint firstAttribute="trailing" secondItem="SSf-7L-USD" secondAttribute="trailing" constant="30" id="ZrJ-js-qaD"/>
                                     <constraint firstItem="SDR-wH-zIx" firstAttribute="leading" secondItem="vCp-WH-rLb" secondAttribute="leading" id="chb-yv-Uyg"/>
                                     <constraint firstItem="ouu-OM-STJ" firstAttribute="width" secondItem="ero-ZW-Wvz" secondAttribute="width" id="f37-Bk-Gha"/>
@@ -4438,6 +4463,7 @@ List</string>
                                     <constraint firstItem="ouu-OM-STJ" firstAttribute="top" secondItem="ero-ZW-Wvz" secondAttribute="bottom" constant="10" id="ifL-pr-BfO"/>
                                     <constraint firstAttribute="bottom" secondItem="LsI-1q-mfv" secondAttribute="bottom" id="jrA-4f-4Cg"/>
                                     <constraint firstAttribute="bottom" secondItem="zYy-ui-go8" secondAttribute="bottom" constant="20" id="kjv-rQ-8pr"/>
+                                    <constraint firstItem="8FT-be-Jsh" firstAttribute="top" secondItem="SSf-7L-USD" secondAttribute="bottom" constant="20" id="qLe-hh-QfY"/>
                                     <constraint firstItem="Eo8-RT-OxV" firstAttribute="width" secondItem="UPh-wx-7tl" secondAttribute="width" id="tIq-Jb-Bmt"/>
                                     <constraint firstAttribute="trailing" secondItem="hQv-z9-lkl" secondAttribute="trailing" id="uWz-2a-hIF"/>
                                     <constraint firstItem="LsI-1q-mfv" firstAttribute="leading" secondItem="WVM-Xi-BcY" secondAttribute="leading" id="uyR-21-XD5"/>
@@ -4464,7 +4490,9 @@ List</string>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="constrain_Space" destination="uuB-sU-04A" id="BPs-jF-p0v"/>
+                        <outlet property="obj_collectionView" destination="Bky-eU-rLT" id="Gne-G7-f4p"/>
                         <outlet property="scrollObj" destination="WVM-Xi-BcY" id="rtB-rO-WRH"/>
+                        <outlet property="scrollviewPropotionalHeightObj" destination="uRd-yM-sbi" id="jFG-9p-Gwm"/>
                         <outlet property="view_Upper" destination="Xuc-bc-owv" id="y6u-fd-Yzj"/>
                     </connections>
                 </viewController>
@@ -4481,7 +4509,7 @@ List</string>
                         <viewControllerLayoutGuide type="bottom" id="0Od-25-tpz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="V6u-3z-L7K">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytu-RN-lCC">
@@ -4651,7 +4679,7 @@ List</string>
                         <viewControllerLayoutGuide type="bottom" id="Ve1-SF-guh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="w9T-gr-5ql">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cv4-bv-Qpn">

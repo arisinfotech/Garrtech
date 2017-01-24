@@ -637,46 +637,224 @@ public class APIManager {
     //MARK: ----- step 4 Mehtods -----
     //MARK:
     
-    func loanStepFour(stepFour: LoanStepFour, completion:@escaping (_ error: NSError?) -> ()) {
+    func loanStepFour(stepFour: LoanStepFour,arrStoreDict:NSMutableArray, completion:@escaping (_ error: NSError?) -> ()) {
         
         showHUD()
-
         
-        Alamofire.request(MAIN_URL + "app_step_four", method: .post, parameters: stepFour.toJsonDictionary(), headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+        var array_Data = NSMutableArray()
+        array_Data = arrStoreDict
+
+        print(array_Data)
+        /*
+         Alamofire.request(MAIN_URL + "app_step_four", method: .post, parameters: stepFour.toJsonDictionary(), headers: CurrentUser.sharedInstance.setAuthHeader()).responseJSON { response in
+         
+         hideHUD()
+         
+         if let JSON = response.result.value {
+         
+         print("JSON: \(JSON)")
+         
+         let JSON_ = JSON as! JSONDictionary
+         
+         if JSON_[kStatus] as? String == kSuccess {
+         completion(nil)
+         if let loanOptionData = JSON_[kData]![kAPP_Pending] as? JSONDictionary {
+         
+         print(CurrentUser.sharedInstance.toJsonDictionary())
+         let pendingApp = PendingApp()
+         pendingApp.populateWithJSON(dict: loanOptionData)
+         CurrentUser.sharedInstance.pendingApp = pendingApp
+         CurrentUser.sharedInstance.saveToDEfault()
+         print(CurrentUser.sharedInstance.toJsonDictionary())
+         }
+         hideHUD()
+         UserDefaults.standard.setValue(nil, forKey: kCompletedStep)
+         } else {
+         if JSON_[kapiKey] as? String == kInvalid {
+         Alert.displayInvalidApiKey()
+         } else {
+         Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+         }
+         completion(SPErrors.EmptyResultError)
+         }
+         } else {
+         completion(SPErrors.EmptyResultError)
+         }
+         }
+         */
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
             
-            hideHUD()
+            var tax_report_doc = false
+            var driver_licence_doc = false
+            var bank_statement_doc = false
+            var credit_crd_statement_doc = false
+            var prove_ownership_doc = false
+            var landlord_lease_cotract_doc = false
+            var company_void_check_doc = false
+            var mortage_statement_balance_doc = false
             
-            if let JSON = response.result.value {
+            let date = NSDate()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy_MM_dd_HH_mm"
+            let result = formatter.string(from: date as Date)
+           
+            
+            for (index,element) in arrStoreDict.enumerated()
+            {
+                let dict = element as! NSDictionary
                 
-                print("JSON: \(JSON)")
-                
-                let JSON_ = JSON as! JSONDictionary
-                
-                if JSON_[kStatus] as? String == kSuccess {
-                    completion(nil)
-                    if let loanOptionData = JSON_[kData]![kAPP_Pending] as? JSONDictionary {
-                        
-                        print(CurrentUser.sharedInstance.toJsonDictionary())
-                        let pendingApp = PendingApp()
-                        pendingApp.populateWithJSON(dict: loanOptionData)
-                        CurrentUser.sharedInstance.pendingApp = pendingApp
-                        CurrentUser.sharedInstance.saveToDEfault()
-                        print(CurrentUser.sharedInstance.toJsonDictionary())
-                    }
-                    hideHUD()
-                    UserDefaults.standard.setValue(nil, forKey: kCompletedStep)
-                } else {
-                    if JSON_[kapiKey] as? String == kInvalid {
-                        Alert.displayInvalidApiKey()
-                    } else {
-                        Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
-                    }
-                    completion(SPErrors.EmptyResultError)
+                if (dict.object(forKey:"tax_report_doc") != nil)
+                {
+                    tax_report_doc = true
+                    multipartFormData.append(UIImageJPEGRepresentation(dict.object(forKey: "tax_report_doc") as! UIImage, 0.5)!, withName: "tax_report_doc", fileName: "\(result)_tax_report_doc.jpeg", mimeType: "image/jpeg")
                 }
-            } else {
-                completion(SPErrors.EmptyResultError)
+                
+                if (dict.object(forKey:"driver_licence_doc") != nil)
+                {
+                    driver_licence_doc = true
+                    multipartFormData.append(UIImageJPEGRepresentation(dict.object(forKey: "driver_licence_doc") as! UIImage, 0.5)!, withName: "driver_licence_doc", fileName: "\(result)_driver_licence_doc.jpeg", mimeType: "image/jpeg")
+                }
+                
+                if (dict.object(forKey:"bank_statement_doc") != nil)
+                {
+                    bank_statement_doc = true
+                    multipartFormData.append(UIImageJPEGRepresentation(dict.object(forKey: "bank_statement_doc") as! UIImage, 0.5)!, withName: "bank_statement_doc", fileName: "\(result)_bank_statement_doc.jpeg", mimeType: "image/jpeg")
+                }
+                
+                if (dict.object(forKey:"credit_crd_statement_doc") != nil)
+                {
+                    credit_crd_statement_doc = true
+                    multipartFormData.append(UIImageJPEGRepresentation(dict.object(forKey: "credit_crd_statement_doc") as! UIImage, 0.5)!, withName: "credit_crd_statement_doc", fileName: "\(result)_credit_crd_statement_doc.jpeg", mimeType: "image/jpeg")
+                }
+                
+                if (dict.object(forKey:"prove_ownership_doc") != nil)
+                {
+                    prove_ownership_doc = true
+                    multipartFormData.append(UIImageJPEGRepresentation(dict.object(forKey: "prove_ownership_doc") as! UIImage, 0.5)!, withName: "prove_ownership_doc", fileName: "\(result)_prove_ownership_doc.jpeg", mimeType: "image/jpeg")
+                }
+                
+                
+                if (dict.object(forKey:"landlord_lease_cotract_doc") != nil)
+                {
+                    landlord_lease_cotract_doc = true
+                    multipartFormData.append(UIImageJPEGRepresentation(dict.object(forKey: "landlord_lease_cotract_doc") as! UIImage, 0.5)!, withName: kUser_avatar, fileName: "\(result)_landlord_lease_cotract_doc.jpeg", mimeType: "image/jpeg")
+                }
+                
+                
+                if (dict.object(forKey:"company_void_check_doc") != nil)
+                {
+                    company_void_check_doc = true
+                    multipartFormData.append(UIImageJPEGRepresentation(dict.object(forKey: "company_void_check_doc") as! UIImage, 0.5)!, withName: kUser_avatar, fileName: "\(result)_company_void_check_doc.jpeg", mimeType: "image/jpeg")
+                }
+                
+                if (dict.object(forKey:"mortage_statement_balance_doc") != nil)
+                {
+                    mortage_statement_balance_doc = true
+                    multipartFormData.append(UIImageJPEGRepresentation(dict.object(forKey: "mortage_statement_balance_doc") as! UIImage, 0.5)!, withName: kUser_avatar, fileName: "\(result)_mortage_statement_balance_doc.jpeg", mimeType: "image/jpeg")
+                }
+            }
+            
+            for (key, value) in stepFour.toJsonDictionary()
+            {
+                if key != kUser_avatar {
+                    multipartFormData.append("\(value)".data(using: .utf8, allowLossyConversion: false)! , withName: key)
+                }
+            }
+            
+            
+            if tax_report_doc == true
+            {
+                //                 multipartFormData.append(UIImageJPEGRepresentation(profile.image!, 0.5)!, withName: kUser_avatar, fileName: "swift_file.jpeg", mimeType: "image/jpeg")
+                
+            }
+            if driver_licence_doc == true
+            {
+                
+            }
+            if bank_statement_doc == true
+            {
+                
+            }
+            if credit_crd_statement_doc == true
+            {
+                
+            }
+            if prove_ownership_doc == true
+            {
+                
+            }
+            if landlord_lease_cotract_doc == true
+            {
+                
+            }
+            if company_void_check_doc == true
+            {
+                
+            }
+            if mortage_statement_balance_doc == true
+            {
+                
+            }
+            
+            
+            }, to:MAIN_URL + "app_step_four", method: .post, headers:CurrentUser.sharedInstance.setAuthHeader())
+        { (result) in
+            switch result {
+            case .success(let upload, _, _):
+                
+                upload.uploadProgress(closure: { (progress) in
+                    //Print progress
+                })
+                
+                upload.responseJSON { response in
+                    //print response.result
+                    
+                    hideHUD()
+                    
+                    if let JSON = response.result.value {
+                        
+                        print("JSON: \(JSON)")
+                        
+                        let JSON_ = JSON as! JSONDictionary
+                        
+                        if JSON_[kStatus] as? String == kSuccess {
+                            completion(nil)
+                            if let loanOptionData = JSON_[kData]![kAPP_Pending] as? JSONDictionary {
+                                
+                                print(CurrentUser.sharedInstance.toJsonDictionary())
+                                let pendingApp = PendingApp()
+                                pendingApp.populateWithJSON(dict: loanOptionData)
+                                CurrentUser.sharedInstance.pendingApp = pendingApp
+                                CurrentUser.sharedInstance.saveToDEfault()
+                                print(CurrentUser.sharedInstance.toJsonDictionary())
+                            }
+                            hideHUD()
+                            UserDefaults.standard.setValue(nil, forKey: kCompletedStep)
+                        } else {
+                            if JSON_[kapiKey] as? String == kInvalid {
+                                Alert.displayInvalidApiKey()
+                            } else {
+                                Alert.displayAlert(title: APP_NAME, message: JSON_[kMessage] as! String, otherButtonTitles: nil, preferredAlertStyle: .alert, withCompletion: nil)
+                            }
+                            completion(SPErrors.EmptyResultError)
+                        }
+                    } else {
+                        completion(SPErrors.EmptyResultError)
+                    }
+                    
+                    
+                }
+                
+            case .failure(let encodingError):
+                //print encodingError.description
+                print(encodingError.localizedDescription)
+                break
             }
         }
+        
+        
+        
     }
     
     

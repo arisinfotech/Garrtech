@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		15F34417E041F3DD798BD708 /* Pods_Garrtech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB7F5E2B9971B8B8F9E9D38 /* Pods_Garrtech.framework */; };
+		410FB8791E2D3D5400254F81 /* cellDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410FB8771E2D3D5400254F81 /* cellDocument.swift */; };
+		410FB87A1E2D3D5400254F81 /* cellDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410FB8781E2D3D5400254F81 /* cellDocument.xib */; };
 		412023EE1DE1B71800FD4C89 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412023ED1DE1B71800FD4C89 /* ForgotPasswordViewController.swift */; };
 		412023F11DE1BFF100FD4C89 /* UIDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412023F01DE1BFF100FD4C89 /* UIDropDown.swift */; };
 		412023F91DE1EE7A00FD4C89 /* loanOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412023F71DE1EE7A00FD4C89 /* loanOption.swift */; };
@@ -107,6 +109,8 @@
 
 /* Begin PBXFileReference section */
 		1BAF82A7298D1FED3B854265 /* Pods-Garrtech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garrtech.release.xcconfig"; path = "Pods/Target Support Files/Pods-Garrtech/Pods-Garrtech.release.xcconfig"; sourceTree = "<group>"; };
+		410FB8771E2D3D5400254F81 /* cellDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellDocument.swift; sourceTree = "<group>"; };
+		410FB8781E2D3D5400254F81 /* cellDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cellDocument.xib; sourceTree = "<group>"; };
 		412023ED1DE1B71800FD4C89 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		412023F01DE1BFF100FD4C89 /* UIDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDropDown.swift; sourceTree = "<group>"; };
 		412023F71DE1EE7A00FD4C89 /* loanOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loanOption.swift; sourceTree = "<group>"; };
@@ -252,6 +256,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		410FB8761E2D3D5400254F81 /* cell_Document */ = {
+			isa = PBXGroup;
+			children = (
+				410FB8771E2D3D5400254F81 /* cellDocument.swift */,
+				410FB8781E2D3D5400254F81 /* cellDocument.xib */,
+			);
+			path = cell_Document;
+			sourceTree = "<group>";
+		};
 		412023EF1DE1BFF100FD4C89 /* DropDown */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +392,7 @@
 				4121D60F1DD8F1000035EE0E /* CompanyLoanViewController.swift */,
 				4121D60D1DD8EDE40035EE0E /* OwnerVc.swift */,
 				4121D6101DD8F1000035EE0E /* DocumentListViewController.swift */,
+				410FB8761E2D3D5400254F81 /* cell_Document */,
 				4121D5FC1DD8B78F0035EE0E /* MessageViewController.swift */,
 				BCB9CC401DFC667A0036F5D9 /* SceduleCallViewController.swift */,
 				41359FAD1DFD64780013789A /* TermsAndConditionVC.swift */,
@@ -679,6 +693,7 @@
 				4121D6001DD8B78F0035EE0E /* CompletedStepView.xib in Resources */,
 				BC326EC41DD7818700C53BFC /* Main.storyboard in Resources */,
 				BCF0EF0B1E1EC6A800228954 /* SPLASHNEW.png in Resources */,
+				410FB87A1E2D3D5400254F81 /* cellDocument.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,6 +788,7 @@
 				BCC63CD11DDB67CA00B8C688 /* IQUITextFieldView+Additions.m in Sources */,
 				BC5149841DE1E3DD00468489 /* LoanStepTwo.swift in Sources */,
 				BCA1D2021E10394B00AE70FC /* VBPiePiece.m in Sources */,
+				410FB8791E2D3D5400254F81 /* cellDocument.swift in Sources */,
 				4121D5CB1DD860E20035EE0E /* UIFont.swift in Sources */,
 				4121D5F61DD8B6260035EE0E /* LoginViewController.swift in Sources */,
 				4121D6081DD8BB040035EE0E /* loanOptionVC.swift in Sources */,
@@ -870,6 +886,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Roberto Garraffa (D5M22T45J4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = BAFJ7CY8FQ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -923,6 +940,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Roberto Garraffa (D5M22T45J4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = BAFJ7CY8FQ;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -951,7 +969,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Garrtech/Garrtech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Roberto Garraffa (D5M22T45J4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Roberto Garraffa (D5M22T45J4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CLSF4H4476;
 				INFOPLIST_FILE = Garrtech/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -971,7 +989,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Garrtech/Garrtech.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Roberto Garraffa (D5M22T45J4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Roberto Garraffa (D5M22T45J4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CLSF4H4476;
 				INFOPLIST_FILE = Garrtech/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

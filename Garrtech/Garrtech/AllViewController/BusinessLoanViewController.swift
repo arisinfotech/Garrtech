@@ -252,7 +252,7 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
         }
 
         if BusinessTextValidation.isValidate(textField: txtBusinessName, validationType: .AI_VALIDATION_TYPE_BUSINESS_NAME) {
-            if BusinessTextValidation.isValidate(textField: txtDbaName, validationType: .AI_VALIDATION_TYPE_DBA_NAME) {
+           // if BusinessTextValidation.isValidate(textField: txtDbaName, validationType: .AI_VALIDATION_TYPE_DBA_NAME) {
                 if BusinessTextValidation.isValidate(textField: txtDate, validationType: .AI_VALIDATION_TYPE_DATE_ESTABLISHED) {
                     if BusinessTextValidation.isValidate(textField: txtPhyStreetNumber, validationType: .AI_VALIDATION_TYPE_PHYSICAL_ADDRESS_STREET_NUMBER) {
                         if BusinessTextValidation.isValidate(textField: txtPhyStreetName, validationType: .AI_VALIDATION_TYPE_PHYSICAL_ADDRESS_STREET_NAME) {
@@ -309,7 +309,7 @@ class BusinessLoanViewController: BaseViewController,UITextFieldDelegate,UIScrol
                         }
                     }
                 }
-            }
+           // }
         }
         
     }

@@ -46,8 +46,7 @@ class Alert: NSObject {
                 alertController.addAction(okayAction)
             }
        }
-       
-        controller.present(alertController, animated: true) {}
+        controller.present(alertController, animated: true, completion: nil)
     }
     
     class func displayAlert(title: String, message: String, otherButtonTitles otherTitles: NSArray?, preferredAlertStyle style: UIAlertControllerStyle, withCompletion completion: ((_ index: Int) -> Void)?) {

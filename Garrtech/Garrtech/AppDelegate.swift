@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print(UserDefaults.standard.object(forKey: kUSERLOGIN))
         if CurrentUser.sharedInstance.id != nil
         {
-            self.redirectToHomeVC()
-//           self.redirectToOtherVC()
+           self.redirectToHomeVC()
+//        self.redirectToOtherVC()
             //self.redirectToLoginVC()
         }
         else
@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func redirectToOtherVC() {
         
-        let objVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoreBizViewController") as! ScoreBizViewController
+        let objVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DocumentListViewController") as! DocumentListViewController
         navigationVC = UINavigationController.init(rootViewController: objVC)
         self.window?.rootViewController = navigationVC
     }
