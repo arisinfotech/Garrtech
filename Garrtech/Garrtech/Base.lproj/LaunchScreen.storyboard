@@ -32,7 +32,7 @@
                             <constraint firstItem="Rr6-eP-fjt" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="afG-wo-69P"/>
                             <constraint firstAttribute="trailing" secondItem="Rr6-eP-fjt" secondAttribute="trailing" id="fVc-fN-92g"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Rr6-eP-fjt" secondAttribute="bottom" id="mRs-Ma-95q"/>
-                            <constraint firstItem="PkH-aU-55F" firstAttribute="width" secondItem="Rr6-eP-fjt" secondAttribute="height" multiplier="25:71" constant="-50" id="tyH-cs-I5k"/>
+                            <constraint firstItem="PkH-aU-55F" firstAttribute="width" secondItem="Rr6-eP-fjt" secondAttribute="height" multiplier="25:71" constant="-70" id="tyH-cs-I5k"/>
                             <constraint firstItem="Rr6-eP-fjt" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="uQF-0e-XRq"/>
                         </constraints>
                     </view>
